@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CogniSphere LLC | Bespoke Websites for Businesses</title>
+  <meta name="description" content="We design and engineer bespoke, high-performance websites for businesses. Clean code, refined design, sub-second speed.">
+  <meta name="theme-color" content="#141413">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#141413',
+            card: '#1c1c1a',
+            'card-hover': '#232320',
+            borderSubtle: '#2c2c27',
+            borderHighlight: '#3f3f38',
+            terracotta: '#D97757',
+            'terracotta-hover': '#c56545',
+            linen: '#f4efe6',
+            stoneMuted: '#9e988e',
+            stoneDim: '#635f58',
+            termGreen: '#58a67e'
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace'],
+            editorial: ['"Newsreader"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: JetBrains Mono, Newsreader, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      background-color: #141413;
+      color: #f4efe6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .bg-grid {
+      background-size: 32px 32px;
+      background-image: radial-gradient(circle, rgba(217, 119, 87, 0.07) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-canvas text-linen antialiased selection:bg-terracotta selection:text-white bg-grid">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-canvas/90 border-b border-borderSubtle">
+    <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-2 font-mono text-sm tracking-tight text-linen hover:text-terracotta transition-colors">
+        <span class="text-terracotta font-bold">[&gt;]</span>
+        <span class="font-semibold">CogniSphere LLC</span>
+      </a>
+
+      <nav class="hidden sm:flex items-center space-x-7 text-xs font-mono text-stoneMuted">
+        <a href="#offering" class="hover:text-linen transition-colors">What We Build</a>
+        <a href="#difference" class="hover:text-linen transition-colors">The Difference</a>
+        <a href="#process" class="hover:text-linen transition-colors">Process</a>
+      </nav>
+
+      <a href="#contact" class="px-3.5 py-1.5 text-xs font-mono rounded-full bg-terracotta hover:bg-terracotta-hover text-white transition-all">
+        ./start-project
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <div class="max-w-5xl mx-auto px-5">
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-editorial tracking-tight text-linen leading-[1.15] mb-6 max-w-3xl">
+        Bespoke websites for businesses that value <span class="text-terracotta italic">craftsmanship</span>.
+      </h1>
+
+      <p class="text-base sm:text-lg text-stoneMuted max-w-xl leading-relaxed mb-8">
+        We design and engineer custom official websites from scratch. No WordPress bloat, no generic templates—just clean code, fast load times, and built-in SEO.
+      </p>
+
+      <div class="flex flex-wrap gap-4 items-center mb-14">
+        <a href="#contact" class="px-6 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white text-xs sm:text-sm font-mono transition-all">
+          Get in Touch &rarr;
+        </a>
+        <a href="#offering" class="px-5 py-2.5 rounded-full border border-borderSubtle hover:border-borderHighlight bg-card/60 text-stoneMuted hover:text-linen text-xs font-mono transition-all">
+          Explore Deliverables
+        </a>
+      </div>
+
+      <!-- Minimal Code Card -->
+      <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden">
+        <div class="px-4 py-2.5 bg-[#171715] border-b border-borderSubtle flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-borderSubtle inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-borderSubtle inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-borderSubtle inline-block"></span>
+            <span class="ml-2 font-mono text-[11px] text-stoneDim">~/website-manifest.ts</span>
+          </div>
+          <span class="font-mono text-[11px] text-termGreen">● ready</span>
+        </div>
+        <div class="p-5 font-mono text-xs leading-relaxed text-stoneMuted overflow-x-auto">
+          <div><span class="text-terracotta">const</span> website = {</div>
+          <div class="pl-4">design: <span class="text-linen">"100% custom UI/UX in Figma (no reused templates)"</span>,</div>
+          <div class="pl-4">engineering: [<span class="text-linen">"Next.js"</span>, <span class="text-linen">"TypeScript"</span>, <span class="text-linen">"Tailwind"</span>],</div>
+          <div class="pl-4">speed: <span class="text-linen">"Loads in &lt; 0.8s on mobile"</span>,</div>
+          <div class="pl-4">seo: <span class="text-linen">"Structured Schema.org + Google PageSpeed 98+"</span>,</div>
+          <div class="pl-4">contentManagement: <span class="text-linen">"Simple CMS to edit text & images anytime"</span></div>
+          <div>};</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What You Get (Single Service: Bespoke Websites) -->
+  <section id="offering" class="py-20 border-t border-borderSubtle bg-[#161614]">
+    <div class="max-w-5xl mx-auto px-5">
+
+      <div class="mb-12">
+        <div class="text-xs font-mono text-terracotta mb-2">// WHAT WE DELIVER</div>
+        <h2 class="text-2xl sm:text-3xl font-editorial text-linen">Everything your website needs to succeed.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card">
+          <div class="font-mono text-xs text-terracotta mb-2">01 / DESIGN</div>
+          <h3 class="text-base font-semibold text-linen mb-2">Custom UI &amp; Brand Styling</h3>
+          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
+            Tailored visual identity and layouts crafted in Figma. Designed specifically for your industry, your positioning, and your customers.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card">
+          <div class="font-mono text-xs text-terracotta mb-2">02 / PERFORMANCE</div>
+          <h3 class="text-base font-semibold text-linen mb-2">Sub-Second Load Times</h3>
+          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
+            Built with modern Next.js and deployed to global edge CDNs. Pages render instantly on phones, keeping bounce rates close to zero.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card">
+          <div class="font-mono text-xs text-terracotta mb-2">03 / VISIBILITY</div>
+          <h3 class="text-base font-semibold text-linen mb-2">Technical &amp; Local SEO</h3>
+          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
+            Pre-rendered HTML, clean meta tags, and structured JSON-LD schema so Google displays review stars, phone numbers, and sitelinks.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card">
+          <div class="font-mono text-xs text-terracotta mb-2">04 / AUTONOMY</div>
+          <h3 class="text-base font-semibold text-linen mb-2">Effortless Content CMS</h3>
+          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
+            A clean visual dashboard allowing you to update text, photos, and team profiles yourself without touching code or breaking layouts.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Difference (CLI Diff) -->
+  <section id="difference" class="py-20 border-t border-borderSubtle bg-canvas">
+    <div class="max-w-5xl mx-auto px-5">
+
+      <div class="mb-12">
+        <div class="text-xs font-mono text-terracotta mb-2">// THE DIFFERENCE</div>
+        <h2 class="text-2xl sm:text-3xl font-editorial text-linen">Built right, from the start.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono text-xs">
+        
+        <!-- Legacy / Templates -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-[#1a1717]">
+          <div class="text-stoneDim font-semibold mb-4 border-b border-borderSubtle/60 pb-3">
+            - TRADITIONAL TEMPLATES &amp; AGENCIES
+          </div>
+          <ul class="space-y-3 text-stoneMuted">
+            <li class="flex items-start space-x-2">
+              <span class="text-stoneDim">-</span>
+              <span>Reused WordPress themes that look like competitors</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-stoneDim">-</span>
+              <span>30+ third-party plugins causing 4s+ mobile load times</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-stoneDim">-</span>
+              <span>Frequent plugin breakdowns and security updates</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-stoneDim">-</span>
+              <span>Basic meta tags with zero structured schema data</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Our Studio -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-[#171a18]">
+          <div class="text-linen font-semibold mb-4 border-b border-borderSubtle/60 pb-3">
+            + OUR BESPOKE CODE
+          </div>
+          <ul class="space-y-3 text-linen">
+            <li class="flex items-start space-x-2">
+              <span class="text-termGreen font-bold">+</span>
+              <span>100% custom design tailored to your brand</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-termGreen font-bold">+</span>
+              <span>Sub-second page rendering on all devices</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-termGreen font-bold">+</span>
+              <span>Zero plugin bloat, zero maintenance headaches</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-termGreen font-bold">+</span>
+              <span>Structured Schema.org built directly into the markup</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="py-20 border-t border-borderSubtle bg-[#161614]">
+    <div class="max-w-5xl mx-auto px-5">
+
+      <div class="mb-12">
+        <div class="text-xs font-mono text-terracotta mb-2">// PROCESS</div>
+        <h2 class="text-2xl sm:text-3xl font-editorial text-linen">Straightforward from idea to launch.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card">
+          <div class="text-terracotta font-bold mb-2">01</div>
+          <div class="font-semibold text-linen mb-1">Discovery</div>
+          <div class="text-stoneDim">Goals, structure &amp; key messaging.</div>
+        </div>
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card">
+          <div class="text-terracotta font-bold mb-2">02</div>
+          <div class="font-semibold text-linen mb-1">Design</div>
+          <div class="text-stoneDim">Figma mockups and review.</div>
+        </div>
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card">
+          <div class="text-terracotta font-bold mb-2">03</div>
+          <div class="font-semibold text-linen mb-1">Development</div>
+          <div class="text-stoneDim">Clean code, SEO &amp; CMS setup.</div>
+        </div>
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card">
+          <div class="text-terracotta font-bold mb-2">04</div>
+          <div class="font-semibold text-linen mb-1">Launch</div>
+          <div class="text-stoneDim">Domain, SSL &amp; Google indexing.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="py-20 border-t border-borderSubtle bg-canvas">
+    <div class="max-w-3xl mx-auto px-5">
+
+      <div class="rounded-xl border border-borderSubtle bg-card p-6 sm:p-10">
+        <div class="mb-8">
+          <div class="text-xs font-mono text-terracotta mb-2">// CONTACT</div>
+          <h3 class="text-2xl font-editorial text-linen mb-2">Let’s build your official website.</h3>
+          <p class="text-xs sm:text-sm text-stoneMuted">
+            Tell us about your business and timeline. We’ll review and get back to you within 24 hours.
+          </p>
+        </div>
+
+        <form id="contact-form" class="space-y-4 font-mono text-xs" onsubmit="handleContact(event)">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-stoneMuted mb-1.5">Name *</label>
+              <input type="text" required placeholder="Your name" class="w-full px-3.5 py-2.5 rounded-lg bg-[#141413] border border-borderSubtle text-linen focus:border-terracotta focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-stoneMuted mb-1.5">Email *</label>
+              <input type="email" required placeholder="you@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#141413] border border-borderSubtle text-linen focus:border-terracotta focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-stoneMuted mb-1.5">Current Website (optional)</label>
+            <input type="text" placeholder="https://example.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#141413] border border-borderSubtle text-linen focus:border-terracotta focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-stoneMuted mb-1.5">Project Brief</label>
+            <textarea rows="4" placeholder="Briefly describe what your business does and what you’re looking to achieve..." class="w-full px-3.5 py-2.5 rounded-lg bg-[#141413] border border-borderSubtle text-linen focus:border-terracotta focus:outline-none resize-none"></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="px-6 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white font-mono font-medium transition-all">
+              Send Inquiry &rarr;
+            </button>
+          </div>
+        </form>
+
+        <div id="contact-success" class="hidden mt-4 p-4 rounded-lg bg-[#171c19] border border-termGreen/40 font-mono text-xs text-termGreen">
+          ✓ Message received. We will get back to you shortly.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-borderSubtle bg-canvas font-mono text-xs text-stoneDim">
+    <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>[>] CogniSphere LLC — Bespoke websites for businesses.</div>
+      <div>&copy; 2026 CogniSphere LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('contact-success');
+      form.classList.add('opacity-40', 'pointer-events-none');
+      setTimeout(() => {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
