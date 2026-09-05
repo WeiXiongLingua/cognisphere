@@ -8,8 +8,7 @@ Bespoke websites for businesses that value craftsmanship.
 
 - **Company Name:** CogniSphere LLC
 - **Sole Offering:** High-end bespoke official websites for businesses (custom UI/UX in Figma, Next.js / TypeScript engineering, sub-second edge delivery, structured Schema SEO, and client-editable CMS).
-- **Aesthetic:** CLI precision meets Claude warm editorial minimalism (`#141413` charcoal canvas, `#D97757` terracotta accent, `#F4EFE6` warm linen text, `JetBrains Mono` code accents).
-- **Tone:** Human, understated, zero AI buzzwords, zero fluff. Pure English.
+- **Aesthetic:** Editorial Light precision meets Claude warm minimalism (`#FAF9F5` warm paper canvas, `#FFFFFF` crisp cards, `#141413` high-contrast deep ink text, `#C85A32` terracotta accent, `JetBrains Mono` code accents). Maximum readability and clarity.
 
 ---
 
