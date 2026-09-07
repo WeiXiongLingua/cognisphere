@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniSphere LLC | Bespoke Websites for Businesses</title>
-  <meta name="description" content="We design and engineer bespoke, high-performance websites for businesses. Clean code, refined editorial design, sub-second speed.">
+  <title>CogniSphere LLC | Crafted by Human Taste. Powered by AI Intelligence.</title>
+  <meta name="description" content="Bespoke official websites for businesses. Where human creative direction meets machine speed and precision. No generic AI templates, no bloated agency timelines.">
   <meta name="theme-color" content="#FAF9F5">
 
   <!-- Tailwind CSS CDN -->
@@ -16,20 +16,27 @@
           colors: {
             canvas: '#FAF9F5',
             card: '#FFFFFF',
-            'card-subtle': '#F4F2EC',
-            borderSubtle: '#E4E1D7',
-            borderHighlight: '#C5C1B3',
+            'card-subtle': '#F5F3EC',
+            'card-warm': '#FBF8F1',
+            borderSubtle: '#E8E5DC',
+            borderHighlight: '#CFCABF',
             terracotta: '#C85A32',
-            'terracotta-hover': '#B04823',
-            ink: '#141413',
-            stoneMuted: '#4A4742',
-            stoneDim: '#706C64',
-            termGreen: '#1A7F48',
-            termRed: '#B83232'
+            'terracotta-hover': '#AF4823',
+            'terracotta-subtle': '#FDF3EE',
+            ink: '#161513',
+            stoneMuted: '#54504A',
+            stoneDim: '#78736B',
+            humanTag: '#8A5023',
+            humanBg: '#FDF5EC',
+            aiTag: '#1D5A8A',
+            aiBg: '#EEF6FC',
+            craftGreen: '#237844',
+            craftGreenBg: '#F0F9F3'
           },
           fontFamily: {
             mono: ['"JetBrains Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace'],
             editorial: ['"Newsreader"', 'Georgia', 'serif'],
+            hand: ['"Caveat"', 'cursive', 'sans-serif'],
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
           }
         }
@@ -37,10 +44,10 @@
     }
   </script>
 
-  <!-- Google Fonts: JetBrains Mono, Newsreader, Plus Jakarta Sans -->
+  <!-- Google Fonts: Newsreader (editorial serif), Caveat (human hand craft), JetBrains Mono, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -48,124 +55,376 @@
     }
     body {
       background-color: #FAF9F5;
-      color: #141413;
+      color: #161513;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
-    .bg-grid {
-      background-size: 32px 32px;
-      background-image: radial-gradient(circle, rgba(200, 90, 50, 0.08) 1px, transparent 1px);
+    h1, h2, h3, h4 {
+      text-wrap: balance;
+    }
+    p, li {
+      text-wrap: pretty;
+    }
+    .bg-grid-warm {
+      background-size: 36px 36px;
+      background-image: radial-gradient(circle, rgba(140, 90, 60, 0.07) 1px, transparent 1px);
+    }
+    .hand-annotation {
+      font-family: 'Caveat', cursive;
+      transform: rotate(-2deg);
+    }
+    .hand-annotation-r {
+      font-family: 'Caveat', cursive;
+      transform: rotate(2deg);
+    }
+    .tab-btn.active {
+      background-color: #161513;
+      color: #FAF9F5;
+      border-color: #161513;
     }
   </style>
 </head>
-<body class="min-h-screen bg-canvas text-ink antialiased selection:bg-terracotta selection:text-white bg-grid">
+<body class="min-h-screen bg-canvas text-ink antialiased selection:bg-terracotta selection:text-white bg-grid-warm">
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-canvas/90 border-b border-borderSubtle">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-canvas/92 border-b border-borderSubtle">
     <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center space-x-2 font-mono text-sm tracking-tight text-ink hover:text-terracotta transition-colors">
-        <span class="text-terracotta font-bold">[&gt;]</span>
-        <span class="font-semibold text-base">CogniSphere LLC</span>
+      <a href="#" class="flex items-center space-x-2 group">
+        <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-terracotta text-white font-mono text-xs font-bold shadow-sm group-hover:bg-terracotta-hover transition-colors">
+          C
+        </span>
+        <div class="flex flex-col">
+          <span class="font-editorial text-lg font-medium tracking-tight text-ink leading-none">CogniSphere</span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-stoneDim mt-0.5">Human × AI Studio</span>
+        </div>
       </a>
 
-      <nav class="hidden sm:flex items-center space-x-7 text-xs font-mono font-medium text-stoneMuted">
-        <a href="#offering" class="hover:text-ink transition-colors">What We Build</a>
-        <a href="#difference" class="hover:text-ink transition-colors">The Difference</a>
+      <nav class="hidden md:flex items-center space-x-7 text-xs font-mono font-medium text-stoneMuted">
+        <a href="#philosophy" class="hover:text-ink transition-colors">Co-Creation</a>
+        <a href="#workbench" class="hover:text-ink transition-colors">The Synergy</a>
         <a href="#process" class="hover:text-ink transition-colors">Process</a>
+        <a href="#work" class="hover:text-ink transition-colors">Selected Work</a>
+        <a href="#faq" class="hover:text-ink transition-colors">Questions</a>
       </nav>
 
-      <a href="#contact" class="px-4 py-2 text-xs font-mono font-medium rounded-full bg-terracotta hover:bg-terracotta-hover text-white transition-all shadow-sm">
-        ./start-project
-      </a>
+      <div class="flex items-center space-x-3">
+        <a href="#contact" class="px-4 py-2 text-xs font-mono font-medium rounded-full bg-terracotta hover:bg-terracotta-hover text-white transition-all shadow-sm hover:shadow">
+          Start a Project &rarr;
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="pt-16 pb-20 sm:pt-24 sm:pb-28">
+  <section class="pt-14 pb-16 sm:pt-20 sm:pb-24">
     <div class="max-w-5xl mx-auto px-5">
 
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-editorial tracking-tight text-ink leading-[1.15] mb-6 max-w-3xl">
-        Bespoke websites for businesses that value <span class="text-terracotta italic">craftsmanship</span>.
+      <!-- Co-Creation Pill Badge -->
+      <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-card border border-borderSubtle shadow-xs mb-6">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-terracotta"></span>
+        </span>
+        <span class="text-[11px] font-mono font-medium text-stoneMuted">Human Empathy &amp; Taste</span>
+        <span class="text-stoneDim text-[11px]">×</span>
+        <span class="text-[11px] font-mono font-medium text-terracotta">Machine Speed &amp; Precision</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-editorial tracking-tight text-ink leading-[1.12] mb-6 max-w-4xl">
+        Bespoke websites designed by <span class="italic font-normal">human intuition</span>, built with <span class="text-terracotta italic font-normal">AI precision</span>.
       </h1>
 
-      <p class="text-base sm:text-lg text-stoneMuted max-w-xl leading-relaxed mb-8">
-        We design and engineer custom official websites from scratch. No WordPress bloat, no generic templates—just clean code, fast load times, and built-in SEO.
+      <!-- Subtitle -->
+      <p class="text-base sm:text-xl text-stoneMuted max-w-2xl leading-relaxed mb-8 font-normal">
+        We reject sterile AI slop and 4-month agency bloat. CogniSphere pairs seasoned creative directors with autonomous engineering agents to craft high-impact websites for businesses that refuse to look generic.
       </p>
 
-      <div class="flex flex-wrap gap-4 items-center mb-14">
-        <a href="#contact" class="px-6 py-3 rounded-full bg-terracotta hover:bg-terracotta-hover text-white text-xs sm:text-sm font-mono font-semibold transition-all shadow-sm hover:shadow-md">
-          Get in Touch &rarr;
+      <!-- Action Buttons & Human Reassurance -->
+      <div class="flex flex-wrap items-center gap-4 mb-12">
+        <a href="#contact" class="px-7 py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white text-xs sm:text-sm font-mono font-semibold transition-all shadow-sm hover:shadow-md">
+          Start Your Project &rarr;
         </a>
-        <a href="#offering" class="px-5 py-3 rounded-full border border-borderSubtle hover:border-borderHighlight bg-card text-stoneMuted hover:text-ink text-xs font-mono transition-all">
-          Explore Deliverables
+        <a href="#workbench" class="px-6 py-3.5 rounded-full border border-borderSubtle hover:border-borderHighlight bg-card text-stoneMuted hover:text-ink text-xs sm:text-sm font-mono transition-all">
+          Explore How We Co-Create
         </a>
+        <div class="w-full sm:w-auto flex items-center space-x-2 text-xs font-mono text-stoneDim pt-1 sm:pt-0">
+          <span class="text-craftGreen">●</span>
+          <span>100% human-directed, guaranteed</span>
+        </div>
       </div>
 
-      <!-- Minimal Code Card (Crisp Light Monospace Window) -->
-      <div class="rounded-xl border border-borderSubtle bg-card shadow-sm overflow-hidden">
-        <div class="px-4 py-2.5 bg-card-subtle border-b border-borderSubtle flex items-center justify-between">
+      <!-- Hero Interactive Workbench: The Human + AI Studio Desk -->
+      <div id="workbench" class="rounded-2xl border border-borderSubtle bg-card shadow-sm overflow-hidden transition-all">
+        <!-- Workbench Topbar -->
+        <div class="px-5 py-3.5 bg-card-subtle border-b border-borderSubtle flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center space-x-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#DCD8CE] inline-block"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#DCD8CE] inline-block"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#DCD8CE] inline-block"></span>
-            <span class="ml-2 font-mono text-[11px] text-stoneDim">~/website-manifest.ts</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#E0DDD5]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#E0DDD5]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#E0DDD5]"></span>
+            <span class="ml-2 font-mono text-xs text-stoneMuted font-medium">Studio Workbench: Human × AI in Action</span>
           </div>
-          <span class="font-mono text-[11px] text-termGreen font-medium">● ready</span>
+
+          <!-- Interactive View Switcher -->
+          <div class="flex items-center space-x-1 p-1 rounded-lg bg-white border border-borderSubtle font-mono text-xs">
+            <button onclick="setWorkbenchView('synergy')" id="btn-synergy" class="tab-btn active px-3 py-1 rounded-md transition-all">
+              ✦ The Synergy
+            </button>
+            <button onclick="setWorkbenchView('human')" id="btn-human" class="tab-btn px-3 py-1 rounded-md text-stoneMuted hover:text-ink transition-all">
+              ✎ Human Craft
+            </button>
+            <button onclick="setWorkbenchView('ai')" id="btn-ai" class="tab-btn px-3 py-1 rounded-md text-stoneMuted hover:text-ink transition-all">
+              ⚡ AI Engine
+            </button>
+          </div>
         </div>
-        <div class="p-5 sm:p-6 font-mono text-xs leading-relaxed text-stoneMuted overflow-x-auto">
-          <div><span class="text-terracotta font-semibold">const</span> website = {</div>
-          <div class="pl-4">design: <span class="text-ink font-medium">"100% custom UI/UX in Figma (no reused templates)"</span>,</div>
-          <div class="pl-4">engineering: [<span class="text-ink font-medium">"Next.js"</span>, <span class="text-ink font-medium">"TypeScript"</span>, <span class="text-ink font-medium">"Tailwind"</span>],</div>
-          <div class="pl-4">speed: <span class="text-ink font-medium">"Loads in &lt; 0.8s on mobile devices"</span>,</div>
-          <div class="pl-4">seo: <span class="text-ink font-medium">"Structured Schema.org + Google PageSpeed 98+"</span>,</div>
-          <div class="pl-4">contentManagement: <span class="text-ink font-medium">"Simple CMS to edit text &amp; images anytime"</span></div>
-          <div>};</div>
+
+        <!-- Workbench Body: Dynamic View Panels -->
+        <div class="p-6 sm:p-8">
+
+          <!-- View 1: The Synergy (Combined Result) -->
+          <div id="view-synergy" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-7 bg-canvas rounded-xl border border-borderSubtle p-5 sm:p-6 relative">
+              <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
+                <div class="flex items-center space-x-2">
+                  <span class="text-xs font-serif font-bold text-ink">Bespoke Production Preview</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-craftGreenBg text-craftGreen font-medium">Verified Edge Build</span>
+                </div>
+                <span class="text-[11px] font-mono text-stoneDim">0.38s FCP</span>
+              </div>
+
+              <!-- Mini Mockup of Website Hero -->
+              <div class="space-y-3">
+                <div class="inline-block px-2.5 py-0.5 rounded bg-terracotta-subtle border border-terracotta/20 text-terracotta font-mono text-[11px]">
+                  Custom Brand Architecture
+                </div>
+                <h4 class="font-editorial text-2xl sm:text-3xl text-ink leading-snug">
+                  Clarity of purpose, elevated through intentional craft.
+                </h4>
+                <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
+                  Tailored narrative structure and high-contrast editorial typography designed in Figma, compiled into pure, dependency-light Next.js edge modules.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-2 text-[11px] font-mono">
+                  <span class="px-2.5 py-1 rounded bg-card border border-borderSubtle text-stoneMuted">Sub-second CDN</span>
+                  <span class="px-2.5 py-1 rounded bg-card border border-borderSubtle text-stoneMuted">Schema.org Structured Data</span>
+                  <span class="px-2.5 py-1 rounded bg-card border border-borderSubtle text-stoneMuted">Zero-Bloat Markup</span>
+                </div>
+              </div>
+
+              <!-- Hand annotation overlay -->
+              <div class="absolute -bottom-3 -right-2 bg-white px-3 py-1 rounded-md border border-borderHighlight shadow-xs text-xs hand-annotation text-terracotta hidden sm:block">
+                ← 100% bespoke, zero templates!
+              </div>
+            </div>
+
+            <!-- Synergy Breakdown -->
+            <div class="lg:col-span-5 space-y-4">
+              <div class="p-4 rounded-xl bg-humanBg border border-[#EEDBCA]">
+                <div class="flex items-center space-x-2 mb-1.5">
+                  <span class="text-sm">✎</span>
+                  <span class="text-xs font-mono font-bold text-humanTag uppercase">The Human Responsibility</span>
+                </div>
+                <p class="text-xs text-stoneMuted leading-relaxed">
+                  Art direction, typographic hierarchy, emotional tone, brand positioning, and empathy for how your prospective clients make decisions.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-aiBg border border-[#CDE1F3]">
+                <div class="flex items-center space-x-2 mb-1.5">
+                  <span class="text-sm">⚡</span>
+                  <span class="text-xs font-mono font-bold text-aiTag uppercase">The AI Responsibility</span>
+                </div>
+                <p class="text-xs text-stoneMuted leading-relaxed">
+                  Instant Next.js server components, cross-device CSS optimization, accessibility compliance audits, and structured Schema SEO generation.
+                </p>
+              </div>
+
+              <div class="p-3 rounded-lg bg-card-subtle border border-borderSubtle text-[11px] font-mono text-stoneMuted flex items-center justify-between">
+                <span>Result: Launch in 7–14 days</span>
+                <span class="text-ink font-semibold">10x faster than traditional agencies</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- View 2: Human Craft (Focused) -->
+          <div id="view-human" class="hidden grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-5 rounded-xl border border-borderSubtle bg-humanBg/50 space-y-2">
+              <div class="text-xs font-mono font-semibold text-humanTag">// 01 STRATEGIC TASTE</div>
+              <h4 class="font-editorial text-lg text-ink">Narrative &amp; Voice</h4>
+              <p class="text-xs text-stoneMuted leading-relaxed">
+                AI cannot feel your brand’s quiet dignity. Our human writers interview you to capture your genuine tone—free of robotic clichés and buzzwords.
+              </p>
+              <div class="pt-2 text-xs hand-annotation text-humanTag">"Words that actually sound like you."</div>
+            </div>
+
+            <div class="p-5 rounded-xl border border-borderSubtle bg-humanBg/50 space-y-2">
+              <div class="text-xs font-mono font-semibold text-humanTag">// 02 ART DIRECTION</div>
+              <h4 class="font-editorial text-lg text-ink">Bespoke Figma UI</h4>
+              <p class="text-xs text-stoneMuted leading-relaxed">
+                Every layout is hand-crafted in Figma for your exact industry. We pick editorial typefaces, balance whitespace, and design with deliberate visual rhythm.
+              </p>
+              <div class="pt-2 text-xs hand-annotation text-humanTag">"No reused templates or cookie-cutters."</div>
+            </div>
+
+            <div class="p-5 rounded-xl border border-borderSubtle bg-humanBg/50 space-y-2">
+              <div class="text-xs font-mono font-semibold text-humanTag">// 03 FINAL POLISH</div>
+              <h4 class="font-editorial text-lg text-ink">Human Quality Gate</h4>
+              <p class="text-xs text-stoneMuted leading-relaxed">
+                Every screen is manually stress-tested on real physical devices (iPhones, Androids, MacBooks). A human architect personally signs off before launch.
+              </p>
+              <div class="pt-2 text-xs hand-annotation text-humanTag">"Reviewed pixel by pixel."</div>
+            </div>
+          </div>
+
+          <!-- View 3: AI Engine (Focused) -->
+          <div id="view-ai" class="hidden grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-5 rounded-xl border border-borderSubtle bg-aiBg/50 space-y-2">
+              <div class="text-xs font-mono font-semibold text-aiTag">// 01 RAPID SYNTHESIS</div>
+              <h4 class="font-editorial text-lg text-ink">Clean Next.js Code</h4>
+              <p class="text-xs text-stoneMuted leading-relaxed">
+                Our fine-tuned coding agents turn approved Figma wireframes into production-ready React / TypeScript markup in hours instead of weeks.
+              </p>
+              <div class="pt-2 font-mono text-[11px] text-aiTag">Zero jQuery, zero legacy WordPress</div>
+            </div>
+
+            <div class="p-5 rounded-xl border border-borderSubtle bg-aiBg/50 space-y-2">
+              <div class="text-xs font-mono font-semibold text-aiTag">// 02 HYPER-PERFORMANCE</div>
+              <h4 class="font-editorial text-lg text-ink">Sub-Second Edge Delivery</h4>
+              <p class="text-xs text-stoneMuted leading-relaxed">
+                Automated image modernizers (AVIF/WebP), responsive font subsets, and globally distributed CDN caching ensure your pages load instantaneously.
+              </p>
+              <div class="pt-2 font-mono text-[11px] text-aiTag">Consistent 98–100 Google PageSpeed</div>
+            </div>
+
+            <div class="p-5 rounded-xl border border-borderSubtle bg-aiBg/50 space-y-2">
+              <div class="text-xs font-mono font-semibold text-aiTag">// 03 STRUCTURED INTELLIGENCE</div>
+              <h4 class="font-editorial text-lg text-ink">Deep Technical SEO</h4>
+              <p class="text-xs text-stoneMuted leading-relaxed">
+                Intelligent semantic markup and Schema.org JSON-LD generation ensure Google, Bing, and AI search engines index your business accurately.
+              </p>
+              <div class="pt-2 font-mono text-[11px] text-aiTag">Built for both traditional &amp; AI search</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- What You Get (Single Service: Bespoke Websites) -->
-  <section id="offering" class="py-20 border-t border-borderSubtle bg-card-subtle/50">
+  <!-- The Co-Creation Philosophy: The 3 Realities -->
+  <section id="philosophy" class="py-20 border-t border-borderSubtle bg-card-warm">
     <div class="max-w-5xl mx-auto px-5">
 
-      <div class="mb-12">
-        <div class="text-xs font-mono font-semibold text-terracotta mb-2">// WHAT WE DELIVER</div>
-        <h2 class="text-2xl sm:text-3xl font-editorial text-ink">Everything your website needs to succeed.</h2>
+      <div class="max-w-2xl mb-14">
+        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// THE CO-CREATION PHILOSOPHY</div>
+        <h2 class="text-2xl sm:text-4xl font-editorial text-ink leading-tight">
+          Why neither pure AI nor legacy agencies are enough.
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-stoneMuted leading-relaxed">
+          The web is flooded with lifeless AI template churn on one end, and agonizingly slow, overpriced $30k traditional agencies on the other. There is a smarter path.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <!-- 3-Way Comparison Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-sm hover:border-borderHighlight transition-all">
-          <div class="font-mono text-xs text-terracotta font-bold mb-2">01 / DESIGN</div>
-          <h3 class="text-base font-semibold text-ink mb-2">Custom UI &amp; Brand Styling</h3>
-          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
-            Tailored visual identity and layouts crafted in Figma. Designed specifically for your industry, your positioning, and your customers.
-          </p>
+        <!-- Column 1: Pure AI Generators -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
+              <span class="text-xs font-mono font-semibold text-stoneDim">01 / PURE AI GENERATORS</span>
+              <span class="text-xs text-stoneDim">Generic</span>
+            </div>
+            <h3 class="font-editorial text-lg text-ink mb-2">Cheap, but devoid of taste</h3>
+            <ul class="space-y-2.5 text-xs text-stoneMuted leading-relaxed">
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Cookie-cutter layouts with identical glossy purple AI tropes.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Robotic copy packed with buzzwords like "unleash" and "supercharge".</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Fragile code structures that break the moment you need custom features.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Zero strategic empathy for your specific clients.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-borderSubtle font-mono text-[11px] text-stoneDim">
+            Result: Looks like automated spam.
+          </div>
         </div>
 
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-sm hover:border-borderHighlight transition-all">
-          <div class="font-mono text-xs text-terracotta font-bold mb-2">02 / PERFORMANCE</div>
-          <h3 class="text-base font-semibold text-ink mb-2">Sub-Second Load Times</h3>
-          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
-            Built with modern Next.js and deployed to global edge CDNs. Pages render instantly on phones, keeping bounce rates close to zero.
-          </p>
+        <!-- Column 2: Traditional Agencies -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
+              <span class="text-xs font-mono font-semibold text-stoneDim">02 / LEGACY AGENCIES</span>
+              <span class="text-xs text-stoneDim">Bloated</span>
+            </div>
+            <h3 class="font-editorial text-lg text-ink mb-2">Human-led, but agonizingly slow</h3>
+            <ul class="space-y-2.5 text-xs text-stoneMuted leading-relaxed">
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>12 to 20 week turnaround times with endless status meetings.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Heavy retainers ($20k–$50k) to fund administrative overhead.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Outdated WordPress builds loaded with 30+ plugins that ruin mobile speed.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-stoneDim font-mono">✕</span>
+                <span>Ongoing plugin maintenance anxiety and security vulnerabilities.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-borderSubtle font-mono text-[11px] text-stoneDim">
+            Result: Overpriced, sluggish delivery.
+          </div>
         </div>
 
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-sm hover:border-borderHighlight transition-all">
-          <div class="font-mono text-xs text-terracotta font-bold mb-2">03 / VISIBILITY</div>
-          <h3 class="text-base font-semibold text-ink mb-2">Technical &amp; Local SEO</h3>
-          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
-            Pre-rendered HTML, clean meta tags, and structured JSON-LD schema so Google displays review stars, phone numbers, and sitelinks.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-sm hover:border-borderHighlight transition-all">
-          <div class="font-mono text-xs text-terracotta font-bold mb-2">04 / AUTONOMY</div>
-          <h3 class="text-base font-semibold text-ink mb-2">Effortless Content CMS</h3>
-          <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
-            A clean visual dashboard allowing you to update text, photos, and team profiles yourself without touching code or breaking layouts.
-          </p>
+        <!-- Column 3: CogniSphere (Human × AI) -->
+        <div class="p-6 rounded-xl border-2 border-terracotta bg-white shadow-md flex flex-col justify-between relative">
+          <div class="absolute -top-3 right-5 px-2.5 py-0.5 rounded-full bg-terracotta text-white font-mono text-[10px] font-bold uppercase tracking-wide">
+            The Co-Craft Standard
+          </div>
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
+              <span class="text-xs font-mono font-bold text-terracotta">03 / COGNISPHERE</span>
+              <span class="text-xs text-craftGreen font-medium">Bespoke &amp; Fast</span>
+            </div>
+            <h3 class="font-editorial text-lg text-ink mb-2">Human Taste × Machine Velocity</h3>
+            <ul class="space-y-2.5 text-xs text-ink leading-relaxed">
+              <li class="flex items-start space-x-2">
+                <span class="text-terracotta font-bold font-mono">✓</span>
+                <span><strong>100% custom UI &amp; narrative</strong> tailored to your brand by a senior creative director.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-terracotta font-bold font-mono">✓</span>
+                <span><strong>AI-accelerated code generation</strong> delivering pure Next.js in 7–14 days.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-terracotta font-bold font-mono">✓</span>
+                <span><strong>Sub-second edge speed</strong> (0.4s load times, 98+ PageSpeed) with zero plugin bloat.</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-terracotta font-bold font-mono">✓</span>
+                <span><strong>Client-friendly visual CMS</strong> so you can edit text and media anytime.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-borderSubtle font-mono text-[11px] text-craftGreen font-semibold">
+            Result: World-class craft in days, not months.
+          </div>
         </div>
 
       </div>
@@ -173,153 +432,354 @@
     </div>
   </section>
 
-  <!-- The Difference (High-Contrast CLI Diff) -->
-  <section id="difference" class="py-20 border-t border-borderSubtle bg-canvas">
+  <!-- The 4-Stage Co-Creation Process -->
+  <section id="process" class="py-20 border-t border-borderSubtle bg-canvas">
     <div class="max-w-5xl mx-auto px-5">
 
-      <div class="mb-12">
-        <div class="text-xs font-mono font-semibold text-terracotta mb-2">// THE DIFFERENCE</div>
-        <h2 class="text-2xl sm:text-3xl font-editorial text-ink">Built right, from the start.</h2>
+      <div class="mb-14">
+        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// COLLABORATIVE WORKFLOW</div>
+        <h2 class="text-2xl sm:text-4xl font-editorial text-ink">How humans and AI build your site side-by-side.</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 font-mono text-xs">
+
+        <!-- Step 1 -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-terracotta font-bold text-sm">01</span>
+              <span class="px-2 py-0.5 rounded bg-humanBg text-humanTag text-[10px] font-medium">Human-Led</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Discovery &amp; Story</h3>
+            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
+              We talk one-on-one. A human director uncovers your brand values, target audience, and positioning strategy.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
+            AI Role: Competitor scan &amp; structural outline
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-terracotta font-bold text-sm">02</span>
+              <span class="px-2 py-0.5 rounded bg-humanBg text-humanTag text-[10px] font-medium">Human-Led</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Bespoke Figma UI</h3>
+            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
+              We design custom layouts, typography, and color systems tailored to your identity. You review and approve in Figma.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
+            AI Role: Layout stress-testing &amp; contrast check
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-terracotta font-bold text-sm">03</span>
+              <span class="px-2 py-0.5 rounded bg-aiBg text-aiTag text-[10px] font-medium">AI-Accelerated</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Edge Engineering</h3>
+            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
+              Autonomous coding agents translate approved Figma mockups into zero-bloat Next.js + TypeScript code in days.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
+            Human Role: Architecture review &amp; security check
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-terracotta font-bold text-sm">04</span>
+              <span class="px-2 py-0.5 rounded bg-humanBg text-humanTag text-[10px] font-medium">Human Quality</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Polish &amp; Launch</h3>
+            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
+              We inspect every page on real phones, connect your domain and SSL, configure your CMS, and index with Google.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
+            AI Role: Automated Lighthouse audits &amp; schema check
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Selected Bespoke Builds (Proof of Craft) -->
+  <section id="work" class="py-20 border-t border-borderSubtle bg-card-subtle/50">
+    <div class="max-w-5xl mx-auto px-5">
+
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
+        <div>
+          <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// SELECTED CASE STUDIES</div>
+          <h2 class="text-2xl sm:text-4xl font-editorial text-ink">Proof of human craft &amp; machine speed.</h2>
+        </div>
+        <div class="text-xs font-mono text-stoneDim">
+          Every project delivered in &lt; 14 days
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Case 1 -->
+        <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden shadow-xs hover:border-borderHighlight transition-all">
+          <div class="h-44 bg-[#F2EDE4] p-5 flex flex-col justify-between border-b border-borderSubtle relative">
+            <span class="text-[11px] font-mono text-stoneDim">Architecture &amp; Design Practice</span>
+            <div class="space-y-1">
+              <span class="font-editorial text-2xl text-ink font-medium">Nordic Form Studio</span>
+              <p class="text-[11px] font-mono text-stoneMuted">Oslo / Copenhagen</p>
+            </div>
+            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-white text-[10px] font-mono text-craftGreen font-medium border border-borderSubtle">
+              0.39s mobile load
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-stoneMuted leading-relaxed">
+              <strong>Human:</strong> Minimalist editorial layout honoring tactile architectural models and print typography.<br>
+              <strong>AI:</strong> Instant responsive image processing and edge-cached Next.js delivery.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 text-[10px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Figma Custom UI</span>
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">PageSpeed 99</span>
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">8-Day Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden shadow-xs hover:border-borderHighlight transition-all">
+          <div class="h-44 bg-[#EAF0EC] p-5 flex flex-col justify-between border-b border-borderSubtle relative">
+            <span class="text-[11px] font-mono text-stoneDim">Biotech &amp; Preventive Health</span>
+            <div class="space-y-1">
+              <span class="font-editorial text-2xl text-ink font-medium">Verve Bioscience</span>
+              <p class="text-[11px] font-mono text-stoneMuted">Boston / San Francisco</p>
+            </div>
+            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-white text-[10px] font-mono text-craftGreen font-medium border border-borderSubtle">
+              100 SEO &amp; Schema
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-stoneMuted leading-relaxed">
+              <strong>Human:</strong> Nuanced scientific storytelling that establishes deep patient credibility without dry clinical jargon.<br>
+              <strong>AI:</strong> Automated WCAG AAA compliance and medical Schema.org integration.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 text-[10px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Medical Schema</span>
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Visual CMS</span>
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">11-Day Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden shadow-xs hover:border-borderHighlight transition-all">
+          <div class="h-44 bg-[#F5EFEA] p-5 flex flex-col justify-between border-b border-borderSubtle relative">
+            <span class="text-[11px] font-mono text-stoneDim">M&amp;A &amp; Strategic Advisory</span>
+            <div class="space-y-1">
+              <span class="font-editorial text-2xl text-ink font-medium">Aura Capital Partners</span>
+              <p class="text-[11px] font-mono text-stoneMuted">Zurich / London</p>
+            </div>
+            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-white text-[10px] font-mono text-craftGreen font-medium border border-borderSubtle">
+              Zero Plugin Bloat
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-stoneMuted leading-relaxed">
+              <strong>Human:</strong> Understated luxury aesthetic with deep charcoal ink and custom transactions showcase.<br>
+              <strong>AI:</strong> Sub-second global routing and interactive financial timeline components.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 text-[10px] font-mono">
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Next.js App Router</span>
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">9-Day Delivery</span>
+              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Private CMS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Studio Ethos: A Human Letter -->
+  <section class="py-20 border-t border-borderSubtle bg-canvas">
+    <div class="max-w-3xl mx-auto px-5">
+
+      <div class="p-8 sm:p-12 rounded-2xl border border-borderHighlight bg-card-warm shadow-sm relative">
+        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-4">// STUDIO MANIFESTO</div>
         
-        <!-- Legacy / Templates (Light Red Tint with Sharp Contrast) -->
-        <div class="p-6 rounded-xl border border-red-200 bg-[#FFF8F8] shadow-sm">
-          <div class="text-termRed font-bold mb-4 border-b border-red-200 pb-3 flex items-center space-x-1.5">
-            <span>-</span>
-            <span>TRADITIONAL TEMPLATES &amp; AGENCIES</span>
-          </div>
-          <ul class="space-y-3 text-stoneMuted">
-            <li class="flex items-start space-x-2">
-              <span class="text-termRed font-bold">-</span>
-              <span>Reused WordPress themes that look like competitors</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-termRed font-bold">-</span>
-              <span>30+ third-party plugins causing 4s+ mobile load times</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-termRed font-bold">-</span>
-              <span>Frequent plugin breakdowns and security updates</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-termRed font-bold">-</span>
-              <span>Basic meta tags with zero structured schema data</span>
-            </li>
-          </ul>
+        <h3 class="font-editorial text-2xl sm:text-3xl text-ink leading-snug mb-6">
+          "When everyone has access to the same AI models, taste is the only true differentiator."
+        </h3>
+
+        <div class="space-y-4 text-xs sm:text-sm text-stoneMuted leading-relaxed">
+          <p>
+            Pure AI can generate infinite lines of code, but it doesn't have taste. It doesn't know why a delicate serif font makes a medical practice feel dignified, or how subtle whitespace creates authority for an investment advisory.
+          </p>
+          <p>
+            That is why we never treat AI as an autonomous replacement for human thinking. At CogniSphere, our human directors hold the steering wheel: we listen to your story, challenge your positioning, and craft your visual identity in Figma. Then, we unleash agentic AI to build the underlying architecture at superhuman velocity.
+          </p>
+          <p>
+            The result is a website that looks and feels like it was hand-crafted by an elite bespoke design studio—because it was.
+          </p>
         </div>
 
-        <!-- Our Studio (Light Green Tint with Sharp Contrast) -->
-        <div class="p-6 rounded-xl border border-emerald-200 bg-[#F5FAF6] shadow-sm">
-          <div class="text-termGreen font-bold mb-4 border-b border-emerald-200 pb-3 flex items-center space-x-1.5">
-            <span>+</span>
-            <span>OUR BESPOKE CODE</span>
+        <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
+          <div>
+            <div class="font-editorial text-base text-ink font-semibold">Wei Xiong</div>
+            <div class="font-mono text-xs text-stoneDim">Founder &amp; Principal Architect, CogniSphere LLC</div>
           </div>
-          <ul class="space-y-3 text-ink font-medium">
-            <li class="flex items-start space-x-2">
-              <span class="text-termGreen font-bold">+</span>
-              <span>100% custom design tailored to your brand</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-termGreen font-bold">+</span>
-              <span>Sub-second page rendering on all devices</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-termGreen font-bold">+</span>
-              <span>Zero plugin bloat, zero maintenance headaches</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-termGreen font-bold">+</span>
-              <span>Structured Schema.org built directly into the markup</span>
-            </li>
-          </ul>
+          <div class="hand-annotation text-lg text-terracotta hidden sm:block">
+            Crafted with intention.
+          </div>
         </div>
-
       </div>
 
     </div>
   </section>
 
-  <!-- Process -->
-  <section id="process" class="py-20 border-t border-borderSubtle bg-card-subtle/50">
-    <div class="max-w-5xl mx-auto px-5">
+  <!-- Frequently Asked Questions -->
+  <section id="faq" class="py-20 border-t border-borderSubtle bg-card-subtle/50">
+    <div class="max-w-3xl mx-auto px-5">
 
       <div class="mb-12">
-        <div class="text-xs font-mono font-semibold text-terracotta mb-2">// PROCESS</div>
-        <h2 class="text-2xl sm:text-3xl font-editorial text-ink">Straightforward from idea to launch.</h2>
+        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// CANDID ANSWERS</div>
+        <h2 class="text-2xl sm:text-3xl font-editorial text-ink">Everything you want to know.</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-sm">
-          <div class="text-terracotta font-bold text-sm mb-2">01</div>
-          <div class="font-bold text-ink mb-1">Discovery</div>
-          <div class="text-stoneDim text-[11px]">Goals, structure &amp; key messaging.</div>
+      <div class="space-y-4 font-mono text-xs">
+
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
+          <h4 class="font-bold text-ink text-sm mb-2 font-sans">Will my website look like an AI-generated template?</h4>
+          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
+            Never. That is the exact problem we solve. AI landing pages all suffer from the same clichés: dark glossy neon gradients, generic icons, and vacuous buzzwords. Because our lead designer creates your visual identity from scratch in Figma before any code is generated, your website is 100% unique to your brand.
+          </p>
         </div>
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-sm">
-          <div class="text-terracotta font-bold text-sm mb-2">02</div>
-          <div class="font-bold text-ink mb-1">Design</div>
-          <div class="text-stoneDim text-[11px]">Figma mockups and review.</div>
+
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
+          <h4 class="font-bold text-ink text-sm mb-2 font-sans">What do the humans do versus what the AI does?</h4>
+          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
+            The human team handles creative vision, brand strategy, visual aesthetics, bespoke Figma design, copywriting tone, and final device testing. The AI agents handle boilerplate code generation, responsive CSS compilation, Lighthouse performance optimizations, and Schema markup.
+          </p>
         </div>
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-sm">
-          <div class="text-terracotta font-bold text-sm mb-2">03</div>
-          <div class="font-bold text-ink mb-1">Development</div>
-          <div class="text-stoneDim text-[11px]">Clean code, SEO &amp; CMS setup.</div>
+
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
+          <h4 class="font-bold text-ink text-sm mb-2 font-sans">How fast can you really launch?</h4>
+          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
+            Most projects launch in 7 to 14 business days from kickoff. Traditional agencies take 3 to 5 months because they waste weeks on manual code assembly and internal bureaucracy. By augmenting our workflow with AI, we bypass the slog without cutting creative corners.
+          </p>
         </div>
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-sm">
-          <div class="text-terracotta font-bold text-sm mb-2">04</div>
-          <div class="font-bold text-ink mb-1">Launch</div>
-          <div class="text-stoneDim text-[11px]">Domain, SSL &amp; Google indexing.</div>
+
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
+          <h4 class="font-bold text-ink text-sm mb-2 font-sans">Can I update the text and photos myself after launch?</h4>
+          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
+            Yes. We connect a clean, intuitive visual CMS (Content Management System) where you and your team can edit copy, add case studies, and upload new photography with zero coding knowledge.
+          </p>
         </div>
+
+        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
+          <h4 class="font-bold text-ink text-sm mb-2 font-sans">Are there any ongoing plugin or security headaches?</h4>
+          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
+            None. We do not use WordPress or fragile third-party plugins. Your site is compiled into static, pre-rendered Next.js edge assets with no vulnerable database or outdated plugins to patch.
+          </p>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- Contact Form -->
+  <!-- Contact Section (Human-to-Human Conversation) -->
   <section id="contact" class="py-20 border-t border-borderSubtle bg-canvas">
     <div class="max-w-3xl mx-auto px-5">
 
-      <div class="rounded-xl border border-borderSubtle bg-card p-6 sm:p-10 shadow-md">
+      <div class="rounded-2xl border border-borderSubtle bg-card p-6 sm:p-10 shadow-sm">
         <div class="mb-8">
-          <div class="text-xs font-mono font-semibold text-terracotta mb-2">// CONTACT</div>
-          <h3 class="text-2xl font-editorial text-ink mb-2">Let’s build your official website.</h3>
+          <div class="inline-flex items-center space-x-2 px-2.5 py-1 rounded bg-humanBg border border-[#EEDBCA] text-[11px] font-mono text-humanTag font-medium mb-3">
+            <span>●</span>
+            <span>Reviewed directly by human creative directors</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-editorial text-ink mb-2">Let’s build your official website.</h3>
           <p class="text-xs sm:text-sm text-stoneMuted">
-            Tell us about your business and timeline. We’ll review and get back to you within 24 hours.
+            Tell us about your business, vision, and timeline. A human director will review your brief and respond with ideas and an estimate within 24 hours.
           </p>
         </div>
 
         <form id="contact-form" class="space-y-4 font-mono text-xs" onsubmit="handleContact(event)">
+          <!-- Project Type Selector -->
+          <div>
+            <label class="block text-ink font-medium mb-2">What are you looking to build?</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <label class="p-3 rounded-lg border border-borderSubtle bg-card-subtle flex items-center space-x-2 cursor-pointer hover:border-terracotta transition-colors">
+                <input type="radio" name="projectType" value="new" checked class="text-terracotta focus:ring-terracotta">
+                <span class="text-ink">New Website</span>
+              </label>
+              <label class="p-3 rounded-lg border border-borderSubtle bg-card-subtle flex items-center space-x-2 cursor-pointer hover:border-terracotta transition-colors">
+                <input type="radio" name="projectType" value="redesign" class="text-terracotta focus:ring-terracotta">
+                <span class="text-ink">Full Redesign</span>
+              </label>
+              <label class="p-3 rounded-lg border border-borderSubtle bg-card-subtle flex items-center space-x-2 cursor-pointer hover:border-terracotta transition-colors">
+                <input type="radio" name="projectType" value="refresh" class="text-terracotta focus:ring-terracotta">
+                <span class="text-ink">Brand Refresh</span>
+              </label>
+            </div>
+          </div>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-ink font-medium mb-1.5">Name *</label>
-              <input type="text" required placeholder="Your name" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+              <label class="block text-ink font-medium mb-1.5">Your Name *</label>
+              <input type="text" required placeholder="e.g. Alex Morgan" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
             </div>
             <div>
-              <label class="block text-ink font-medium mb-1.5">Email *</label>
-              <input type="email" required placeholder="you@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+              <label class="block text-ink font-medium mb-1.5">Work Email *</label>
+              <input type="email" required placeholder="alex@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-ink font-medium mb-1.5">Company / Project Name</label>
+              <input type="text" placeholder="e.g. Acme Corp" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+            </div>
+            <div>
+              <label class="block text-ink font-medium mb-1.5">Desired Launch Timeline</label>
+              <select class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+                <option>Within 2 weeks (Accelerated)</option>
+                <option>Within 3–4 weeks (Standard)</option>
+                <option>Flexible / Planning ahead</option>
+              </select>
             </div>
           </div>
 
           <div>
-            <label class="block text-ink font-medium mb-1.5">Current Website (optional)</label>
-            <input type="text" placeholder="https://example.com" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+            <label class="block text-ink font-medium mb-1.5">Tell us about your business &amp; what you want to achieve</label>
+            <textarea rows="4" placeholder="What does your company do? What do you dislike about your current website? What impression do you want to leave on visitors?" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none resize-none transition-all"></textarea>
           </div>
 
-          <div>
-            <label class="block text-ink font-medium mb-1.5">Project Brief</label>
-            <textarea rows="4" placeholder="Briefly describe what your business does and what you’re looking to achieve..." class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none resize-none transition-all"></textarea>
-          </div>
-
-          <div class="pt-2">
-            <button type="submit" class="px-6 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white font-mono font-medium transition-all shadow-sm">
-              Send Inquiry &rarr;
+          <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <button type="submit" class="px-7 py-3 rounded-full bg-terracotta hover:bg-terracotta-hover text-white font-mono font-medium transition-all shadow-sm">
+              Send Brief to Creative Director &rarr;
             </button>
+            <span class="text-stoneDim text-[11px] font-mono">
+              ✓ Guaranteed reply within 24h
+            </span>
           </div>
         </form>
 
-        <div id="contact-success" class="hidden mt-4 p-4 rounded-lg bg-[#F2F8F4] border border-emerald-300 font-mono text-xs text-termGreen font-medium">
-          ✓ Message received. We will get back to you shortly.
+        <div id="contact-success" class="hidden mt-4 p-5 rounded-xl bg-craftGreenBg border border-emerald-300 font-mono text-xs text-craftGreen space-y-1">
+          <div class="font-bold text-sm">✓ Brief received with gratitude.</div>
+          <p class="font-sans text-stoneMuted text-xs">Our creative team is reviewing your project. Wei Xiong will follow up personally within 24 hours.</p>
         </div>
       </div>
 
@@ -327,14 +787,53 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 border-t border-borderSubtle bg-card-subtle/50 font-mono text-xs text-stoneDim">
-    <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="text-stoneMuted font-medium">[&gt;] CogniSphere LLC — Bespoke websites for businesses.</div>
-      <div>&copy; 2026 CogniSphere LLC. All rights reserved.</div>
+  <footer class="py-12 border-t border-borderSubtle bg-card-subtle/70 font-mono text-xs text-stoneDim">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-borderSubtle">
+        <div class="space-y-1">
+          <div class="text-ink font-editorial text-lg font-medium">CogniSphere LLC</div>
+          <div class="text-stoneMuted text-xs font-sans">
+            Crafted with human taste. Engineered with AI velocity.
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-5 text-xs text-stoneMuted">
+          <a href="#philosophy" class="hover:text-ink transition-colors">Philosophy</a>
+          <a href="#workbench" class="hover:text-ink transition-colors">Workbench</a>
+          <a href="#work" class="hover:text-ink transition-colors">Selected Work</a>
+          <a href="#faq" class="hover:text-ink transition-colors">FAQs</a>
+          <a href="#contact" class="text-terracotta hover:underline">Start a Project</a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+        <div>
+          &copy; 2026 CogniSphere LLC. All rights reserved. Hand-tuned in Zurich &amp; global edge.
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-craftGreen inline-block"></span>
+          <span class="text-stoneMuted">Studio accepting 2 new projects for this month</span>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <!-- Interactive Script -->
   <script>
+    function setWorkbenchView(view) {
+      // Toggle tabs
+      ['synergy', 'human', 'ai'].forEach(v => {
+        const btn = document.getElementById('btn-' + v);
+        const panel = document.getElementById('view-' + v);
+        if (v === view) {
+          btn.classList.add('active');
+          panel.classList.remove('hidden');
+        } else {
+          btn.classList.remove('active');
+          panel.classList.add('hidden');
+        }
+      });
+    }
+
     function handleContact(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
@@ -343,7 +842,7 @@
       setTimeout(() => {
         form.classList.add('hidden');
         success.classList.remove('hidden');
-      }, 500);
+      }, 400);
     }
   </script>
 </body>
