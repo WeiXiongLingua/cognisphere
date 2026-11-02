@@ -1,848 +1,1658 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniSphere LLC | Crafted by Human Taste. Powered by AI Intelligence.</title>
-  <meta name="description" content="Bespoke official websites for businesses. Where human creative direction meets machine speed and precision. No generic AI templates, no bloated agency timelines.">
-  <meta name="theme-color" content="#FAF9F5">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            canvas: '#FAF9F5',
-            card: '#FFFFFF',
-            'card-subtle': '#F5F3EC',
-            'card-warm': '#FBF8F1',
-            borderSubtle: '#E8E5DC',
-            borderHighlight: '#CFCABF',
-            terracotta: '#C85A32',
-            'terracotta-hover': '#AF4823',
-            'terracotta-subtle': '#FDF3EE',
-            ink: '#161513',
-            stoneMuted: '#54504A',
-            stoneDim: '#78736B',
-            humanTag: '#8A5023',
-            humanBg: '#FDF5EC',
-            aiTag: '#1D5A8A',
-            aiBg: '#EEF6FC',
-            craftGreen: '#237844',
-            craftGreenBg: '#F0F9F3'
-          },
-          fontFamily: {
-            mono: ['"JetBrains Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace'],
-            editorial: ['"Newsreader"', 'Georgia', 'serif'],
-            hand: ['"Caveat"', 'cursive', 'sans-serif'],
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Google Fonts: Newsreader (editorial serif), Caveat (human hand craft), JetBrains Mono, Plus Jakarta Sans -->
+  <title>CogniSphere LLC — Official Websites for Private Companies</title>
+  <meta name="description" content="CogniSphere writes, designs, and builds bespoke official websites for private firms. Original copy, custom typography, and clean engineering delivered in two weeks.">
+  <meta name="theme-color" content="#F7F7F4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
+      --sheet: #F7F7F4;
+      --mount: #ECEAE3;
+      --mount-deep: #E1DED4;
+      --surface: #FFFFFF;
+      --ink: #141715;
+      --graphite: #454C48;
+      --ash: #68706B;
+      --rule: #CBC8BE;
+      --rule-strong: #727A75;
+      --pine: #19382C;
+      --pine-hover: #11281F;
+      --pine-tint: #E6EFEA;
+      --seal: #9E3422;
     }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
     body {
-      background-color: #FAF9F5;
-      color: #161513;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      background-color: var(--sheet);
+      color: var(--ink);
+      font-family: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      text-align: start;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, h4 {
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--pine);
+      text-underline-offset: 0.2em;
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover {
+      color: var(--pine-hover);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--pine);
+      outline-offset: 2px;
+    }
+
+    h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote {
+      margin: 0;
+    }
+
+    /* Apply text-wrap: balance only to standalone headings without box backgrounds/borders */
+    .section-heading,
+    .hero-headline,
+    .letter-headline,
+    .compare th {
       text-wrap: balance;
     }
-    p, li {
+
+    p, li, dd {
       text-wrap: pretty;
     }
-    .bg-grid-warm {
-      background-size: 36px 36px;
-      background-image: radial-gradient(circle, rgba(140, 90, 60, 0.07) 1px, transparent 1px);
+
+    section[id] {
+      scroll-margin-top: 4.5rem;
     }
-    .hand-annotation {
-      font-family: 'Caveat', cursive;
-      transform: rotate(-2deg);
+
+    .container {
+      width: min(74rem, calc(100% - 3rem));
+      margin-inline: auto;
     }
-    .hand-annotation-r {
-      font-family: 'Caveat', cursive;
-      transform: rotate(2deg);
+
+    /* Top Masthead */
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background-color: color-mix(in oklab, var(--sheet) 92%, white 8%);
+      border-bottom: 1px solid var(--ink);
     }
-    .tab-btn.active {
-      background-color: #161513;
-      color: #FAF9F5;
-      border-color: #161513;
+
+    .masthead-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 4.25rem;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-name {
+      font-family: "Literata", Georgia, serif;
+      font-optical-sizing: auto;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 0.82rem;
+      color: var(--graphite);
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--rule);
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .site-nav a {
+      color: var(--graphite);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+
+    .site-nav a:hover {
+      color: var(--ink);
+    }
+
+    .site-nav .nav-inquire {
+      color: var(--ink);
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border: 1.5px solid var(--ink);
+      background-color: transparent;
+    }
+
+    .site-nav .nav-inquire:hover {
+      background-color: var(--ink);
+      color: var(--sheet);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .hero-headline {
+      font-family: "Literata", Georgia, serif;
+      font-optical-sizing: auto;
+      font-size: clamp(2.35rem, 1.5rem + 3.2vw, 4rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-lede {
+      font-size: 1.1875rem;
+      line-height: 1.6;
+      color: var(--graphite);
+      max-width: 54ch;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--pine);
+      color: #F7F7F4;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      border: 1.5px solid var(--pine);
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--pine-hover);
+      border-color: var(--pine-hover);
+      color: #F7F7F4;
+    }
+
+    .link-secondary {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
+
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .hero-facts dt {
+      font-size: 0.82rem;
+      color: var(--ash);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-facts dd {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Architectural Dossier / Spec Sheet in Hero */
+    .dossier {
+      background-color: var(--surface);
+      border: 1.5px solid var(--ink);
+      padding: 1.75rem;
+      box-shadow: 8px 8px 0 var(--mount-deep);
+    }
+
+    .dossier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 0.85rem;
+      border-bottom: 1.5px solid var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .dossier-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+
+    .dossier-stamp {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--seal);
+    }
+
+    .dossier-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .dossier-table th,
+    .dossier-table td {
+      text-align: start;
+      vertical-align: top;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .dossier-table th {
+      color: var(--ash);
+      font-weight: 500;
+      width: 38%;
+      padding-right: 0.75rem;
+    }
+
+    .dossier-table td {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .dossier-note {
+      margin-top: 1.15rem;
+      font-family: "Literata", Georgia, serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--graphite);
+      line-height: 1.5;
+    }
+
+    /* Selected Work / Commission Folio */
+    .folio {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 3rem;
+    }
+
+    .section-heading {
+      font-family: "Literata", Georgia, serif;
+      font-optical-sizing: auto;
+      font-size: clamp(1.85rem, 1.3rem + 2vw, 2.75rem);
+      font-weight: 500;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+    }
+
+    .section-lead {
+      color: var(--graphite);
+      font-size: 1.02rem;
+      max-width: 52ch;
+    }
+
+    /* Commission Plate Grid */
+    .plates {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .plate {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+      gap: 2.5rem;
+      background-color: var(--mount);
+      border: 1px solid var(--rule-strong);
+      padding: 2.25rem;
+      align-items: center;
+    }
+
+    .plate-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      gap: 1.5rem;
+    }
+
+    .plate-index {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--rule-strong);
+      font-size: 0.85rem;
+      color: var(--graphite);
+    }
+
+    .plate-client {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      margin: 0.75rem 0 0.5rem;
+      color: var(--ink);
+    }
+
+    .plate-summary {
+      color: var(--graphite);
+      font-size: 0.98rem;
+      max-width: 44ch;
+    }
+
+    .plate-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.85rem;
+    }
+
+    .plate-specs dt {
+      color: var(--ash);
+    }
+
+    .plate-specs dd {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* Miniature Website Specimen inside each Plate */
+    .mini-browser {
+      background-color: var(--surface);
+      border: 1.5px solid var(--ink);
+      overflow: hidden;
+    }
+
+    .mini-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0.9rem;
+      background-color: var(--sheet);
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.78rem;
+      color: var(--graphite);
+    }
+
+    .mini-url {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Specimen 1: Nordic Form Studio */
+    .spec-nordic {
+      background-color: #F4F1EA;
+      color: #1C1B18;
+      padding: 1.5rem;
+      font-family: "Literata", Georgia, serif;
+    }
+
+    .spec-nordic-top {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Archivo", sans-serif;
+      font-size: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #C8C2B4;
+      margin-bottom: 1.25rem;
+    }
+
+    .spec-nordic-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.25rem;
+      align-items: end;
+    }
+
+    .spec-nordic h4 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .spec-nordic p {
+      font-family: "Archivo", sans-serif;
+      font-size: 0.8rem;
+      color: #57534A;
+      line-height: 1.45;
+    }
+
+    .spec-nordic-plan {
+      background-color: #E5DFD3;
+      border: 1px solid #B8B0A0;
+      padding: 0.85rem;
+      font-family: "Archivo", sans-serif;
+      font-size: 0.72rem;
+    }
+
+    /* Specimen 2: Verve Bioscience */
+    .spec-verve {
+      background-color: #F6F9F8;
+      color: #132620;
+      padding: 1.5rem;
+    }
+
+    .spec-verve-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding-bottom: 0.75rem;
+      border-bottom: 1.5px solid #132620;
+      margin-bottom: 1.1rem;
+    }
+
+    .spec-verve h4 {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.85rem;
+    }
+
+    .spec-verve-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+
+    .spec-verve-table th,
+    .spec-verve-table td {
+      padding: 0.45rem 0.35rem;
+      border-bottom: 1px solid #C6D6D0;
+      text-align: start;
+    }
+
+    .spec-verve-table th {
+      color: #49655C;
+      font-weight: 500;
+    }
+
+    /* Specimen 3: Aura Capital Partners */
+    .spec-aura {
+      background-color: #18222B;
+      color: #EAEEF2;
+      padding: 1.5rem;
+    }
+
+    .spec-aura-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #9BA8B5;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #324150;
+      margin-bottom: 1.2rem;
+    }
+
+    .spec-aura h4 {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .spec-aura-deals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      border-top: 1px solid #324150;
+      padding-top: 0.85rem;
+      font-size: 0.74rem;
+    }
+
+    .spec-aura-deals strong {
+      display: block;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .spec-aura-deals span {
+      color: #9BA8B5;
+    }
+
+    /* Comparative Ledger Section */
+    .ledger {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .compare-wrap {
+      overflow-x: auto;
+      margin-top: 2.5rem;
+      border: 1.5px solid var(--ink);
+      background-color: var(--surface);
+    }
+
+    table.compare {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .compare caption {
+      text-align: start;
+      padding: 1.1rem 1.5rem;
+      background-color: var(--mount);
+      border-bottom: 1.5px solid var(--ink);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .compare th,
+    .compare td {
+      text-align: start;
+      vertical-align: top;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .compare thead th {
+      background-color: var(--sheet);
+      font-weight: 700;
+      color: var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+    }
+
+    .compare tbody th {
+      font-weight: 600;
+      width: 20%;
+      color: var(--ink);
+      background-color: var(--sheet);
+      border-right: 1px solid var(--rule);
+    }
+
+    .compare td {
+      color: var(--graphite);
+      width: 26.6%;
+    }
+
+    .compare td.col-studio {
+      background-color: var(--pine-tint);
+      color: var(--ink);
+      font-weight: 500;
+      border-left: 1.5px solid var(--pine);
+    }
+
+    .compare thead th.col-studio {
+      background-color: var(--pine);
+      color: #F7F7F4;
+      border-left: 1.5px solid var(--pine);
+    }
+
+    /* Two-Week Production Schedule */
+    .schedule {
+      padding: 5.5rem 0;
+      background-color: var(--mount);
+      border-bottom: 1px solid var(--rule-strong);
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1.5px solid var(--ink);
+      background-color: var(--surface);
+      margin-top: 2.5rem;
+    }
+
+    .calendar-stage {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .calendar-stage + .calendar-stage {
+      border-left: 1px solid var(--rule-strong);
+    }
+
+    .stage-days {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--pine);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--pine);
+      margin-bottom: 1rem;
+    }
+
+    .calendar-stage h3 {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+      color: var(--ink);
+    }
+
+    .calendar-stage p {
+      font-size: 0.94rem;
+      color: var(--graphite);
+      line-height: 1.55;
+    }
+
+    .stage-deliverable {
+      font-size: 0.82rem;
+      color: var(--ink);
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .stage-deliverable strong {
+      display: block;
+      color: var(--ash);
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Studio Correspondence / Letter */
+    .correspondence {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .correspondence-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .studio-aside {
+      background-color: var(--mount);
+      border: 1px solid var(--rule-strong);
+      padding: 1.75rem;
+    }
+
+    .studio-aside h3 {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--rule-strong);
+    }
+
+    .studio-standards {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-size: 0.92rem;
+      color: var(--graphite);
+    }
+
+    .studio-standards strong {
+      color: var(--ink);
+      display: block;
+    }
+
+    .letter-paper {
+      background-color: var(--surface);
+      border: 1px solid var(--rule-strong);
+      padding: 2.75rem 3rem;
+    }
+
+    .letter-Headline-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .letter-headline {
+      font-family: "Literata", Georgia, serif;
+      font-optical-sizing: auto;
+      font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-top: 0.35rem;
+    }
+
+    .letter-date {
+      font-size: 0.85rem;
+      color: var(--ash);
+    }
+
+    .letter-body {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--graphite);
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .letter-body p {
+      max-width: 62ch;
+    }
+
+    .letter-signoff {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .letter-signoff strong {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      display: block;
+    }
+
+    .letter-signoff span {
+      font-size: 0.88rem;
+      color: var(--ash);
+    }
+
+    /* Questions Section */
+    .questions {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .questions-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .faq-list {
+      border-top: 1.5px solid var(--ink);
+    }
+
+    details.faq-item {
+      border-bottom: 1px solid var(--rule-strong);
+      padding: 1.25rem 0;
+    }
+
+    details.faq-item summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--ink);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    details.faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-marker {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--pine);
+      flex-shrink: 0;
+    }
+
+    details.faq-item[open] .faq-marker::before {
+      content: "Close";
+    }
+
+    details.faq-item:not([open]) .faq-marker::before {
+      content: "Read";
+    }
+
+    details.faq-item p {
+      margin-top: 0.85rem;
+      color: var(--graphite);
+      font-size: 0.98rem;
+      max-width: 60ch;
+      line-height: 1.65;
+    }
+
+    /* Commission Inquiry Form */
+    .commission {
+      padding: 5.5rem 0;
+      background-color: var(--mount);
+    }
+
+    .commission-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .commission-notes {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .direct-box {
+      background-color: var(--surface);
+      border: 1px solid var(--rule-strong);
+      padding: 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    .direct-box h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .direct-box p {
+      color: var(--graphite);
+      margin-bottom: 0.75rem;
+    }
+
+    .form-sheet {
+      background-color: var(--surface);
+      border: 1.5px solid var(--ink);
+      padding: 2.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    legend {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink);
+      margin-bottom: 0.55rem;
+      padding: 0;
+    }
+
+    .radio-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 0.85rem;
+      border: 1.5px solid var(--rule-strong);
+      background-color: var(--sheet);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .radio-option:has(input:checked) {
+      border-color: var(--pine);
+      background-color: var(--pine-tint);
+      font-weight: 600;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 1rem;
+      height: 1rem;
+      margin: 0;
+      accent-color: var(--pine);
+    }
+
+    .field-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .field label {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+
+    .field-hint {
+      font-size: 0.82rem;
+      color: var(--ash);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font: inherit;
+      font-size: 0.98rem;
+      color: var(--ink);
+      background-color: var(--surface);
+      border: 1.5px solid var(--rule-strong);
+      padding: 0.7rem 0.85rem;
+      width: 100%;
+      border-radius: 0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 7.5rem;
+    }
+
+    input[type="text"]:focus-visible,
+    input[type="email"]:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--pine);
+      outline-offset: 1px;
+      border-color: var(--pine);
+    }
+
+    .form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    .form-Response {
+      display: none;
+      padding: 1.5rem;
+      background-color: var(--pine-tint);
+      border: 1.5px solid var(--pine);
+      color: var(--ink);
+    }
+
+    .form-Response h3 {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1.5px solid var(--ink);
+      padding: 2.25rem 0;
+      font-size: 0.88rem;
+      color: var(--graphite);
+      background-color: var(--sheet);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 62rem) {
+      .hero-grid,
+      .section-header,
+      .plate,
+      .calendar,
+      .correspondence-grid,
+      .questions-grid,
+      .commission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-stage + .calendar-stage {
+        border-left: 0;
+        border-top: 1px solid var(--rule-strong);
+      }
+
+      .letter-paper,
+      .form-sheet {
+        padding: 1.75rem;
+      }
+    }
+
+    @media (max-width: 42rem) {
+      .masthead-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.85rem 0;
+        gap: 0.75rem;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+      }
+
+      .hero-facts,
+      .field-pair,
+      .radio-row,
+      .spec-nordic-grid,
+      .spec-aura-deals {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen bg-canvas text-ink antialiased selection:bg-terracotta selection:text-white bg-grid-warm">
-
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-canvas/92 border-b border-borderSubtle">
-    <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center space-x-2 group">
-        <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-terracotta text-white font-mono text-xs font-bold shadow-sm group-hover:bg-terracotta-hover transition-colors">
-          C
-        </span>
-        <div class="flex flex-col">
-          <span class="font-editorial text-lg font-medium tracking-tight text-ink leading-none">CogniSphere</span>
-          <span class="text-[10px] font-mono uppercase tracking-wider text-stoneDim mt-0.5">Human × AI Studio</span>
-        </div>
+<body>
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <a class="brand" href="#">
+        <span class="brand-name">CogniSphere</span>
+        <span class="brand-sub">Digital Monograph &amp; Web Practice</span>
       </a>
-
-      <nav class="hidden md:flex items-center space-x-7 text-xs font-mono font-medium text-stoneMuted">
-        <a href="#philosophy" class="hover:text-ink transition-colors">Co-Creation</a>
-        <a href="#workbench" class="hover:text-ink transition-colors">The Synergy</a>
-        <a href="#process" class="hover:text-ink transition-colors">Process</a>
-        <a href="#work" class="hover:text-ink transition-colors">Selected Work</a>
-        <a href="#faq" class="hover:text-ink transition-colors">Questions</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work">Selected Work</a>
+        <a href="#comparison">Standards</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#questions">FAQ</a>
+        <a class="nav-inquire" href="#inquire">Commission a Site</a>
       </nav>
-
-      <div class="flex items-center space-x-3">
-        <a href="#contact" class="px-4 py-2 text-xs font-mono font-medium rounded-full bg-terracotta hover:bg-terracotta-hover text-white transition-all shadow-sm hover:shadow">
-          Start a Project &rarr;
-        </a>
-      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="pt-14 pb-16 sm:pt-20 sm:pb-24">
-    <div class="max-w-5xl mx-auto px-5">
-
-      <!-- Co-Creation Pill Badge -->
-      <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-card border border-borderSubtle shadow-xs mb-6">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-terracotta"></span>
-        </span>
-        <span class="text-[11px] font-mono font-medium text-stoneMuted">Human Empathy &amp; Taste</span>
-        <span class="text-stoneDim text-[11px]">×</span>
-        <span class="text-[11px] font-mono font-medium text-terracotta">Machine Speed &amp; Precision</span>
-      </div>
-
-      <!-- Main Headline -->
-      <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-editorial tracking-tight text-ink leading-[1.12] mb-6 max-w-4xl">
-        Bespoke websites designed by <span class="italic font-normal">human intuition</span>, built with <span class="text-terracotta italic font-normal">AI precision</span>.
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-base sm:text-xl text-stoneMuted max-w-2xl leading-relaxed mb-8 font-normal">
-        We reject sterile AI slop and 4-month agency bloat. CogniSphere pairs seasoned creative directors with autonomous engineering agents to craft high-impact websites for businesses that refuse to look generic.
-      </p>
-
-      <!-- Action Buttons & Human Reassurance -->
-      <div class="flex flex-wrap items-center gap-4 mb-12">
-        <a href="#contact" class="px-7 py-3.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white text-xs sm:text-sm font-mono font-semibold transition-all shadow-sm hover:shadow-md">
-          Start Your Project &rarr;
-        </a>
-        <a href="#workbench" class="px-6 py-3.5 rounded-full border border-borderSubtle hover:border-borderHighlight bg-card text-stoneMuted hover:text-ink text-xs sm:text-sm font-mono transition-all">
-          Explore How We Co-Create
-        </a>
-        <div class="w-full sm:w-auto flex items-center space-x-2 text-xs font-mono text-stoneDim pt-1 sm:pt-0">
-          <span class="text-craftGreen">●</span>
-          <span>100% human-directed, guaranteed</span>
-        </div>
-      </div>
-
-      <!-- Hero Interactive Workbench: The Human + AI Studio Desk -->
-      <div id="workbench" class="rounded-2xl border border-borderSubtle bg-card shadow-sm overflow-hidden transition-all">
-        <!-- Workbench Topbar -->
-        <div class="px-5 py-3.5 bg-card-subtle border-b border-borderSubtle flex flex-wrap items-center justify-between gap-3">
-          <div class="flex items-center space-x-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#E0DDD5]"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#E0DDD5]"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#E0DDD5]"></span>
-            <span class="ml-2 font-mono text-xs text-stoneMuted font-medium">Studio Workbench: Human × AI in Action</span>
-          </div>
-
-          <!-- Interactive View Switcher -->
-          <div class="flex items-center space-x-1 p-1 rounded-lg bg-white border border-borderSubtle font-mono text-xs">
-            <button onclick="setWorkbenchView('synergy')" id="btn-synergy" class="tab-btn active px-3 py-1 rounded-md transition-all">
-              ✦ The Synergy
-            </button>
-            <button onclick="setWorkbenchView('human')" id="btn-human" class="tab-btn px-3 py-1 rounded-md text-stoneMuted hover:text-ink transition-all">
-              ✎ Human Craft
-            </button>
-            <button onclick="setWorkbenchView('ai')" id="btn-ai" class="tab-btn px-3 py-1 rounded-md text-stoneMuted hover:text-ink transition-all">
-              ⚡ AI Engine
-            </button>
-          </div>
-        </div>
-
-        <!-- Workbench Body: Dynamic View Panels -->
-        <div class="p-6 sm:p-8">
-
-          <!-- View 1: The Synergy (Combined Result) -->
-          <div id="view-synergy" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div class="lg:col-span-7 bg-canvas rounded-xl border border-borderSubtle p-5 sm:p-6 relative">
-              <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
-                <div class="flex items-center space-x-2">
-                  <span class="text-xs font-serif font-bold text-ink">Bespoke Production Preview</span>
-                  <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-craftGreenBg text-craftGreen font-medium">Verified Edge Build</span>
-                </div>
-                <span class="text-[11px] font-mono text-stoneDim">0.38s FCP</span>
-              </div>
-
-              <!-- Mini Mockup of Website Hero -->
-              <div class="space-y-3">
-                <div class="inline-block px-2.5 py-0.5 rounded bg-terracotta-subtle border border-terracotta/20 text-terracotta font-mono text-[11px]">
-                  Custom Brand Architecture
-                </div>
-                <h4 class="font-editorial text-2xl sm:text-3xl text-ink leading-snug">
-                  Clarity of purpose, elevated through intentional craft.
-                </h4>
-                <p class="text-xs sm:text-sm text-stoneMuted leading-relaxed">
-                  Tailored narrative structure and high-contrast editorial typography designed in Figma, compiled into pure, dependency-light Next.js edge modules.
-                </p>
-                <div class="pt-2 flex flex-wrap gap-2 text-[11px] font-mono">
-                  <span class="px-2.5 py-1 rounded bg-card border border-borderSubtle text-stoneMuted">Sub-second CDN</span>
-                  <span class="px-2.5 py-1 rounded bg-card border border-borderSubtle text-stoneMuted">Schema.org Structured Data</span>
-                  <span class="px-2.5 py-1 rounded bg-card border border-borderSubtle text-stoneMuted">Zero-Bloat Markup</span>
-                </div>
-              </div>
-
-              <!-- Hand annotation overlay -->
-              <div class="absolute -bottom-3 -right-2 bg-white px-3 py-1 rounded-md border border-borderHighlight shadow-xs text-xs hand-annotation text-terracotta hidden sm:block">
-                ← 100% bespoke, zero templates!
-              </div>
-            </div>
-
-            <!-- Synergy Breakdown -->
-            <div class="lg:col-span-5 space-y-4">
-              <div class="p-4 rounded-xl bg-humanBg border border-[#EEDBCA]">
-                <div class="flex items-center space-x-2 mb-1.5">
-                  <span class="text-sm">✎</span>
-                  <span class="text-xs font-mono font-bold text-humanTag uppercase">The Human Responsibility</span>
-                </div>
-                <p class="text-xs text-stoneMuted leading-relaxed">
-                  Art direction, typographic hierarchy, emotional tone, brand positioning, and empathy for how your prospective clients make decisions.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-aiBg border border-[#CDE1F3]">
-                <div class="flex items-center space-x-2 mb-1.5">
-                  <span class="text-sm">⚡</span>
-                  <span class="text-xs font-mono font-bold text-aiTag uppercase">The AI Responsibility</span>
-                </div>
-                <p class="text-xs text-stoneMuted leading-relaxed">
-                  Instant Next.js server components, cross-device CSS optimization, accessibility compliance audits, and structured Schema SEO generation.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-lg bg-card-subtle border border-borderSubtle text-[11px] font-mono text-stoneMuted flex items-center justify-between">
-                <span>Result: Launch in 7–14 days</span>
-                <span class="text-ink font-semibold">10x faster than traditional agencies</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- View 2: Human Craft (Focused) -->
-          <div id="view-human" class="hidden grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="p-5 rounded-xl border border-borderSubtle bg-humanBg/50 space-y-2">
-              <div class="text-xs font-mono font-semibold text-humanTag">// 01 STRATEGIC TASTE</div>
-              <h4 class="font-editorial text-lg text-ink">Narrative &amp; Voice</h4>
-              <p class="text-xs text-stoneMuted leading-relaxed">
-                AI cannot feel your brand’s quiet dignity. Our human writers interview you to capture your genuine tone—free of robotic clichés and buzzwords.
-              </p>
-              <div class="pt-2 text-xs hand-annotation text-humanTag">"Words that actually sound like you."</div>
-            </div>
-
-            <div class="p-5 rounded-xl border border-borderSubtle bg-humanBg/50 space-y-2">
-              <div class="text-xs font-mono font-semibold text-humanTag">// 02 ART DIRECTION</div>
-              <h4 class="font-editorial text-lg text-ink">Bespoke Figma UI</h4>
-              <p class="text-xs text-stoneMuted leading-relaxed">
-                Every layout is hand-crafted in Figma for your exact industry. We pick editorial typefaces, balance whitespace, and design with deliberate visual rhythm.
-              </p>
-              <div class="pt-2 text-xs hand-annotation text-humanTag">"No reused templates or cookie-cutters."</div>
-            </div>
-
-            <div class="p-5 rounded-xl border border-borderSubtle bg-humanBg/50 space-y-2">
-              <div class="text-xs font-mono font-semibold text-humanTag">// 03 FINAL POLISH</div>
-              <h4 class="font-editorial text-lg text-ink">Human Quality Gate</h4>
-              <p class="text-xs text-stoneMuted leading-relaxed">
-                Every screen is manually stress-tested on real physical devices (iPhones, Androids, MacBooks). A human architect personally signs off before launch.
-              </p>
-              <div class="pt-2 text-xs hand-annotation text-humanTag">"Reviewed pixel by pixel."</div>
-            </div>
-          </div>
-
-          <!-- View 3: AI Engine (Focused) -->
-          <div id="view-ai" class="hidden grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="p-5 rounded-xl border border-borderSubtle bg-aiBg/50 space-y-2">
-              <div class="text-xs font-mono font-semibold text-aiTag">// 01 RAPID SYNTHESIS</div>
-              <h4 class="font-editorial text-lg text-ink">Clean Next.js Code</h4>
-              <p class="text-xs text-stoneMuted leading-relaxed">
-                Our fine-tuned coding agents turn approved Figma wireframes into production-ready React / TypeScript markup in hours instead of weeks.
-              </p>
-              <div class="pt-2 font-mono text-[11px] text-aiTag">Zero jQuery, zero legacy WordPress</div>
-            </div>
-
-            <div class="p-5 rounded-xl border border-borderSubtle bg-aiBg/50 space-y-2">
-              <div class="text-xs font-mono font-semibold text-aiTag">// 02 HYPER-PERFORMANCE</div>
-              <h4 class="font-editorial text-lg text-ink">Sub-Second Edge Delivery</h4>
-              <p class="text-xs text-stoneMuted leading-relaxed">
-                Automated image modernizers (AVIF/WebP), responsive font subsets, and globally distributed CDN caching ensure your pages load instantaneously.
-              </p>
-              <div class="pt-2 font-mono text-[11px] text-aiTag">Consistent 98–100 Google PageSpeed</div>
-            </div>
-
-            <div class="p-5 rounded-xl border border-borderSubtle bg-aiBg/50 space-y-2">
-              <div class="text-xs font-mono font-semibold text-aiTag">// 03 STRUCTURED INTELLIGENCE</div>
-              <h4 class="font-editorial text-lg text-ink">Deep Technical SEO</h4>
-              <p class="text-xs text-stoneMuted leading-relaxed">
-                Intelligent semantic markup and Schema.org JSON-LD generation ensure Google, Bing, and AI search engines index your business accurately.
-              </p>
-              <div class="pt-2 font-mono text-[11px] text-aiTag">Built for both traditional &amp; AI search</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- The Co-Creation Philosophy: The 3 Realities -->
-  <section id="philosophy" class="py-20 border-t border-borderSubtle bg-card-warm">
-    <div class="max-w-5xl mx-auto px-5">
-
-      <div class="max-w-2xl mb-14">
-        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// THE CO-CREATION PHILOSOPHY</div>
-        <h2 class="text-2xl sm:text-4xl font-editorial text-ink leading-tight">
-          Why neither pure AI nor legacy agencies are enough.
-        </h2>
-        <p class="mt-3 text-sm sm:text-base text-stoneMuted leading-relaxed">
-          The web is flooded with lifeless AI template churn on one end, and agonizingly slow, overpriced $30k traditional agencies on the other. There is a smarter path.
-        </p>
-      </div>
-
-      <!-- 3-Way Comparison Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Column 1: Pure AI Generators -->
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
-              <span class="text-xs font-mono font-semibold text-stoneDim">01 / PURE AI GENERATORS</span>
-              <span class="text-xs text-stoneDim">Generic</span>
-            </div>
-            <h3 class="font-editorial text-lg text-ink mb-2">Cheap, but devoid of taste</h3>
-            <ul class="space-y-2.5 text-xs text-stoneMuted leading-relaxed">
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Cookie-cutter layouts with identical glossy purple AI tropes.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Robotic copy packed with buzzwords like "unleash" and "supercharge".</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Fragile code structures that break the moment you need custom features.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Zero strategic empathy for your specific clients.</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-6 pt-4 border-t border-borderSubtle font-mono text-[11px] text-stoneDim">
-            Result: Looks like automated spam.
-          </div>
-        </div>
-
-        <!-- Column 2: Traditional Agencies -->
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
-              <span class="text-xs font-mono font-semibold text-stoneDim">02 / LEGACY AGENCIES</span>
-              <span class="text-xs text-stoneDim">Bloated</span>
-            </div>
-            <h3 class="font-editorial text-lg text-ink mb-2">Human-led, but agonizingly slow</h3>
-            <ul class="space-y-2.5 text-xs text-stoneMuted leading-relaxed">
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>12 to 20 week turnaround times with endless status meetings.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Heavy retainers ($20k–$50k) to fund administrative overhead.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Outdated WordPress builds loaded with 30+ plugins that ruin mobile speed.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-stoneDim font-mono">✕</span>
-                <span>Ongoing plugin maintenance anxiety and security vulnerabilities.</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-6 pt-4 border-t border-borderSubtle font-mono text-[11px] text-stoneDim">
-            Result: Overpriced, sluggish delivery.
-          </div>
-        </div>
-
-        <!-- Column 3: CogniSphere (Human × AI) -->
-        <div class="p-6 rounded-xl border-2 border-terracotta bg-white shadow-md flex flex-col justify-between relative">
-          <div class="absolute -top-3 right-5 px-2.5 py-0.5 rounded-full bg-terracotta text-white font-mono text-[10px] font-bold uppercase tracking-wide">
-            The Co-Craft Standard
-          </div>
-          <div>
-            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-4">
-              <span class="text-xs font-mono font-bold text-terracotta">03 / COGNISPHERE</span>
-              <span class="text-xs text-craftGreen font-medium">Bespoke &amp; Fast</span>
-            </div>
-            <h3 class="font-editorial text-lg text-ink mb-2">Human Taste × Machine Velocity</h3>
-            <ul class="space-y-2.5 text-xs text-ink leading-relaxed">
-              <li class="flex items-start space-x-2">
-                <span class="text-terracotta font-bold font-mono">✓</span>
-                <span><strong>100% custom UI &amp; narrative</strong> tailored to your brand by a senior creative director.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-terracotta font-bold font-mono">✓</span>
-                <span><strong>AI-accelerated code generation</strong> delivering pure Next.js in 7–14 days.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-terracotta font-bold font-mono">✓</span>
-                <span><strong>Sub-second edge speed</strong> (0.4s load times, 98+ PageSpeed) with zero plugin bloat.</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="text-terracotta font-bold font-mono">✓</span>
-                <span><strong>Client-friendly visual CMS</strong> so you can edit text and media anytime.</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-6 pt-4 border-t border-borderSubtle font-mono text-[11px] text-craftGreen font-semibold">
-            Result: World-class craft in days, not months.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- The 4-Stage Co-Creation Process -->
-  <section id="process" class="py-20 border-t border-borderSubtle bg-canvas">
-    <div class="max-w-5xl mx-auto px-5">
-
-      <div class="mb-14">
-        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// COLLABORATIVE WORKFLOW</div>
-        <h2 class="text-2xl sm:text-4xl font-editorial text-ink">How humans and AI build your site side-by-side.</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 font-mono text-xs">
-
-        <!-- Step 1 -->
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-terracotta font-bold text-sm">01</span>
-              <span class="px-2 py-0.5 rounded bg-humanBg text-humanTag text-[10px] font-medium">Human-Led</span>
-            </div>
-            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Discovery &amp; Story</h3>
-            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
-              We talk one-on-one. A human director uncovers your brand values, target audience, and positioning strategy.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
-            AI Role: Competitor scan &amp; structural outline
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-terracotta font-bold text-sm">02</span>
-              <span class="px-2 py-0.5 rounded bg-humanBg text-humanTag text-[10px] font-medium">Human-Led</span>
-            </div>
-            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Bespoke Figma UI</h3>
-            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
-              We design custom layouts, typography, and color systems tailored to your identity. You review and approve in Figma.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
-            AI Role: Layout stress-testing &amp; contrast check
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-terracotta font-bold text-sm">03</span>
-              <span class="px-2 py-0.5 rounded bg-aiBg text-aiTag text-[10px] font-medium">AI-Accelerated</span>
-            </div>
-            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Edge Engineering</h3>
-            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
-              Autonomous coding agents translate approved Figma mockups into zero-bloat Next.js + TypeScript code in days.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
-            Human Role: Architecture review &amp; security check
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="p-6 rounded-xl border border-borderSubtle bg-card shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-terracotta font-bold text-sm">04</span>
-              <span class="px-2 py-0.5 rounded bg-humanBg text-humanTag text-[10px] font-medium">Human Quality</span>
-            </div>
-            <h3 class="font-bold text-ink text-sm mb-1 font-sans">Polish &amp; Launch</h3>
-            <p class="text-stoneMuted text-[11px] font-sans leading-relaxed mt-2">
-              We inspect every page on real phones, connect your domain and SSL, configure your CMS, and index with Google.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-borderSubtle text-[10px] text-stoneDim">
-            AI Role: Automated Lighthouse audits &amp; schema check
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Selected Bespoke Builds (Proof of Craft) -->
-  <section id="work" class="py-20 border-t border-borderSubtle bg-card-subtle/50">
-    <div class="max-w-5xl mx-auto px-5">
-
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
-          <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// SELECTED CASE STUDIES</div>
-          <h2 class="text-2xl sm:text-4xl font-editorial text-ink">Proof of human craft &amp; machine speed.</h2>
-        </div>
-        <div class="text-xs font-mono text-stoneDim">
-          Every project delivered in &lt; 14 days
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Case 1 -->
-        <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden shadow-xs hover:border-borderHighlight transition-all">
-          <div class="h-44 bg-[#F2EDE4] p-5 flex flex-col justify-between border-b border-borderSubtle relative">
-            <span class="text-[11px] font-mono text-stoneDim">Architecture &amp; Design Practice</span>
-            <div class="space-y-1">
-              <span class="font-editorial text-2xl text-ink font-medium">Nordic Form Studio</span>
-              <p class="text-[11px] font-mono text-stoneMuted">Oslo / Copenhagen</p>
-            </div>
-            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-white text-[10px] font-mono text-craftGreen font-medium border border-borderSubtle">
-              0.39s mobile load
-            </div>
+          <h1 class="hero-headline">Official websites for private firms that value clear language and lasting form.</h1>
+          <p class="hero-lede">We write, design, and build company websites from the ground up. You work directly with the principal designer and engineer to establish your firm's voice, set the typography in Figma, and launch a fast, independent site in two weeks.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#inquire">Send a project brief</a>
+            <a class="link-secondary" href="#work">Inspect three recent commissions</a>
           </div>
-          <div class="p-5 space-y-3">
-            <p class="text-xs text-stoneMuted leading-relaxed">
-              <strong>Human:</strong> Minimalist editorial layout honoring tactile architectural models and print typography.<br>
-              <strong>AI:</strong> Instant responsive image processing and edge-cached Next.js delivery.
-            </p>
-            <div class="flex flex-wrap gap-1.5 pt-2 text-[10px] font-mono">
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Figma Custom UI</span>
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">PageSpeed 99</span>
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">8-Day Delivery</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case 2 -->
-        <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden shadow-xs hover:border-borderHighlight transition-all">
-          <div class="h-44 bg-[#EAF0EC] p-5 flex flex-col justify-between border-b border-borderSubtle relative">
-            <span class="text-[11px] font-mono text-stoneDim">Biotech &amp; Preventive Health</span>
-            <div class="space-y-1">
-              <span class="font-editorial text-2xl text-ink font-medium">Verve Bioscience</span>
-              <p class="text-[11px] font-mono text-stoneMuted">Boston / San Francisco</p>
-            </div>
-            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-white text-[10px] font-mono text-craftGreen font-medium border border-borderSubtle">
-              100 SEO &amp; Schema
-            </div>
-          </div>
-          <div class="p-5 space-y-3">
-            <p class="text-xs text-stoneMuted leading-relaxed">
-              <strong>Human:</strong> Nuanced scientific storytelling that establishes deep patient credibility without dry clinical jargon.<br>
-              <strong>AI:</strong> Automated WCAG AAA compliance and medical Schema.org integration.
-            </p>
-            <div class="flex flex-wrap gap-1.5 pt-2 text-[10px] font-mono">
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Medical Schema</span>
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Visual CMS</span>
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">11-Day Delivery</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case 3 -->
-        <div class="rounded-xl border border-borderSubtle bg-card overflow-hidden shadow-xs hover:border-borderHighlight transition-all">
-          <div class="h-44 bg-[#F5EFEA] p-5 flex flex-col justify-between border-b border-borderSubtle relative">
-            <span class="text-[11px] font-mono text-stoneDim">M&amp;A &amp; Strategic Advisory</span>
-            <div class="space-y-1">
-              <span class="font-editorial text-2xl text-ink font-medium">Aura Capital Partners</span>
-              <p class="text-[11px] font-mono text-stoneMuted">Zurich / London</p>
-            </div>
-            <div class="absolute top-4 right-4 px-2 py-0.5 rounded bg-white text-[10px] font-mono text-craftGreen font-medium border border-borderSubtle">
-              Zero Plugin Bloat
-            </div>
-          </div>
-          <div class="p-5 space-y-3">
-            <p class="text-xs text-stoneMuted leading-relaxed">
-              <strong>Human:</strong> Understated luxury aesthetic with deep charcoal ink and custom transactions showcase.<br>
-              <strong>AI:</strong> Sub-second global routing and interactive financial timeline components.
-            </p>
-            <div class="flex flex-wrap gap-1.5 pt-2 text-[10px] font-mono">
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Next.js App Router</span>
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">9-Day Delivery</span>
-              <span class="px-2 py-0.5 rounded bg-card-subtle text-stoneMuted">Private CMS</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- The Studio Ethos: A Human Letter -->
-  <section class="py-20 border-t border-borderSubtle bg-canvas">
-    <div class="max-w-3xl mx-auto px-5">
-
-      <div class="p-8 sm:p-12 rounded-2xl border border-borderHighlight bg-card-warm shadow-sm relative">
-        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-4">// STUDIO MANIFESTO</div>
-        
-        <h3 class="font-editorial text-2xl sm:text-3xl text-ink leading-snug mb-6">
-          "When everyone has access to the same AI models, taste is the only true differentiator."
-        </h3>
-
-        <div class="space-y-4 text-xs sm:text-sm text-stoneMuted leading-relaxed">
-          <p>
-            Pure AI can generate infinite lines of code, but it doesn't have taste. It doesn't know why a delicate serif font makes a medical practice feel dignified, or how subtle whitespace creates authority for an investment advisory.
-          </p>
-          <p>
-            That is why we never treat AI as an autonomous replacement for human thinking. At CogniSphere, our human directors hold the steering wheel: we listen to your story, challenge your positioning, and craft your visual identity in Figma. Then, we unleash agentic AI to build the underlying architecture at superhuman velocity.
-          </p>
-          <p>
-            The result is a website that looks and feels like it was hand-crafted by an elite bespoke design studio—because it was.
-          </p>
-        </div>
-
-        <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-          <div>
-            <div class="font-editorial text-base text-ink font-semibold">Wei Xiong</div>
-            <div class="font-mono text-xs text-stoneDim">Founder &amp; Principal Architect, CogniSphere LLC</div>
-          </div>
-          <div class="hand-annotation text-lg text-terracotta hidden sm:block">
-            Crafted with intention.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Frequently Asked Questions -->
-  <section id="faq" class="py-20 border-t border-borderSubtle bg-card-subtle/50">
-    <div class="max-w-3xl mx-auto px-5">
-
-      <div class="mb-12">
-        <div class="text-xs font-mono font-semibold text-terracotta uppercase tracking-wider mb-2">// CANDID ANSWERS</div>
-        <h2 class="text-2xl sm:text-3xl font-editorial text-ink">Everything you want to know.</h2>
-      </div>
-
-      <div class="space-y-4 font-mono text-xs">
-
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
-          <h4 class="font-bold text-ink text-sm mb-2 font-sans">Will my website look like an AI-generated template?</h4>
-          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
-            Never. That is the exact problem we solve. AI landing pages all suffer from the same clichés: dark glossy neon gradients, generic icons, and vacuous buzzwords. Because our lead designer creates your visual identity from scratch in Figma before any code is generated, your website is 100% unique to your brand.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
-          <h4 class="font-bold text-ink text-sm mb-2 font-sans">What do the humans do versus what the AI does?</h4>
-          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
-            The human team handles creative vision, brand strategy, visual aesthetics, bespoke Figma design, copywriting tone, and final device testing. The AI agents handle boilerplate code generation, responsive CSS compilation, Lighthouse performance optimizations, and Schema markup.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
-          <h4 class="font-bold text-ink text-sm mb-2 font-sans">How fast can you really launch?</h4>
-          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
-            Most projects launch in 7 to 14 business days from kickoff. Traditional agencies take 3 to 5 months because they waste weeks on manual code assembly and internal bureaucracy. By augmenting our workflow with AI, we bypass the slog without cutting creative corners.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
-          <h4 class="font-bold text-ink text-sm mb-2 font-sans">Can I update the text and photos myself after launch?</h4>
-          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
-            Yes. We connect a clean, intuitive visual CMS (Content Management System) where you and your team can edit copy, add case studies, and upload new photography with zero coding knowledge.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl border border-borderSubtle bg-card shadow-xs">
-          <h4 class="font-bold text-ink text-sm mb-2 font-sans">Are there any ongoing plugin or security headaches?</h4>
-          <p class="text-stoneMuted text-xs font-sans leading-relaxed">
-            None. We do not use WordPress or fragile third-party plugins. Your site is compiled into static, pre-rendered Next.js edge assets with no vulnerable database or outdated plugins to patch.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact Section (Human-to-Human Conversation) -->
-  <section id="contact" class="py-20 border-t border-borderSubtle bg-canvas">
-    <div class="max-w-3xl mx-auto px-5">
-
-      <div class="rounded-2xl border border-borderSubtle bg-card p-6 sm:p-10 shadow-sm">
-        <div class="mb-8">
-          <div class="inline-flex items-center space-x-2 px-2.5 py-1 rounded bg-humanBg border border-[#EEDBCA] text-[11px] font-mono text-humanTag font-medium mb-3">
-            <span>●</span>
-            <span>Reviewed directly by human creative directors</span>
-          </div>
-          <h3 class="text-2xl sm:text-3xl font-editorial text-ink mb-2">Let’s build your official website.</h3>
-          <p class="text-xs sm:text-sm text-stoneMuted">
-            Tell us about your business, vision, and timeline. A human director will review your brief and respond with ideas and an estimate within 24 hours.
-          </p>
-        </div>
-
-        <form id="contact-form" class="space-y-4 font-mono text-xs" onsubmit="handleContact(event)">
-          <!-- Project Type Selector -->
-          <div>
-            <label class="block text-ink font-medium mb-2">What are you looking to build?</label>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-              <label class="p-3 rounded-lg border border-borderSubtle bg-card-subtle flex items-center space-x-2 cursor-pointer hover:border-terracotta transition-colors">
-                <input type="radio" name="projectType" value="new" checked class="text-terracotta focus:ring-terracotta">
-                <span class="text-ink">New Website</span>
-              </label>
-              <label class="p-3 rounded-lg border border-borderSubtle bg-card-subtle flex items-center space-x-2 cursor-pointer hover:border-terracotta transition-colors">
-                <input type="radio" name="projectType" value="redesign" class="text-terracotta focus:ring-terracotta">
-                <span class="text-ink">Full Redesign</span>
-              </label>
-              <label class="p-3 rounded-lg border border-borderSubtle bg-card-subtle flex items-center space-x-2 cursor-pointer hover:border-terracotta transition-colors">
-                <input type="radio" name="projectType" value="refresh" class="text-terracotta focus:ring-terracotta">
-                <span class="text-ink">Brand Refresh</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <dl class="hero-facts">
             <div>
-              <label class="block text-ink font-medium mb-1.5">Your Name *</label>
-              <input type="text" required placeholder="e.g. Alex Morgan" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+              <dt>Turnaround</dt>
+              <dd>10 to 14 business days</dd>
             </div>
             <div>
-              <label class="block text-ink font-medium mb-1.5">Work Email *</label>
-              <input type="email" required placeholder="alex@company.com" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-ink font-medium mb-1.5">Company / Project Name</label>
-              <input type="text" placeholder="e.g. Acme Corp" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none transition-all">
+              <dt>Authorship</dt>
+              <dd>Custom Figma &amp; Next.js</dd>
             </div>
             <div>
-              <label class="block text-ink font-medium mb-1.5">Desired Launch Timeline</label>
-              <select class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink focus:border-terracotta focus:bg-card focus:outline-none transition-all">
-                <option>Within 2 weeks (Accelerated)</option>
-                <option>Within 3–4 weeks (Standard)</option>
-                <option>Flexible / Planning ahead</option>
-              </select>
+              <dt>Ownership</dt>
+              <dd>Full source &amp; visual CMS</dd>
             </div>
-          </div>
+          </dl>
+        </div>
 
-          <div>
-            <label class="block text-ink font-medium mb-1.5">Tell us about your business &amp; what you want to achieve</label>
-            <textarea rows="4" placeholder="What does your company do? What do you dislike about your current website? What impression do you want to leave on visitors?" class="w-full px-3.5 py-2.5 rounded-lg bg-card-subtle border border-borderSubtle text-ink placeholder:text-stoneDim focus:border-terracotta focus:bg-card focus:outline-none resize-none transition-all"></textarea>
+        <aside class="dossier" aria-label="Studio specification sheet">
+          <div class="dossier-header">
+            <span class="dossier-title">Standard Commission Specification</span>
+            <span class="dossier-stamp">Edition 2026</span>
           </div>
+          <table class="dossier-table">
+            <tbody>
+              <tr>
+                <th scope="row">Editorial scope</th>
+                <td>Positioning interview, page architecture, and original copywriting</td>
+              </tr>
+              <tr>
+                <th scope="row">Design deliverables</th>
+                <td>Bespoke type system, colour palette, and desktop/mobile Figma proofs</td>
+              </tr>
+              <tr>
+                <th scope="row">Production stack</th>
+                <td>Pre-rendered Next.js, semantic HTML, zero third-party plugin bloat</td>
+              </tr>
+              <tr>
+                <th scope="row">Client autonomy</th>
+                <td>Visual content studio for internal teams to update text, news, and plates</td>
+              </tr>
+              <tr>
+                <th scope="row">Principal sign-off</th>
+                <td>Manual inspection across physical iOS, Android, macOS, and Windows screens</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="dossier-note">Every commission is drafted from a blank sheet for that client alone. We never reuse layouts across firms.</p>
+        </aside>
+      </div>
+    </section>
 
-          <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <button type="submit" class="px-7 py-3 rounded-full bg-terracotta hover:bg-terracotta-hover text-white font-mono font-medium transition-all shadow-sm">
-              Send Brief to Creative Director &rarr;
-            </button>
-            <span class="text-stoneDim text-[11px] font-mono">
-              ✓ Guaranteed reply within 24h
-            </span>
-          </div>
-        </form>
+    <section class="folio" id="work">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-heading">Three recent commissions</h2>
+          <p class="section-lead">Each firm required a distinct editorial posture: an architectural monograph, a clinical publication index, and a discreet advisory record.</p>
+        </div>
 
-        <div id="contact-success" class="hidden mt-4 p-5 rounded-xl bg-craftGreenBg border border-emerald-300 font-mono text-xs text-craftGreen space-y-1">
-          <div class="font-bold text-sm">✓ Brief received with gratitude.</div>
-          <p class="font-sans text-stoneMuted text-xs">Our creative team is reviewing your project. Wei Xiong will follow up personally within 24 hours.</p>
+        <div class="plates">
+          <!-- Commission 1 -->
+          <article class="plate">
+            <div class="plate-meta">
+              <div>
+                <div class="plate-index">
+                  <span>Commission I</span>
+                  <span>Oslo &amp; Copenhagen</span>
+                </div>
+                <h3 class="plate-client">Nordic Form Studio</h3>
+                <p class="plate-summary">An architectural practice of twenty-four architects needed a site that read like a printed monograph rather than a real-estate brochure. We paired daylight photography with measured elevation drawings and a searchable chronological building index.</p>
+              </div>
+              <dl class="plate-specs">
+                <div>
+                  <dt>Discipline</dt>
+                  <dd>Architecture &amp; Timber Engineering</dd>
+                </div>
+                <div>
+                  <dt>Build duration</dt>
+                  <dd>9 business days</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mini-browser" role="img" aria-label="Excerpt from the Nordic Form Studio website layout">
+              <div class="mini-bar">
+                <span class="mini-url">nordicform.no</span>
+                <span>Works Index / 1998–2026</span>
+              </div>
+              <div class="spec-nordic">
+                <div class="spec-nordic-top">
+                  <strong>NORDIC FORM</strong>
+                  <span>Buildings (42) / Essays / Practice</span>
+                </div>
+                <div class="spec-nordic-grid">
+                  <div>
+                    <h4>Lillehammer Timber Archive &amp; Reading Room</h4>
+                    <p>Load-bearing heartwood pine, lime plaster, and north-facing clerestory glazing. Completed autumn 2025 for the municipal collection.</p>
+                  </div>
+                  <div class="spec-nordic-plan">
+                    <strong>Project Record 38</strong>
+                    <div>Gross area: 2,400 m²</div>
+                    <div>Primary material: Østerdalen pine</div>
+                    <div>Status: Occupied, open to public</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Commission 2 -->
+          <article class="plate">
+            <div class="plate-meta">
+              <div>
+                <div class="plate-index">
+                  <span>Commission II</span>
+                  <span>Boston &amp; Basel</span>
+                </div>
+                <h3 class="plate-client">Verve Bioscience</h3>
+                <p class="plate-summary">A preventive cardiology group preparing for Series B diligence needed clinicians, prospective trial participants, and institutional partners to find peer-reviewed data within two clicks, without stock laboratory imagery.</p>
+              </div>
+              <dl class="plate-specs">
+                <div>
+                  <dt>Discipline</dt>
+                  <dd>Cardiovascular Therapeutics</dd>
+                </div>
+                <div>
+                  <dt>Build duration</dt>
+                  <dd>12 business days</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mini-browser" role="img" aria-label="Excerpt from the Verve Bioscience website layout">
+              <div class="mini-bar">
+                <span class="mini-url">vervebioscience.com</span>
+                <span>Clinical Pipeline &amp; Publications</span>
+              </div>
+              <div class="spec-verve">
+                <div class="spec-verve-top">
+                  <span>Verve Bioscience Inc.</span>
+                  <span>Pipeline / Publications / Governance</span>
+                </div>
+                <h4>Lipid-Lowering Investigative Programs</h4>
+                <table class="spec-verve-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Compound</th>
+                      <th scope="col">Target</th>
+                      <th scope="col">Stage</th>
+                      <th scope="col">Lead Paper</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>VRV-104</strong></td>
+                      <td>PCSK9 hepatic pathway</td>
+                      <td>Phase IIb</td>
+                      <td>NEJM, Vol. 392</td>
+                    </tr>
+                    <tr>
+                      <td><strong>VRV-218</strong></td>
+                      <td>ANGPTL3 regulación</td>
+                      <td>Phase I</td>
+                      <td>Lancet Cardiol.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+
+          <!-- Commission 3 -->
+          <article class="plate">
+            <div class="plate-meta">
+              <div>
+                <div class="plate-index">
+                  <span>Commission III</span>
+                  <span>Zurich &amp; London</span>
+                </div>
+                <h3 class="plate-client">Aura Capital Partners</h3>
+                <p class="plate-summary">An independent M&amp;A partnership advising family-owned industrial companies wanted a restrained digital presence: partner biographies, a factual ledger of completed cross-border transactions, and gated investor correspondence.</p>
+              </div>
+              <dl class="plate-specs">
+                <div>
+                  <dt>Discipline</dt>
+                  <dd>Cross-Border M&amp;A Advisory</dd>
+                </div>
+                <div>
+                  <dt>Build duration</dt>
+                  <dd>11 business days</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="mini-browser" role="img" aria-label="Excerpt from the Aura Capital Partners website layout">
+              <div class="mini-bar">
+                <span class="mini-url">auracapital.ch</span>
+                <span>Zurich / London</span>
+              </div>
+              <div class="spec-aura">
+                <div class="spec-aura-top">
+                  <span>AURA CAPITAL PARTNERS AG</span>
+                  <span>Mandates / Partners / Letters</span>
+                </div>
+                <h4>Selected European Industrial Mandates</h4>
+                <div class="spec-aura-deals">
+                  <div>
+                    <strong>CHF 420M</strong>
+                    <span>Precision Hydraulics divestiture to DACH industrial group</span>
+                  </div>
+                  <div>
+                    <strong>EUR 285M</strong>
+                    <span>Majority succession buyout, specialty optical glass</span>
+                  </div>
+                  <div>
+                    <strong>CHF 610M</strong>
+                    <span>Cross-border merger, railway signalling systems</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-12 border-t border-borderSubtle bg-card-subtle/70 font-mono text-xs text-stoneDim">
-    <div class="max-w-5xl mx-auto px-5">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-borderSubtle">
-        <div class="space-y-1">
-          <div class="text-ink font-editorial text-lg font-medium">CogniSphere LLC</div>
-          <div class="text-stoneMuted text-xs font-sans">
-            Crafted with human taste. Engineered with AI velocity.
-          </div>
+    <section class="ledger" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-heading">Why private firms hire a dedicated practice instead of a large agency</h2>
+          <p class="section-lead">Most companies face an unsatisfactory choice between self-serve theme builders that flatten their reputation and traditional retainers that drag on for half a year.</p>
         </div>
-        <div class="flex flex-wrap items-center gap-5 text-xs text-stoneMuted">
-          <a href="#philosophy" class="hover:text-ink transition-colors">Philosophy</a>
-          <a href="#workbench" class="hover:text-ink transition-colors">Workbench</a>
-          <a href="#work" class="hover:text-ink transition-colors">Selected Work</a>
-          <a href="#faq" class="hover:text-ink transition-colors">FAQs</a>
-          <a href="#contact" class="text-terracotta hover:underline">Start a Project</a>
+
+        <div class="compare-wrap">
+          <table class="compare">
+            <caption>Comparison of website commissioning routes</caption>
+            <thead>
+              <tr>
+                <th scope="col">Criterion</th>
+                <th scope="col">Site-Builder Themes</th>
+                <th scope="col">Traditional Retainer Agencies</th>
+                <th scope="col" class="col-studio">CogniSphere LLC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Editorial &amp; visual identity</th>
+                <td>Borrowed layouts shared by thousands of unrelated businesses; generic filler phrasing.</td>
+                <td>High craft, but diluted through layers of junior account managers and committee decks.</td>
+                <td class="col-studio">Written and art-directed by a senior principal specifically for your firm's subject matter.</td>
+              </tr>
+              <tr>
+                <th scope="row">Calendar to launch</th>
+                <td>Days, provided someone inside your firm writes and lays out every page alone.</td>
+                <td>Fourteen to twenty-four weeks of discovery workshops, slide decks, and billing cycles.</td>
+                <td class="col-studio">Ten to fourteen business days from initial interview to live production launch.</td>
+              </tr>
+              <tr>
+                <th scope="row">Codebase &amp; longevity</th>
+                <td>Locked into proprietary platform markup and recurring per-seat subscription tiers.</td>
+                <td>Often handed over as a fragile WordPress installation dependent on twenty third-party plugins.</td>
+                <td class="col-studio">Clean, self-contained Next.js code with a visual editor and zero plugin maintenance.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+    </section>
 
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+    <section class="schedule" id="schedule">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-heading">A two-week production calendar</h2>
+          <p class="section-lead">You review and sign off on the complete written copy and Figma page designs before production engineering begins.</p>
+        </div>
+
+        <div class="calendar">
+          <article class="calendar-stage">
+            <div>
+              <span class="stage-days">Days 1–3</span>
+              <h3>Editorial Interview &amp; Architecture</h3>
+              <p>We speak directly with the founders or managing partners about how clients evaluate the firm, what the existing site obscures, and which proof points matter. We draft the site map and page copy.</p>
+            </div>
+            <div class="stage-deliverable">
+              <strong>Milestone deliverable</strong>
+              Written manuscript &amp; structural wireframe
+            </div>
+          </article>
+
+          <article class="calendar-stage">
+            <div>
+              <span class="stage-days">Days 4–7</span>
+              <h3>Typography, Grid &amp; Figma Proofs</h3>
+              <p>We select typefaces, establish the colour system, and typeset every screen in Figma. You comment directly on the canvas until the layout, rhythm, and details are signed off.</p>
+            </div>
+            <div class="stage-deliverable">
+              <strong>Milestone deliverable</strong>
+              Signed desktop &amp; mobile Figma sheets
+            </div>
+          </article>
+
+          <article class="calendar-stage">
+            <div>
+              <span class="stage-days">Days 8–12</span>
+              <h3>Front-End Construction &amp; CMS</h3>
+              <p>Approved designs are built into a clean, responsive Next.js application with semantic markup, structured metadata, and a visual content studio so your team can edit text and images effortlessly.</p>
+            </div>
+            <div class="stage-deliverable">
+              <strong>Milestone deliverable</strong>
+              Private staging URL &amp; CMS credentials
+            </div>
+          </article>
+
+          <article class="calendar-stage">
+            <div>
+              <span class="stage-days">Days 13–14</span>
+              <h3>Press-Check &amp; Handover</h3>
+              <p>We test typography, contrast, forms, and page speed on physical phones and monitors, configure DNS and SSL certificates, and transfer complete repository ownership to your firm.</p>
+            </div>
+            <div class="stage-deliverable">
+              <strong>Milestone deliverable</strong>
+              Live production launch &amp; source handover
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="correspondence">
+      <div class="container correspondence-grid">
+        <aside class="studio-aside" aria-label="Studio principles">
+          <h3>What we refuse to put on a client's website</h3>
+          <ul class="studio-standards">
+            <li>
+              <strong>No stock photography of handshakes or glass towers</strong>
+              If a firm lacks photography, we build the page around architectural diagrams, primary documents, and strong typography.
+            </li>
+            <li>
+              <strong>No decorative motion that slows reading</strong>
+              Pages open immediately. Nothing hijacks the scroll wheel or forces a visitor to wait for paragraphs to fade in.
+            </li>
+            <li>
+              <strong>No fragile plugin stacks</strong>
+              Your team should never have to worry that a routine plugin update will break the layout before an important meeting.
+            </li>
+          </ul>
+        </aside>
+
+        <article class="letter-paper">
+          <div class="letter-Headline-wrap">
+            <div class="letter-date">A note from the founder</div>
+            <h2 class="letter-headline">A serious company deserves a website with its own point of view.</h2>
+          </div>
+          <div class="letter-body">
+            <p>When a prospective client, clinical partner, or institutional investor looks up your firm, your website is often the first piece of writing and design they judge you by. Yet many accomplished private companies still present themselves through a generic template that looks indistinguishable from their competitors.</p>
+            <p>Good web design is fundamentally an editorial discipline. It requires sitting with a founder, understanding the exact vocabulary of their field, deciding whether the site should read like a monograph, a technical ledger, or a personal letter, and removing every section that does not belong.</p>
+            <p>At CogniSphere, we keep our practice small so that senior judgment stays on the work from the first conversation to the final press-check. You get a website with unmistakable character, built cleanly and delivered on a brisk, predictable schedule.</p>
+          </div>
+          <div class="letter-signoff">
+            <div>
+              <strong>Wei Xiong</strong>
+              <span>Founder &amp; Principal, CogniSphere LLC</span>
+            </div>
+            <span>two commissions accepted per month</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="questions" id="questions">
+      <div class="container questions-grid">
         <div>
-          &copy; 2026 CogniSphere LLC. All rights reserved. Hand-tuned in Zurich &amp; global edge.
+          <h2 class="section-heading">Practical questions</h2>
+          <p class="section-lead" style="margin-top: 1rem;">Straight answers on authorship, timelines, content editing, and post-launch ownership.</p>
         </div>
-        <div class="flex items-center space-x-2">
-          <span class="w-2 h-2 rounded-full bg-craftGreen inline-block"></span>
-          <span class="text-stoneMuted">Studio accepting 2 new projects for this month</span>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              <span>How do you make sure our website does not look like a template?</span>
+              <span class="faq-marker" aria-hidden="true"></span>
+            </summary>
+            <p>We begin every commission with your firm's actual subject matter—your buildings, clinical publications, transaction record, or industrial capabilities—and draw the layout from scratch in Figma before writing a single line of code. We do not use pre-made themes or component kits.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Who writes the text on the site?</span>
+              <span class="faq-marker" aria-hidden="true"></span>
+            </summary>
+            <p>We do, in close collaboration with you. Most projects stall at traditional agencies because the client is asked to supply all the copy in a shared folder. Instead, we interview your partners and draft clear, factual copy as part of the first milestone.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>How is a two-week build possible without cutting corners?</span>
+              <span class="faq-marker" aria-hidden="true"></span>
+            </summary>
+            <p>We take on only two commissions a month and eliminate the bureaucratic overhead of large agencies. You work directly with the principal designer and engineer, decisions happen in real time on the Figma canvas, and our Next.js production architecture is streamlined for corporate sites.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Can our internal team update text and photographs after launch?</span>
+              <span class="faq-marker" aria-hidden="true"></span>
+            </summary>
+            <p>Yes. Every site includes a clean visual content management studio. Your team can edit headlines, body copy, case studies, team biographies, and images without touching code or risking layout shifts.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>What happens after the site goes live?</span>
+              <span class="faq-marker" aria-hidden="true"></span>
+            </summary>
+            <p>Your firm owns the repository, domain configuration, and design files outright. There is no mandatory monthly retainer, and because the site is pre-rendered without a database of third-party plugins, ongoing hosting and maintenance remain minimal.</p>
+          </details>
         </div>
       </div>
+    </section>
+
+    <section class="commission" id="inquire">
+      <div class="container commission-grid">
+        <div class="commission-notes">
+          <h2 class="section-heading">Tell us about your firm</h2>
+          <p class="section-lead">Send a short note about your company and what you need the website to accomplish. Wei Xiong reads every inquiry personally and replies within one business day with initial observations, schedule availability, and a fixed fee quote.</p>
+
+          <div class="direct-box">
+            <h3>What to expect in our first reply</h3>
+            <p>We do not have a sales team and will not put you into an automated follow-up sequence. You will receive a direct written response addressing your current site, recommended scope, and exact dates for a two-week build.</p>
+          </div>
+        </div>
+
+        <div class="form-sheet">
+          <form id="contact-form" action="#inquire" method="POST" onsubmit="handleContact(event)">
+            <fieldset>
+              <legend>Scope of commission</legend>
+              <div class="radio-row">
+                <label class="radio-option">
+                  <input type="radio" name="projectType" value="new" checked>
+                  <span>New official site</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="projectType" value="redesign">
+                  <span>Full redesign</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="projectType" value="editorial">
+                  <span>Identity &amp; copy</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field-pair">
+              <div class="field">
+                <label for="client-name">Your name (required)</label>
+                <input type="text" id="client-name" name="clientName" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="client-email">Work email (required)</label>
+                <input type="email" id="client-email" name="clientEmail" required autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="company-name">Company or partnership name</label>
+              <input type="text" id="company-name" name="companyName" autocomplete="organization">
+            </div>
+
+            <fieldset>
+              <legend>Preferred launch window</legend>
+              <div class="radio-row">
+                <label class="radio-option">
+                  <input type="radio" name="timeline" value="2weeks" checked>
+                  <span>Within 2 weeks</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="timeline" value="month">
+                  <span>Within 30 days</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="timeline" value="quarter">
+                  <span>Next quarter</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="project-brief">Brief notes on the firm and current website</label>
+              <span class="field-hint" id="brief-help">Share your current URL if applicable, who visits the site, and what feels out of step today.</span>
+              <textarea id="project-brief" name="projectBrief" rows="4" aria-describedby="brief-help"></textarea>
+            </div>
+
+            <div class="form-footer">
+              <button class="btn-primary" type="submit">Send inquiry to the studio</button>
+              <span class="field-hint">Direct reply within 1 business day</span>
+            </div>
+          </form>
+
+          <div class="form-Response" id="contact-success" role="status" aria-live="polite">
+            <h3>Inquiry received by the studio.</h3>
+            <p>Thank you for writing. Wei Xiong will review your notes and reply personally within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 CogniSphere LLC. All rights reserved.</div>
+      <div>Independent Digital Design &amp; Engineering Practice</div>
     </div>
   </footer>
 
-  <!-- Interactive Script -->
   <script>
-    function setWorkbenchView(view) {
-      // Toggle tabs
-      ['synergy', 'human', 'ai'].forEach(v => {
-        const btn = document.getElementById('btn-' + v);
-        const panel = document.getElementById('view-' + v);
-        if (v === view) {
-          btn.classList.add('active');
-          panel.classList.remove('hidden');
-        } else {
-          btn.classList.remove('active');
-          panel.classList.add('hidden');
-        }
-      });
-    }
-
-    function handleContact(e) {
-      e.preventDefault();
+    function handleContact(event) {
+      event.preventDefault();
       const form = document.getElementById('contact-form');
       const success = document.getElementById('contact-success');
-      form.classList.add('opacity-40', 'pointer-events-none');
-      setTimeout(() => {
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-      }, 400);
+      form.style.display = 'none';
+      success.style.display = 'block';
     }
   </script>
 </body>
