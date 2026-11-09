@@ -1,6 +1,6 @@
 # CogniSphere LLC — Official Website
 
-Custom company websites written, designed, built, and maintained in two weeks. Multilingual support across English, German, French, Spanish, and Russian.
+Custom company websites written, designed, built, and maintained in one month. Multilingual support across English, German, French, Spanish, and Russian.
 
 ---
 
@@ -8,7 +8,7 @@ Custom company websites written, designed, built, and maintained in two weeks. M
 
 - **Company Name:** CogniSphere LLC
 - **Offering:** Custom official websites for growing companies and professional firms.
-- **Turnaround:** 2 weeks from kickoff call to live deployment.
+- **Turnaround:** 1 month (4 structured weeks) from kickoff call to live deployment.
 - **Multilingual Support:** Instant language switching across **English (`en`)**, **German (`de`)**, **French (`fr`)**, **Spanish (`es`)**, and **Russian (`ru`)**.
 - **Business Model:**
   - **Full Custom Design & Copy:** Tailored Figma layouts and original copywriting for all pages.
@@ -29,11 +29,11 @@ Custom company websites written, designed, built, and maintained in two weeks. M
 
 1. **Header & Navigation:** Brand mark, section anchors (`Why Us`, `Services`, `Projects`, `FAQs`), custom branded language selector, and Contact action button.
 2. **Hero:** Staggered headline (`custom / company / websites`), editorial lead text, and interactive primary CTA.
-3. **Gallery Ribbon:** 5 highlighted studio metrics (2-week turnaround, 100% custom design & copy, 0 templates, managed care & hosting).
+3. **Gallery Ribbon:** 5 highlighted studio metrics (1-month turnaround, 100% custom design & copy, 0 templates, managed care & hosting).
 4. **Manifesto Section:** Clear alternative to fragile site builders and slow, bloated agencies.
-5. **Services Section:** 4 core deliverables (Copywriting, Custom Design, 2-Week Launch, Managed Hosting & Care).
-6. **Delivery Process:** 4 transparent steps from Day 1 to Day 14.
-7. **Selected Projects:** Compact case studies (Nordic Form Studio, Verve Bioscience, Aura Capital Partners).
+5. **Services Section:** 4 core deliverables (Copywriting, Custom Design, 1-Month Launch, Managed Hosting & Care).
+6. **Delivery Process:** 4 transparent steps from Week 1 to Week 4.
+7. **Selected Projects:** Visual case studies with realistic reference mockups (Nordic Form Studio, Verve Bioscience, Aura Capital Partners).
 8. **Practical FAQs:** 6 common questions covering timeline, copywriting, content updates, hosting & maintenance, mobile & SEO, and future multilingual expansion.
 9. **Inquiry & Footer:** Streamlined project brief form and signature sky-blue footer panel.
 
