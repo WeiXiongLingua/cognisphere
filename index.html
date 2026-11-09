@@ -46,6 +46,8 @@
       color: var(--color-sky);
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      overflow-x: clip;
+      max-inline-size: 100%;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -68,11 +70,20 @@
       line-height: 1.35;
       text-align: start;
       overflow-x: clip;
+      max-inline-size: 100%;
       -webkit-font-smoothing: antialiased;
+    }
+
+    main,
+    section,
+    footer {
+      max-inline-size: 100%;
+      overflow-x: clip;
     }
 
     h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote {
       margin: 0;
+      overflow-wrap: anywhere;
     }
 
     [id] {
@@ -278,6 +289,7 @@
       gap: 1rem;
       padding: 1.15rem 1.75rem;
       border-radius: var(--radius-lg);
+      max-inline-size: calc(100% - 1.5rem);
       pointer-events: none;
     }
 
@@ -324,6 +336,7 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(170, 209, 238, 0.2);
       color: var(--color-sky);
+      max-inline-size: 100%;
     }
 
     .header-nav {
@@ -333,13 +346,13 @@
       margin-inline-end: 0.5rem;
     }
 
-    /* Branded Language Select (base-select + fallback) */
-    .lang-select,
-    .lang-select::picker(select) {
-      appearance: base-select;
-    }
-
-    .lang-select {
+    /* Universal Language Picker Pill (100% Cross-Browser & Mobile-Proof) */
+    .lang-picker {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
       font-family: var(--font-mono);
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -348,68 +361,69 @@
       background-color: rgba(48, 48, 26, 0.75);
       border: 1px solid rgba(170, 209, 238, 0.3);
       border-radius: 100vmax;
-      padding: 0.45rem 0.85rem;
+      padding: 0.45rem 0.75rem;
       min-block-size: 2.15rem;
+      white-space: nowrap;
+      flex-shrink: 0;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      white-space: nowrap;
+      transition: background-color 0.25s, border-color 0.25s;
     }
 
-    .lang-select selectedcontent {
-      white-space: nowrap;
-    }
-
-    .lang-select:hover {
+    .lang-picker:hover,
+    .lang-picker:focus-within {
       background-color: var(--color-slate);
       border-color: var(--color-sky);
     }
 
-    .lang-select button {
-      all: unset;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .lang-picker:focus-within {
+      outline: 2px solid var(--color-sky);
+      outline-offset: 2px;
     }
 
     .lang-globe {
       width: 0.85rem;
       height: 0.85rem;
       flex-shrink: 0;
+      pointer-events: none;
     }
 
-    .lang-select::picker(select) {
-      background-color: var(--color-shade);
-      color: var(--color-sky);
-      border: 1px solid rgba(170, 209, 238, 0.35);
-      border-radius: var(--radius-md);
-      padding: 0.35rem;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    .lang-current {
+      font-weight: 500;
+      min-inline-size: 2ch;
+      text-align: center;
+      pointer-events: none;
     }
 
-    .lang-select::picker-icon {
-      color: var(--color-sky);
+    .lang-chevron {
+      width: 0.65rem;
+      height: 0.65rem;
+      flex-shrink: 0;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .lang-select {
+      position: absolute;
+      inset: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      opacity: 0;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 16px; /* Prevents iOS auto-zoom on form control tap */
+      background: transparent;
+      color: transparent;
     }
 
     .lang-select option {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      padding: 0.5rem 0.75rem;
-      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
       color: var(--color-chalk);
       background-color: var(--color-shade);
-      cursor: pointer;
-    }
-
-    .lang-select option:hover,
-    .lang-select option:focus-visible {
-      background-color: var(--color-slate);
-      color: var(--color-sky);
-    }
-
-    .lang-select option::checkmark {
-      color: var(--color-sky);
     }
 
     /* 1. Framed Rounded-Viewport Banner Hero (#about-hero style) */
@@ -445,6 +459,7 @@
       height: 100%;
       object-fit: cover;
       opacity: 0.42;
+      overflow: hidden;
     }
 
     /* Staggered 3-Word Hero Lockup (Signature Dwell About Layout) */
@@ -1047,6 +1062,7 @@
         inset: 0.85rem 1.25rem auto 1.25rem;
         padding: 0;
         gap: 0.5rem;
+        max-inline-size: calc(100% - 2.5rem);
       }
 
       .header-nav {
@@ -1062,7 +1078,7 @@
       .commission-showcase-grid,
       .faq-strip,
       .foo-feature {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .foo-nav-grid {
@@ -1096,14 +1112,15 @@
 
     @media (max-width: 48rem) {
       .site-header {
-        inset: 0.75rem 0.9rem auto 0.9rem;
+        inset: 0.75rem 0.5rem auto 0.5rem;
         padding: 0;
-        gap: 0.35rem;
+        gap: 0.25rem;
+        max-inline-size: calc(100% - 1rem);
       }
 
       .brand-pill {
-        padding: 0.42rem 0.78rem;
-        gap: 0.45rem;
+        padding: 0.4rem 0.65rem;
+        gap: 0.4rem;
       }
 
       .brand-mark {
@@ -1112,28 +1129,24 @@
       }
 
       .brand-wordmark {
-        font-size: 0.96rem;
+        font-size: 0.92rem;
       }
 
       .header-actions {
-        padding: 0.22rem;
-        gap: 0.3rem;
+        padding: 0.2rem 0.35rem;
+        gap: 0.35rem;
       }
 
-      .lang-select {
-        padding: 0.35rem 0.6rem;
+      .lang-picker {
+        padding: 0.35rem 0.55rem;
         min-block-size: 1.95rem;
         font-size: 0.7rem;
-        gap: 0.3rem;
-      }
-
-      .lang-select selectedcontent .lang-full {
-        display: none;
+        gap: 0.25rem;
       }
 
       .header-actions .button {
         min-block-size: 1.95rem;
-        padding: 0.38rem 0.8rem;
+        padding: 0.38rem 0.75rem;
         font-size: 0.7rem;
       }
 
@@ -1147,9 +1160,26 @@
         min-block-size: 40vh;
       }
 
+      /* Stable rem typography prevents mobile vw layout recalculation loop */
       .txt-h1 {
-        font-size: clamp(2.25rem, 11vw, 3.6rem);
+        font-size: 2.35rem;
         line-height: 0.96;
+      }
+
+      .txt-h2l {
+        font-size: 1.55rem;
+      }
+
+      .txt-h2 {
+        font-size: 1.6rem;
+      }
+
+      .txt-h3 {
+        font-size: 1.15rem;
+      }
+
+      .txt-pl {
+        font-size: 0.98rem;
       }
 
       .banner-word-1 {
@@ -1188,12 +1218,17 @@
         padding: 3rem 1.15rem;
       }
 
+      .belief-cutout-bg {
+        inline-size: 11rem;
+        block-size: 11rem;
+      }
+
       .about-belief-content {
         gap: 1.4rem;
       }
 
       .belief-choices {
-        font-size: clamp(1.45rem, 6.2vw, 2.1rem);
+        font-size: 1.55rem;
         gap: 0.35rem 0.55rem;
         line-height: 1.15;
       }
@@ -1211,7 +1246,7 @@
       }
 
       .about-cards-track {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         grid-auto-rows: auto;
         gap: 0.75rem;
       }
@@ -1280,7 +1315,7 @@
       }
 
       .foo-heading {
-        font-size: clamp(2.15rem, 10vw, 3.2rem);
+        font-size: 2.25rem;
         margin-block-end: 0.85rem;
       }
 
@@ -1301,7 +1336,7 @@
       }
 
       .input-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .dwell-input {
@@ -1326,6 +1361,18 @@
       .foo-panel {
         padding: 1.5rem 1.15rem;
         gap: 1.75rem;
+      }
+
+      .foo-giant-brand {
+        font-size: 2.15rem;
+      }
+
+      .gallery-stat-num {
+        font-size: 1.85rem;
+      }
+
+      .gallery-stat-label {
+        font-size: 0.7rem;
       }
 
       .foo-nav {
@@ -1375,23 +1422,24 @@
         <a href="#faqs" class="nav-link" data-i18n="nav_faq">FAQs</a>
       </nav>
 
-      <div>
+      <div class="lang-picker">
+        <svg class="lang-globe" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3">
+          <circle cx="8" cy="8" r="6.2"/>
+          <ellipse cx="8" cy="8" rx="2.8" ry="6.2"/>
+          <line x1="2" y1="6" x2="14" y2="6"/>
+          <line x1="2" y1="10" x2="14" y2="10"/>
+        </svg>
+        <span id="lang-current" class="lang-current">EN</span>
+        <svg class="lang-chevron" aria-hidden="true" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M1 1L5 5L9 1"/>
+        </svg>
         <label for="lang-select" class="visually-hidden" data-i18n="lang_label">Language</label>
         <select id="lang-select" class="lang-select" name="language">
-          <button type="button">
-            <svg class="lang-globe" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3">
-              <circle cx="8" cy="8" r="6.2"/>
-              <ellipse cx="8" cy="8" rx="2.8" ry="6.2"/>
-              <line x1="2" y1="6" x2="14" y2="6"/>
-              <line x1="2" y1="10" x2="14" y2="10"/>
-            </svg>
-            <selectedcontent></selectedcontent>
-          </button>
-          <option value="en" lang="en" selected><span class="lang-code">EN</span><span class="lang-full"> — English</span></option>
-          <option value="de" lang="de"><span class="lang-code">DE</span><span class="lang-full"> — Deutsch</span></option>
-          <option value="fr" lang="fr"><span class="lang-code">FR</span><span class="lang-full"> — Français</span></option>
-          <option value="es" lang="es"><span class="lang-code">ES</span><span class="lang-full"> — Español</span></option>
-          <option value="ru" lang="ru"><span class="lang-code">RU</span><span class="lang-full"> — Русский</span></option>
+          <option value="en" selected>English (EN)</option>
+          <option value="de">Deutsch (DE)</option>
+          <option value="fr">Français (FR)</option>
+          <option value="es">Español (ES)</option>
+          <option value="ru">Русский (RU)</option>
         </select>
       </div>
 
@@ -2353,6 +2401,7 @@
     };
 
     const langSelect = document.getElementById('lang-select');
+    const langCurrent = document.getElementById('lang-current');
     const metaDesc = document.getElementById('meta-description');
     const contactForm = document.getElementById('contact-form');
     const contactSuccess = document.getElementById('contact-success');
@@ -2374,6 +2423,9 @@
 
       if (langSelect && langSelect.value !== lang) {
         langSelect.value = lang;
+      }
+      if (langCurrent) {
+        langCurrent.textContent = lang.toUpperCase();
       }
     }
 
