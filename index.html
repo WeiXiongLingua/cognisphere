@@ -75,6 +75,10 @@
       margin: 0;
     }
 
+    [id] {
+      scroll-margin-block-start: 4.5rem;
+    }
+
     img, svg {
       display: block;
       max-inline-size: 100%;
@@ -165,7 +169,7 @@
       font-family: var(--font-mono);
       text-transform: uppercase;
       font-weight: 400;
-      line-height: 1;
+      line-height: 1.3;
       letter-spacing: 0.04em;
     }
 
@@ -292,12 +296,14 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(170, 209, 238, 0.2);
       color: var(--color-sky);
+      flex-shrink: 0;
     }
 
     .brand-mark {
       width: 1.15rem;
       height: 1.15rem;
       color: var(--color-sky);
+      flex-shrink: 0;
     }
 
     .brand-wordmark {
@@ -348,6 +354,11 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .lang-select selectedcontent {
+      white-space: nowrap;
     }
 
     .lang-select:hover {
@@ -1032,6 +1043,21 @@
     }
 
     @media (max-width: 60rem) {
+      .site-header {
+        inset: 0.85rem 1.25rem auto 1.25rem;
+        padding: 0;
+        gap: 0.5rem;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .header-actions {
+        padding: 0.3rem;
+        gap: 0.4rem;
+      }
+
       .about-cards-layout,
       .commission-showcase-grid,
       .faq-strip,
@@ -1048,24 +1074,283 @@
         position: static;
       }
 
-      .header-nav {
-        display: none;
+      .about-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+        padding-block: 3rem;
+        padding-inline: 1rem;
       }
 
-      .about-gallery {
-        --tile-size: min(26vw, 11rem);
+      .gallery-tile {
+        inline-size: 100%;
+        block-size: auto;
+        aspect-ratio: 1;
+        padding: 1rem;
+      }
+
+      .gallery-tile.is-cutout {
+        display: none;
       }
     }
 
-    @media (max-width: 40rem) {
-      .about-cards-track,
+    @media (max-width: 48rem) {
+      .site-header {
+        inset: 0.75rem 0.9rem auto 0.9rem;
+        padding: 0;
+        gap: 0.35rem;
+      }
+
+      .brand-pill {
+        padding: 0.42rem 0.78rem;
+        gap: 0.45rem;
+      }
+
+      .brand-mark {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .brand-wordmark {
+        font-size: 0.96rem;
+      }
+
+      .header-actions {
+        padding: 0.22rem;
+        gap: 0.3rem;
+      }
+
+      .lang-select {
+        padding: 0.35rem 0.6rem;
+        min-block-size: 1.95rem;
+        font-size: 0.7rem;
+        gap: 0.3rem;
+      }
+
+      .lang-select selectedcontent .lang-full {
+        display: none;
+      }
+
+      .header-actions .button {
+        min-block-size: 1.95rem;
+        padding: 0.38rem 0.8rem;
+        font-size: 0.7rem;
+      }
+
+      .banner-hero {
+        margin: 0.45rem;
+        min-block-size: calc(100svh - 0.9rem);
+        padding: 4.5rem 1.15rem 1.35rem;
+      }
+
+      .banner-stage {
+        min-block-size: 40vh;
+      }
+
+      .txt-h1 {
+        font-size: clamp(2.25rem, 11vw, 3.6rem);
+        line-height: 0.96;
+      }
+
+      .banner-word-1 {
+        padding-inline-start: 0;
+      }
+
+      .banner-word-2 {
+        padding-inline-end: 2%;
+      }
+
+      .banner-word-3 {
+        padding-inline-start: 6%;
+      }
+
+      .banner-bottom {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.15rem;
+        padding-block-start: 1.15rem;
+      }
+
+      .banner-meta-group {
+        inline-size: 100%;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .banner-supporting {
+        font-size: 1.08rem;
+        line-height: 1.32;
+        max-inline-size: 100%;
+      }
+
+      .about-belief {
+        min-block-size: auto;
+        padding: 3rem 1.15rem;
+      }
+
+      .about-belief-content {
+        gap: 1.4rem;
+      }
+
+      .belief-choices {
+        font-size: clamp(1.45rem, 6.2vw, 2.1rem);
+        gap: 0.35rem 0.55rem;
+        line-height: 1.15;
+      }
+
+      .about-cards {
+        padding: 3rem 1rem;
+      }
+
+      .about-cards-layout {
+        gap: 1.75rem;
+      }
+
+      .about-cards-header {
+        gap: 0.85rem;
+      }
+
+      .about-cards-track {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+      }
+
+      .about-card {
+        padding: 1.25rem;
+        gap: 1rem;
+      }
+
+      .about-card-illustration {
+        inline-size: 3.5rem;
+        block-size: 3.5rem;
+        padding: 0.5rem;
+      }
+
+      .about-card-illustration svg {
+        width: 1.65rem;
+        height: 1.65rem;
+      }
+
+      .about-card-illustration .txt-ll {
+        font-size: 0.72rem;
+      }
+
+      .commission-showcase-grid {
+        margin-block-start: 1.75rem;
+        gap: 0.75rem;
+      }
+
+      .commission-card {
+        padding: 1.1rem;
+        gap: 1rem;
+      }
+
+      .commission-preview {
+        aspect-ratio: 16 / 9;
+        padding: 0.9rem;
+      }
+
+      .faq-strip {
+        padding-block-start: 2.75rem;
+        gap: 1.5rem;
+      }
+
+      details.faq-item {
+        padding-block: 0.95rem;
+      }
+
+      details.faq-item summary .txt-h3 {
+        font-size: 1.06rem;
+        line-height: 1.28;
+      }
+
+      .faq-icon {
+        inline-size: 1.75rem;
+        block-size: 1.75rem;
+      }
+
+      .dwell-footer {
+        padding: 0 0.45rem 0.45rem;
+      }
+
+      .foo-feature {
+        padding: 2.75rem 0.55rem;
+        gap: 1.75rem;
+      }
+
+      .foo-heading {
+        font-size: clamp(2.15rem, 10vw, 3.2rem);
+        margin-block-end: 0.85rem;
+      }
+
+      .foo-line-1 {
+        padding-inline-start: 0;
+      }
+
+      .foo-line-2 {
+        padding-inline-start: 6%;
+      }
+
+      .foo-line-3 {
+        padding-inline-start: 14%;
+      }
+
+      .inquiry-card {
+        padding: 1.2rem;
+      }
+
       .input-row {
         grid-template-columns: 1fr;
       }
 
+      .dwell-input {
+        font-size: 1rem;
+        padding: 0.65rem 0.85rem;
+      }
+
+      .form-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+      }
+
+      .form-bar .button {
+        inline-size: 100%;
+      }
+
+      .form-bar .txt-ls {
+        text-align: center;
+      }
+
+      .foo-panel {
+        padding: 1.5rem 1.15rem;
+        gap: 1.75rem;
+      }
+
+      .foo-nav {
+        gap: 0.75rem 1.25rem;
+      }
+
+      .foo-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+        padding-block-start: 1rem;
+        border-block-start: 1px solid rgba(55, 55, 16, 0.14);
+      }
+    }
+
+    @media (max-width: 40rem) {
       .about-gallery {
-        flex-wrap: wrap;
-        --tile-size: 42vw;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+        padding-block: 2rem;
+        padding-inline: 0.75rem;
+      }
+
+      .gallery-tile {
+        padding: 1.1rem;
       }
     }
   </style>
@@ -1102,11 +1387,11 @@
             </svg>
             <selectedcontent></selectedcontent>
           </button>
-          <option value="en" lang="en" selected>EN — English</option>
-          <option value="de" lang="de">DE — Deutsch</option>
-          <option value="fr" lang="fr">FR — Français</option>
-          <option value="es" lang="es">ES — Español</option>
-          <option value="ru" lang="ru">RU — Русский</option>
+          <option value="en" lang="en" selected><span class="lang-code">EN</span><span class="lang-full"> — English</span></option>
+          <option value="de" lang="de"><span class="lang-code">DE</span><span class="lang-full"> — Deutsch</span></option>
+          <option value="fr" lang="fr"><span class="lang-code">FR</span><span class="lang-full"> — Français</span></option>
+          <option value="es" lang="es"><span class="lang-code">ES</span><span class="lang-full"> — Español</span></option>
+          <option value="ru" lang="ru"><span class="lang-code">RU</span><span class="lang-full"> — Русский</span></option>
         </select>
       </div>
 
