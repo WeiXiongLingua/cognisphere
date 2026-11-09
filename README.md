@@ -1,43 +1,41 @@
 # CogniSphere LLC — Official Website
 
-Official company websites written, designed, and engineered for private firms that value clear language and lasting form.
+Custom company websites written, designed, built, and maintained in two weeks. Multilingual support across English, German, French, Spanish, and Russian.
 
 ---
 
-## Positioning & Practice
+## Positioning & Services
 
 - **Company Name:** CogniSphere LLC
-- **Offering:** Bespoke official websites for private companies, partnerships, and specialist practices.
-- **Core Discipline:** Direct principal-led authorship from initial editorial interview to production deployment.
-  - **Editorial & Design Direction:** Positioning interviews, site architecture, original copywriting, bespoke Figma typesetting, and physical-device press checks.
-  - **Production Engineering:** Clean, pre-rendered Next.js architecture, semantic HTML, structured metadata, and a self-contained visual CMS with zero third-party plugin bloat.
-- **Visual System:** Archival Monograph & Drafting Practice (`#F7F7F4` gallery cotton sheet, `#ECEAE3` archival mount board, `#141715` dense carbon ink, `#19382C` studio pine accent, `#9E3422` edition seal, `Literata` optical-size book serif paired with `Archivo` grotesque sans).
+- **Offering:** Custom official websites for growing companies and professional firms.
+- **Turnaround:** 2 weeks from kickoff call to live deployment.
+- **Multilingual Support:** Instant language switching across **English (`en`)**, **German (`de`)**, **French (`fr`)**, **Spanish (`es`)**, and **Russian (`ru`)**.
+- **Business Model:**
+  - **Full Custom Design & Copy:** Tailored Figma layouts and original copywriting for all pages.
+  - **Client Visual Content Editor:** Intuitive visual editor for staff to update text, photos, and news without coding.
+  - **Managed Care & Hosting:** Codebase, high-speed cloud hosting, daily backups, SSL, and security updates handled under an ongoing monthly/annual care plan.
+
+---
+
+## Design System (Dwell-Inspired)
+
+- **Palette:** Dark olive night (`#161605`), deep shade (`#1D1F11`), slate borders (`#30301A`), moss accents (`#5D5D49`), sky blue (`#AAD1EE`), warm chalk (`#F5F4ED`), and stone card tone (`#DAD9D2`).
+- **Typography:** Instrument Serif (editorial headline display), Inter (clean neo-grotesque UI & body), and JetBrains Mono (labels & metadata).
+- **Interactions:** Sliding dual-layer pill buttons, responsive ribbon gallery, split-screen numbered sticky cards, and accessible accordion FAQs.
 
 ---
 
 ## Page Structure
 
-1. **Masthead:** Brand mark (`CogniSphere — Digital Monograph & Web Practice`), section navigation, and direct commission link.
-2. **Hero & Standard Commission Specification:**
-   - Editorial headline and clear summary of the studio's two-week turnaround, custom authorship, and full client ownership.
-   - Structured specification sheet detailing editorial scope, Figma deliverables, production stack, client autonomy, and principal sign-off.
-3. **Selected Commissions (Archive Plates):**
-   - **Nordic Form Studio** (Oslo & Copenhagen — Architecture & Timber Engineering) with an embedded monograph layout excerpt.
-   - **Verve Bioscience** (Boston & Basel — Cardiovascular Therapeutics) with an embedded clinical pipeline table excerpt.
-   - **Aura Capital Partners** (Zurich & London — Cross-Border M&A Advisory) with an embedded mandate ledger excerpt.
-4. **Comparative Ledger:**
-   - Side-by-side comparison of **Site-Builder Themes**, **Traditional Retainer Agencies**, and **CogniSphere LLC** across identity, calendar, and codebase longevity.
-5. **Two-Week Production Schedule:**
-   - **Days 1–3:** Editorial Interview & Architecture
-   - **Days 4–7:** Typography, Grid & Figma Proofs
-   - **Days 8–12:** Front-End Construction & CMS
-   - **Days 13–14:** Press-Check & Handover
-6. **Studio Correspondence:**
-   - Studio standards sidebar paired with a signed letter from founder Wei Xiong.
-7. **Practical Questions (FAQ):**
-   - Straight answers on bespoke design, copywriting, two-week turnaround, visual CMS editing, and full ownership.
-8. **Commission Inquiry Form:**
-   - Accessible inquiry sheet with scope and launch window selectors, direct contact fields, and one-business-day personal reply.
+1. **Header & Navigation:** Brand mark, section anchors (`Why Us`, `Services`, `Projects`, `FAQs`), custom branded language selector, and Contact action button.
+2. **Hero:** Staggered headline (`custom / company / websites`), editorial lead text, and interactive primary CTA.
+3. **Gallery Ribbon:** 5 highlighted studio metrics (2-week turnaround, 100% custom design & copy, 0 templates, managed care & hosting).
+4. **Manifesto Section:** Clear alternative to fragile site builders and slow, bloated agencies.
+5. **Services Section:** 4 core deliverables (Copywriting, Custom Design, 2-Week Launch, Managed Hosting & Care).
+6. **Delivery Process:** 4 transparent steps from Day 1 to Day 14.
+7. **Selected Projects:** Compact case studies (Nordic Form Studio, Verve Bioscience, Aura Capital Partners).
+8. **Practical FAQs:** 6 common questions covering timeline, copywriting, content updates, hosting & maintenance, mobile & SEO, and future multilingual expansion.
+9. **Inquiry & Footer:** Streamlined project brief form and signature sky-blue footer panel.
 
 ---
 

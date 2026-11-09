@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniSphere LLC — Official Websites for Private Companies</title>
-  <meta name="description" content="CogniSphere writes, designs, and builds bespoke official websites for private firms. Original copy, custom typography, and clean engineering delivered in two weeks.">
-  <meta name="theme-color" content="#F7F7F4">
+  <title>CogniSphere — Custom Company Websites in Two Weeks</title>
+  <meta name="description" id="meta-description" content="We write, design, build, and maintain custom websites for companies. Launched in two weeks with full ongoing technical care.">
+  <meta name="theme-color" content="#161605">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Literata:ital,opsz,wdth,wght@0,7..72,87.5..100,300..600;1,7..72,87.5..100,300..500&display=swap&subset=latin,latin-ext,cyrillic" rel="stylesheet">
   <style>
     :root {
-      color-scheme: light;
-      --sheet: #F7F7F4;
-      --mount: #ECEAE3;
-      --mount-deep: #E1DED4;
-      --surface: #FFFFFF;
-      --ink: #141715;
-      --graphite: #454C48;
-      --ash: #68706B;
-      --rule: #CBC8BE;
-      --rule-strong: #727A75;
-      --pine: #19382C;
-      --pine-hover: #11281F;
-      --pine-tint: #E6EFEA;
-      --seal: #9E3422;
+      /* Dwell-inspired color system */
+      --color-sky: #aad1ee;
+      --color-dawn: #badcf7;
+      --color-mist: #c4dcee;
+      --color-cloud: #d1e5f4;
+      --color-stone: #dad9d2;
+      --color-chalk: #f5f4ed;
+      --color-moss: #5d5d49;
+      --color-slate: #30301a;
+      --color-bark: #373710;
+      --color-shade: #1d1f11;
+      --color-night: #161605;
+      --color-fern: #37a46d;
+
+      /* Typography & Fluid unit tokens */
+      --font-serif: "Literata", Georgia, serif;
+      --font-mono: "Fragment Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --o6: cubic-bezier(0.19, 1, 0.22, 1);
+      --io2: cubic-bezier(0.45, 0, 0.55, 1);
+
+      --radius-sm: 0.625rem;
+      --radius-md: 0.875rem;
+      --radius-lg: 1.125rem;
     }
 
     *, *::before, *::after {
@@ -33,6 +42,10 @@
 
     html {
       scroll-behavior: smooth;
+      background-color: var(--color-night);
+      color: var(--color-sky);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -47,808 +60,746 @@
 
     body {
       margin: 0;
-      background-color: var(--sheet);
-      color: var(--ink);
-      font-family: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 1.0625rem;
-      line-height: 1.6;
+      font-family: var(--font-serif);
+      font-weight: 360;
+      font-variation-settings: "wdth" 92;
+      background-color: var(--color-night);
+      color: var(--color-sky);
+      line-height: 1.35;
       text-align: start;
-      text-rendering: optimizeLegibility;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
-    }
-
-    img, svg {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: var(--pine);
-      text-underline-offset: 0.2em;
-      text-decoration-thickness: 1px;
-    }
-
-    a:hover {
-      color: var(--pine-hover);
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--pine);
-      outline-offset: 2px;
     }
 
     h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote {
       margin: 0;
     }
 
-    /* Apply text-wrap: balance only to standalone headings without box backgrounds/borders */
-    .section-heading,
-    .hero-headline,
-    .letter-headline,
-    .compare th {
+    img, svg {
+      display: block;
+      max-inline-size: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 1.25rem;
+      left: 1.25rem;
+      z-index: 100;
+      background-color: var(--color-sky);
+      color: var(--color-night);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      padding: 0.65rem 1.1rem;
+      border-radius: 100vmax;
+    }
+
+    /* Dwell Typographic Scale */
+    .txt-h1 {
+      font-family: var(--font-serif);
+      font-weight: 340;
+      font-size: clamp(2.75rem, 8.2vw, 7.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+    }
+
+    .txt-h2l {
+      font-family: var(--font-serif);
+      font-weight: 340;
+      font-size: clamp(2.2rem, 4.6vw, 4.25rem);
+      line-height: 0.94;
+      letter-spacing: -0.03em;
+    }
+
+    .txt-h2 {
+      font-family: var(--font-serif);
+      font-weight: 350;
+      font-size: clamp(1.75rem, 3vw, 2.9rem);
+      line-height: 1.02;
+      letter-spacing: -0.028em;
       text-wrap: balance;
     }
 
-    p, li, dd {
+    .txt-h3 {
+      font-family: var(--font-serif);
+      font-weight: 370;
+      font-size: clamp(1.18rem, 1.5vw, 1.5rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .txt-pl {
+      font-family: var(--font-serif);
+      font-weight: 360;
+      font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
       text-wrap: pretty;
     }
 
-    section[id] {
-      scroll-margin-top: 4.5rem;
+    .txt-ll,
+    .txt-lm,
+    .txt-ls {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.04em;
     }
 
-    .container {
-      width: min(74rem, calc(100% - 3rem));
-      margin-inline: auto;
+    .txt-ll {
+      font-size: 0.875rem;
     }
 
-    /* Top Masthead */
-    .masthead {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background-color: color-mix(in oklab, var(--sheet) 92%, white 8%);
-      border-bottom: 1px solid var(--ink);
+    .txt-lm {
+      font-size: 0.75rem;
     }
 
-    .masthead-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 4.25rem;
-      gap: 1.5rem;
+    .txt-ls {
+      font-size: 0.6875rem;
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .brand-name {
-      font-family: "Literata", Georgia, serif;
-      font-optical-sizing: auto;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-sub {
-      font-size: 0.82rem;
-      color: var(--graphite);
-      padding-left: 0.75rem;
-      border-left: 1px solid var(--rule);
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-    }
-
-    .site-nav a {
-      color: var(--graphite);
-      text-decoration: none;
-      font-size: 0.9375rem;
-      font-weight: 500;
-    }
-
-    .site-nav a:hover {
-      color: var(--ink);
-    }
-
-    .site-nav .nav-inquire {
-      color: var(--ink);
-      font-weight: 600;
-      padding: 0.45rem 0.9rem;
-      border: 1.5px solid var(--ink);
-      background-color: transparent;
-    }
-
-    .site-nav .nav-inquire:hover {
-      background-color: var(--ink);
-      color: var(--sheet);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 4.5rem 0 5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
-      gap: 3.5rem;
-      align-items: start;
-    }
-
-    .hero-headline {
-      font-family: "Literata", Georgia, serif;
-      font-optical-sizing: auto;
-      font-size: clamp(2.35rem, 1.5rem + 3.2vw, 4rem);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-lede {
-      font-size: 1.1875rem;
-      line-height: 1.6;
-      color: var(--graphite);
-      max-width: 54ch;
-      margin-bottom: 2.25rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem 1.75rem;
-      margin-bottom: 3rem;
-    }
-
-    .btn-primary {
+    /* Dwell Dual-Layer Sliding Pill Button */
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--pine);
-      color: #F7F7F4;
-      font-family: inherit;
-      font-size: 0.95rem;
-      font-weight: 600;
+      gap: 0.5rem;
+      color: var(--color-chalk);
+      background-color: var(--color-bark);
+      border: 1px solid transparent;
+      border-radius: 100vmax;
+      min-block-size: 2.75rem;
+      padding: 0.85rem 1.45rem;
+      cursor: pointer;
       text-decoration: none;
-      padding: 0.85rem 1.5rem;
-      border: 1.5px solid var(--pine);
+      transition: background-color 0.35s var(--io2), color 0.35s var(--io2);
+    }
+
+    .button-sky {
+      background-color: var(--color-sky);
+      color: var(--color-night);
+    }
+
+    .button-glass {
+      background-color: rgba(29, 31, 17, 0.68);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-color: rgba(170, 209, 238, 0.28);
+      color: var(--color-sky);
+    }
+
+    .button-text {
+      position: relative;
+      display: block;
+      overflow: clip;
+      line-height: 1.2;
+    }
+
+    .button-text > span {
+      display: block;
+      transform: translate3d(0, var(--t-y, 0%), 0);
+      transition: transform 0.75s var(--o6);
+    }
+
+    .button-text > span[aria-hidden="true"] {
+      position: absolute;
+      inset: 100% 0 auto 0;
+      user-select: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      :where(a, button):hover .button-text,
+      :where(a, button):focus-visible .button-text {
+        --t-y: -100%;
+      }
+    }
+
+    /* Animated Underline Links */
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      padding-block: 0.25rem;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      block-size: 1px;
+      background-color: currentColor;
+      transform: scaleX(var(--u-s, 0));
+      transform-origin: var(--u-o, right) center;
+      transition: transform 0.75s var(--o6);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        --u-s: 1;
+        --u-o: left;
+      }
+    }
+
+    /* Floating Header inside Hero / Viewport */
+    .site-header {
+      position: fixed;
+      inset: 0.75rem 0.75rem auto 0.75rem;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.75rem;
+      border-radius: var(--radius-lg);
+      pointer-events: none;
+    }
+
+    .site-header > * {
+      pointer-events: auto;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 1rem;
+      border-radius: 100vmax;
+      background-color: rgba(22, 22, 5, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(170, 209, 238, 0.2);
+      color: var(--color-sky);
+    }
+
+    .brand-mark {
+      width: 1.15rem;
+      height: 1.15rem;
+      color: var(--color-sky);
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.4rem 0.5rem 0.4rem 1.15rem;
+      border-radius: 100vmax;
+      background-color: rgba(22, 22, 5, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(170, 209, 238, 0.2);
+      color: var(--color-sky);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      margin-inline-end: 0.5rem;
+    }
+
+    /* Branded Language Select (base-select + fallback) */
+    .lang-select,
+    .lang-select::picker(select) {
+      appearance: base-select;
+    }
+
+    .lang-select {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-sky);
+      background-color: rgba(48, 48, 26, 0.75);
+      border: 1px solid rgba(170, 209, 238, 0.3);
+      border-radius: 100vmax;
+      padding: 0.45rem 0.85rem;
+      min-block-size: 2.15rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .lang-select:hover {
+      background-color: var(--color-slate);
+      border-color: var(--color-sky);
+    }
+
+    .lang-select button {
+      all: unset;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .lang-globe {
+      width: 0.85rem;
+      height: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .lang-select::picker(select) {
+      background-color: var(--color-shade);
+      color: var(--color-sky);
+      border: 1px solid rgba(170, 209, 238, 0.35);
+      border-radius: var(--radius-md);
+      padding: 0.35rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .lang-select::picker-icon {
+      color: var(--color-sky);
+    }
+
+    .lang-select option {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      color: var(--color-chalk);
+      background-color: var(--color-shade);
       cursor: pointer;
     }
 
-    .btn-primary:hover {
-      background-color: var(--pine-hover);
-      border-color: var(--pine-hover);
-      color: #F7F7F4;
+    .lang-select option:hover,
+    .lang-select option:focus-visible {
+      background-color: var(--color-slate);
+      color: var(--color-sky);
     }
 
-    .link-secondary {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 0.25em;
+    .lang-select option::checkmark {
+      color: var(--color-sky);
     }
 
-    .hero-facts {
+    /* 1. Framed Rounded-Viewport Banner Hero (#about-hero style) */
+    .banner-hero {
+      position: relative;
+      isolation: isolate;
+      min-block-size: calc(100dvh - 1.5rem);
+      margin: 0.75rem;
+      border-radius: var(--radius-lg);
+      overflow: clip;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
+      grid-template-rows: 1fr auto;
+      padding: clamp(5.5rem, 9vh, 7.5rem) clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 4vh, 3rem);
+      color: var(--color-sky);
+      background-color: var(--color-shade);
     }
 
-    .hero-facts dt {
-      font-size: 0.82rem;
-      color: var(--ash);
-      margin-bottom: 0.2rem;
+    .banner-background {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: clip;
+      background:
+        radial-gradient(circle at 72% 38%, rgba(170, 209, 238, 0.16) 0%, rgba(170, 209, 238, 0) 52%),
+        radial-gradient(circle at 22% 78%, rgba(55, 164, 109, 0.12) 0%, rgba(22, 22, 5, 0) 48%),
+        linear-gradient(165deg, #1e2314 0%, #161605 62%, #242614 100%);
     }
 
-    .hero-facts dd {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--ink);
-    }
-
-    /* Architectural Dossier / Spec Sheet in Hero */
-    .dossier {
-      background-color: var(--surface);
-      border: 1.5px solid var(--ink);
-      padding: 1.75rem;
-      box-shadow: 8px 8px 0 var(--mount-deep);
-    }
-
-    .dossier-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding-bottom: 0.85rem;
-      border-bottom: 1.5px solid var(--ink);
-      margin-bottom: 1.25rem;
-    }
-
-    .dossier-title {
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: var(--ink);
-    }
-
-    .dossier-stamp {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--seal);
-    }
-
-    .dossier-table {
+    .banner-arch-art {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-
-    .dossier-table th,
-    .dossier-table td {
-      text-align: start;
-      vertical-align: top;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .dossier-table th {
-      color: var(--ash);
-      font-weight: 500;
-      width: 38%;
-      padding-right: 0.75rem;
-    }
-
-    .dossier-table td {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .dossier-note {
-      margin-top: 1.15rem;
-      font-family: "Literata", Georgia, serif;
-      font-style: italic;
-      font-size: 0.92rem;
-      color: var(--graphite);
-      line-height: 1.5;
-    }
-
-    /* Selected Work / Commission Folio */
-    .folio {
-      padding: 5.5rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .section-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-      gap: 2rem;
-      align-items: end;
-      margin-bottom: 3rem;
-    }
-
-    .section-heading {
-      font-family: "Literata", Georgia, serif;
-      font-optical-sizing: auto;
-      font-size: clamp(1.85rem, 1.3rem + 2vw, 2.75rem);
-      font-weight: 500;
-      line-height: 1.14;
-      letter-spacing: -0.02em;
-    }
-
-    .section-lead {
-      color: var(--graphite);
-      font-size: 1.02rem;
-      max-width: 52ch;
-    }
-
-    /* Commission Plate Grid */
-    .plates {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    .plate {
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
-      gap: 2.5rem;
-      background-color: var(--mount);
-      border: 1px solid var(--rule-strong);
-      padding: 2.25rem;
-      align-items: center;
-    }
-
-    .plate-meta {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       height: 100%;
-      gap: 1.5rem;
+      object-fit: cover;
+      opacity: 0.42;
     }
 
-    .plate-index {
+    /* Staggered 3-Word Hero Lockup (Signature Dwell About Layout) */
+    .banner-stage {
+      position: relative;
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--rule-strong);
-      font-size: 0.85rem;
-      color: var(--graphite);
+      flex-direction: column;
+      justify-content: center;
+      min-block-size: 56vh;
+      inline-size: min(100%, 82rem);
+      margin-inline: auto;
     }
 
-    .plate-client {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.65rem;
-      font-weight: 500;
-      margin: 0.75rem 0 0.5rem;
-      color: var(--ink);
-    }
-
-    .plate-summary {
-      color: var(--graphite);
-      font-size: 0.98rem;
-      max-width: 44ch;
-    }
-
-    .plate-specs {
+    .banner-heading {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.85rem;
+      gap: 0.1em;
+      width: 100%;
     }
 
-    .plate-specs dt {
-      color: var(--ash);
+    .banner-word-1 {
+      justify-self: start;
+      padding-inline-start: 4%;
     }
 
-    .plate-specs dd {
-      font-weight: 600;
-      color: var(--ink);
+    .banner-word-2 {
+      justify-self: end;
+      padding-inline-end: 8%;
+      color: var(--color-chalk);
+      font-style: italic;
     }
 
-    /* Miniature Website Specimen inside each Plate */
-    .mini-browser {
-      background-color: var(--surface);
-      border: 1.5px solid var(--ink);
-      overflow: hidden;
+    .banner-word-3 {
+      justify-self: start;
+      padding-inline-start: 16%;
     }
 
-    .mini-bar {
+    .banner-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      inline-size: min(100%, 82rem);
+      margin-inline: auto;
+      padding-block-start: 1.5rem;
+      border-block-start: 1px solid rgba(170, 209, 238, 0.18);
+    }
+
+    .banner-meta-group {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.55rem 0.9rem;
-      background-color: var(--sheet);
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.78rem;
-      color: var(--graphite);
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    .mini-url {
-      font-weight: 500;
-      color: var(--ink);
+    .banner-supporting {
+      max-inline-size: 34ch;
+      color: var(--color-chalk);
     }
 
-    /* Specimen 1: Nordic Form Studio */
-    .spec-nordic {
-      background-color: #F4F1EA;
-      color: #1C1B18;
-      padding: 1.5rem;
-      font-family: "Literata", Georgia, serif;
+    .scroll-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-stone);
     }
 
-    .spec-nordic-top {
+    .scroll-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background-color: var(--color-sky);
+    }
+
+    /* 2. Dwell 5-Tile Geometric & Circular Visual Gallery (#about-gallery) */
+    .about-gallery {
+      --tile-size: min(19.2vw, 16.5rem);
       display: flex;
-      justify-content: space-between;
-      font-family: "Archivo", sans-serif;
-      font-size: 0.75rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #C8C2B4;
-      margin-bottom: 1.25rem;
-    }
-
-    .spec-nordic-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.25rem;
-      align-items: end;
-    }
-
-    .spec-nordic h4 {
-      font-size: 1.35rem;
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-
-    .spec-nordic p {
-      font-family: "Archivo", sans-serif;
-      font-size: 0.8rem;
-      color: #57534A;
-      line-height: 1.45;
-    }
-
-    .spec-nordic-plan {
-      background-color: #E5DFD3;
-      border: 1px solid #B8B0A0;
-      padding: 0.85rem;
-      font-family: "Archivo", sans-serif;
-      font-size: 0.72rem;
-    }
-
-    /* Specimen 2: Verve Bioscience */
-    .spec-verve {
-      background-color: #F6F9F8;
-      color: #132620;
-      padding: 1.5rem;
-    }
-
-    .spec-verve-top {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding-bottom: 0.75rem;
-      border-bottom: 1.5px solid #132620;
-      margin-bottom: 1.1rem;
-    }
-
-    .spec-verve h4 {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 0.85rem;
-    }
-
-    .spec-verve-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.75rem;
-    }
-
-    .spec-verve-table th,
-    .spec-verve-table td {
-      padding: 0.45rem 0.35rem;
-      border-bottom: 1px solid #C6D6D0;
-      text-align: start;
-    }
-
-    .spec-verve-table th {
-      color: #49655C;
-      font-weight: 500;
-    }
-
-    /* Specimen 3: Aura Capital Partners */
-    .spec-aura {
-      background-color: #18222B;
-      color: #EAEEF2;
-      padding: 1.5rem;
-    }
-
-    .spec-aura-top {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      color: #9BA8B5;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #324150;
-      margin-bottom: 1.2rem;
-    }
-
-    .spec-aura h4 {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #FFFFFF;
-      margin-bottom: 0.75rem;
-    }
-
-    .spec-aura-deals {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+      align-items: center;
       gap: 0.75rem;
-      border-top: 1px solid #324150;
-      padding-top: 0.85rem;
-      font-size: 0.74rem;
+      padding-block: clamp(3.5rem, 8vh, 6.5rem);
+      padding-inline: 1rem;
+      overflow: clip;
     }
 
-    .spec-aura-deals strong {
-      display: block;
-      color: #FFFFFF;
-      font-size: 0.82rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .spec-aura-deals span {
-      color: #9BA8B5;
-    }
-
-    /* Comparative Ledger Section */
-    .ledger {
-      padding: 5.5rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .compare-wrap {
-      overflow-x: auto;
-      margin-top: 2.5rem;
-      border: 1.5px solid var(--ink);
-      background-color: var(--surface);
-    }
-
-    table.compare {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-
-    .compare caption {
-      text-align: start;
-      padding: 1.1rem 1.5rem;
-      background-color: var(--mount);
-      border-bottom: 1.5px solid var(--ink);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .compare th,
-    .compare td {
-      text-align: start;
-      vertical-align: top;
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .compare thead th {
-      background-color: var(--sheet);
-      font-weight: 700;
-      color: var(--ink);
-      border-bottom: 1.5px solid var(--ink);
-    }
-
-    .compare tbody th {
-      font-weight: 600;
-      width: 20%;
-      color: var(--ink);
-      background-color: var(--sheet);
-      border-right: 1px solid var(--rule);
-    }
-
-    .compare td {
-      color: var(--graphite);
-      width: 26.6%;
-    }
-
-    .compare td.col-studio {
-      background-color: var(--pine-tint);
-      color: var(--ink);
-      font-weight: 500;
-      border-left: 1.5px solid var(--pine);
-    }
-
-    .compare thead th.col-studio {
-      background-color: var(--pine);
-      color: #F7F7F4;
-      border-left: 1.5px solid var(--pine);
-    }
-
-    /* Two-Week Production Schedule */
-    .schedule {
-      padding: 5.5rem 0;
-      background-color: var(--mount);
-      border-bottom: 1px solid var(--rule-strong);
-    }
-
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      border: 1.5px solid var(--ink);
-      background-color: var(--surface);
-      margin-top: 2.5rem;
-    }
-
-    .calendar-stage {
-      padding: 1.75rem;
+    .gallery-tile {
+      position: relative;
+      flex: 0 0 var(--tile-size);
+      inline-size: var(--tile-size);
+      block-size: var(--tile-size);
+      overflow: clip;
+      background-color: var(--color-shade);
+      border: 1px solid rgba(170, 209, 238, 0.16);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 1.5rem;
+      padding: 1.25rem;
     }
 
-    .calendar-stage + .calendar-stage {
-      border-left: 1px solid var(--rule-strong);
+    .gallery-tile.is-circle {
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .stage-days {
-      display: inline-block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--pine);
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--pine);
-      margin-bottom: 1rem;
+    .gallery-tile.is-rounded {
+      border-radius: var(--radius-lg);
     }
 
-    .calendar-stage h3 {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 0.65rem;
-      color: var(--ink);
+    .gallery-tile.is-cutout {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      color: var(--color-sky);
     }
 
-    .calendar-stage p {
-      font-size: 0.94rem;
-      color: var(--graphite);
-      line-height: 1.55;
+    .gallery-stat-num {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
+      font-weight: 340;
+      line-height: 0.95;
+      color: var(--color-chalk);
     }
 
-    .stage-deliverable {
-      font-size: 0.82rem;
-      color: var(--ink);
-      padding-top: 0.85rem;
-      border-top: 1px solid var(--rule);
+    .gallery-stat-label {
+      margin-block-start: 0.35rem;
+      color: var(--color-sky);
     }
 
-    .stage-deliverable strong {
-      display: block;
-      color: var(--ash);
-      font-weight: 500;
-      margin-bottom: 0.15rem;
-    }
-
-    /* Studio Correspondence / Letter */
-    .correspondence {
-      padding: 5.5rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .correspondence-grid {
+    /* 3. Centered Manifesto Section (#about-belief) */
+    .about-belief {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-      gap: 4rem;
+      place-items: center;
+      text-align: center;
+      min-block-size: 72vh;
+      padding: clamp(4.5rem, 10vh, 8rem) 1.5rem;
+      isolation: isolate;
+    }
+
+    .belief-cutout-bg {
+      position: absolute;
+      z-index: -1;
+      inline-size: min(38vw, 22rem);
+      aspect-ratio: 1;
+      color: var(--color-slate);
+      opacity: 0.32;
+      pointer-events: none;
+    }
+
+    .about-belief-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.25rem;
+      inline-size: min(100%, 58rem);
+    }
+
+    .belief-choices {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      color: var(--color-chalk);
+    }
+
+    .belief-choices em {
+      font-style: italic;
+      color: var(--color-sky);
+    }
+
+    /* 4. Dwell Sticky Split-Screen Cards (#about-benefits & #about-impact) */
+    .about-cards {
+      position: relative;
+      padding: clamp(4.5rem, 9vh, 7rem) clamp(1.25rem, 3.5vw, 3rem);
+    }
+
+    .about-cards-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
       align-items: start;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      max-inline-size: 74rem;
+      margin-inline: auto;
     }
 
-    .studio-aside {
-      background-color: var(--mount);
-      border: 1px solid var(--rule-strong);
-      padding: 1.75rem;
+    .about-cards-header {
+      position: sticky;
+      top: 6rem;
+      display: grid;
+      gap: 1.25rem;
     }
 
-    .studio-aside h3 {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      padding-bottom: 0.65rem;
-      border-bottom: 1px solid var(--rule-strong);
-    }
-
-    .studio-standards {
+    .about-cards-track {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: minmax(19.5rem, auto);
+      gap: 0.85rem;
       list-style: none;
       padding: 0;
+      margin: 0;
+    }
+
+    .about-card {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      font-size: 0.92rem;
-      color: var(--graphite);
+      justify-content: space-between;
+      gap: 1.75rem;
+      padding: 1.85rem;
+      border-radius: var(--radius-md);
+      background-color: var(--color-shade);
+      border: 1px solid rgba(170, 209, 238, 0.12);
+      overflow: clip;
+      transition: transform 0.45s var(--o6), border-color 0.45s var(--o6);
     }
 
-    .studio-standards strong {
-      color: var(--ink);
-      display: block;
+    @media (hover: hover) and (pointer: fine) {
+      .about-card:hover {
+        transform: translate3d(0, -4px, 0);
+        border-color: rgba(170, 209, 238, 0.35);
+      }
     }
 
-    .letter-paper {
-      background-color: var(--surface);
-      border: 1px solid var(--rule-strong);
-      padding: 2.75rem 3rem;
-    }
-
-    .letter-Headline-wrap {
-      margin-bottom: 1.5rem;
-    }
-
-    .letter-headline {
-      font-family: "Literata", Georgia, serif;
-      font-optical-sizing: auto;
-      font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-top: 0.35rem;
-    }
-
-    .letter-date {
-      font-size: 0.85rem;
-      color: var(--ash);
-    }
-
-    .letter-body {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.0625rem;
-      line-height: 1.75;
-      color: var(--graphite);
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-    }
-
-    .letter-body p {
-      max-width: 62ch;
-    }
-
-    .letter-signoff {
-      margin-top: 2.25rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--rule);
+    .about-card-top {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
+      align-items: flex-start;
       gap: 1rem;
     }
 
-    .letter-signoff strong {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      display: block;
-    }
-
-    .letter-signoff span {
-      font-size: 0.88rem;
-      color: var(--ash);
-    }
-
-    /* Questions Section */
-    .questions {
-      padding: 5.5rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .questions-grid {
+    .about-card-illustration {
+      inline-size: 6.75rem;
+      block-size: 6.75rem;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-slate);
       display: grid;
-      grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
-      gap: 3.5rem;
+      place-items: center;
+      padding: 0.85rem;
+      flex: none;
+    }
+
+    .about-card-number {
+      color: var(--color-moss);
+    }
+
+    .about-card-copy {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .about-card-copy h3 {
+      color: var(--color-chalk);
+    }
+
+    .about-card-description {
+      color: var(--color-stone);
+    }
+
+    /* 5. Light Chalk Theme Section (#about-impact / Commissions & Process) */
+    .theme-chalk {
+      background-color: var(--color-chalk);
+      color: var(--color-bark);
+      border-top-left-radius: var(--radius-lg);
+      border-top-right-radius: var(--radius-lg);
+    }
+
+    .theme-chalk .about-card {
+      background-color: var(--color-stone);
+      border-color: rgba(55, 55, 16, 0.12);
+    }
+
+    .theme-chalk .about-card-copy h3 {
+      color: var(--color-bark);
+    }
+
+    .theme-chalk .about-card-description,
+    .theme-chalk .about-card-number {
+      color: var(--color-moss);
+    }
+
+    .theme-chalk .about-card-illustration {
+      background-color: var(--color-chalk);
+      border: 1px solid rgba(55, 55, 16, 0.12);
+    }
+
+    /* Commission Showcase Cards in Chalk Section */
+    .commission-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      max-inline-size: 74rem;
+      margin-inline: auto;
+      margin-block-start: 2.25rem;
+    }
+
+    .commission-card {
+      background-color: var(--color-stone);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .commission-preview {
+      aspect-ratio: 16 / 10;
+      border-radius: var(--radius-sm);
+      overflow: clip;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .preview-nordic {
+      background: linear-gradient(145deg, #e5dfd3, #d5cbb8);
+      color: #1c1b18;
+    }
+
+    .preview-verve {
+      background: linear-gradient(145deg, #d1e5f4, #badcf7);
+      color: #161605;
+    }
+
+    .preview-aura {
+      background: linear-gradient(145deg, #1d1f11, #30301a);
+      color: #f5f4ed;
+    }
+
+    .commission-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      color: var(--color-moss);
+    }
+
+    /* Minimalist FAQ Strip in Chalk Section */
+    .faq-strip {
+      max-inline-size: 74rem;
+      margin-inline: auto;
+      padding-block-start: 4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
       align-items: start;
     }
 
-    .faq-list {
-      border-top: 1.5px solid var(--ink);
+    .faq-accordion {
+      border-block-start: 1px solid rgba(55, 55, 16, 0.2);
     }
 
     details.faq-item {
-      border-bottom: 1px solid var(--rule-strong);
-      padding: 1.25rem 0;
+      border-block-end: 1px solid rgba(55, 55, 16, 0.2);
+      padding-block: 1.1rem;
     }
 
     details.faq-item summary {
       cursor: pointer;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--ink);
       list-style: none;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
       gap: 1rem;
     }
 
@@ -856,803 +807,1303 @@
       display: none;
     }
 
-    .faq-marker {
+    .faq-icon {
+      inline-size: 2rem;
+      block-size: 2rem;
+      border-radius: 50%;
+      border: 1px solid rgba(55, 55, 16, 0.25);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--pine);
       flex-shrink: 0;
     }
 
-    details.faq-item[open] .faq-marker::before {
-      content: "Close";
+    details.faq-item[open] .faq-icon::before {
+      content: "−";
     }
 
-    details.faq-item:not([open]) .faq-marker::before {
-      content: "Read";
+    details.faq-item:not([open]) .faq-icon::before {
+      content: "+";
     }
 
     details.faq-item p {
-      margin-top: 0.85rem;
-      color: var(--graphite);
-      font-size: 0.98rem;
-      max-width: 60ch;
-      line-height: 1.65;
+      margin-block-start: 0.75rem;
+      color: var(--color-moss);
+      max-inline-size: 54ch;
     }
 
-    /* Commission Inquiry Form */
-    .commission {
-      padding: 5.5rem 0;
-      background-color: var(--mount);
+    /* 6. Signature Dwell Footer & Inquiry Feature (#foo) */
+    .dwell-footer {
+      background-color: var(--color-chalk);
+      color: var(--color-bark);
+      padding: 0 0.75rem 0.75rem;
     }
 
-    .commission-grid {
+    .foo-feature {
       display: grid;
-      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .commission-notes {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .direct-box {
-      background-color: var(--surface);
-      border: 1px solid var(--rule-strong);
-      padding: 1.5rem;
-      font-size: 0.92rem;
-    }
-
-    .direct-box h3 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .direct-box p {
-      color: var(--graphite);
-      margin-bottom: 0.75rem;
-    }
-
-    .form-sheet {
-      background-color: var(--surface);
-      border: 1.5px solid var(--ink);
-      padding: 2.5rem;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    fieldset {
-      border: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    legend {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--ink);
-      margin-bottom: 0.55rem;
-      padding: 0;
-    }
-
-    .radio-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.65rem;
-    }
-
-    .radio-option {
-      display: flex;
+      grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
       align-items: center;
-      gap: 0.55rem;
-      padding: 0.7rem 0.85rem;
-      border: 1.5px solid var(--rule-strong);
-      background-color: var(--sheet);
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--ink);
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      max-inline-size: 74rem;
+      margin-inline: auto;
+      padding: clamp(4rem, 9vh, 6.5rem) clamp(0.5rem, 2vw, 1.5rem);
     }
 
-    .radio-option:has(input:checked) {
-      border-color: var(--pine);
-      background-color: var(--pine-tint);
-      font-weight: 600;
+    .foo-heading {
+      font-family: var(--font-serif);
+      font-weight: 340;
+      font-size: clamp(2.75rem, 6.2vw, 5.6rem);
+      line-height: 0.86;
+      letter-spacing: -0.035em;
+      display: grid;
+      gap: 0.08em;
+      margin-block-end: 1.75rem;
     }
 
-    .radio-option input[type="radio"] {
-      width: 1rem;
-      height: 1rem;
+    .foo-line-1 {
+      padding-inline-start: 10%;
+    }
+
+    .foo-line-2 {
+      font-style: italic;
+    }
+
+    .foo-line-3 {
+      padding-inline-start: 22%;
+    }
+
+    /* Streamlined Commission Card */
+    .inquiry-card {
+      background-color: var(--color-stone);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .inquiry-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pill-radios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border: 0;
+      padding: 0;
       margin: 0;
-      accent-color: var(--pine);
     }
 
-    .field-pair {
+    .pill-radio {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 0.95rem;
+      border-radius: 100vmax;
+      background-color: var(--color-chalk);
+      border: 1px solid rgba(55, 55, 16, 0.2);
+      cursor: pointer;
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    .pill-radio input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .pill-radio:has(input:checked) {
+      background-color: var(--color-bark);
+      color: var(--color-chalk);
+      border-color: var(--color-bark);
+    }
+
+    .pill-radio:has(input:focus-visible) {
+      outline: 2px solid var(--color-bark);
+      outline-offset: 2px;
+    }
+
+    .input-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      gap: 0.75rem;
     }
 
-    .field {
-      display: flex;
-      flex-direction: column;
+    .field-group {
+      display: grid;
       gap: 0.35rem;
     }
 
-    .field label {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--ink);
-    }
-
-    .field-hint {
-      font-size: 0.82rem;
-      color: var(--ash);
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
+    .dwell-input {
       font: inherit;
-      font-size: 0.98rem;
-      color: var(--ink);
-      background-color: var(--surface);
-      border: 1.5px solid var(--rule-strong);
-      padding: 0.7rem 0.85rem;
-      width: 100%;
-      border-radius: 0;
+      font-size: 0.95rem;
+      color: var(--color-bark);
+      background-color: var(--color-chalk);
+      border: 1px solid rgba(55, 55, 16, 0.22);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      inline-size: 100%;
     }
 
-    textarea {
+    textarea.dwell-input {
       resize: vertical;
-      min-height: 7.5rem;
+      min-block-size: 4.5rem;
     }
 
-    input[type="text"]:focus-visible,
-    input[type="email"]:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid var(--pine);
-      outline-offset: 1px;
-      border-color: var(--pine);
-    }
-
-    .form-footer {
+    .form-bar {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding-top: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-block-start: 0.25rem;
     }
 
-    .form-Response {
+    .inquiry-success {
       display: none;
       padding: 1.5rem;
-      background-color: var(--pine-tint);
-      border: 1.5px solid var(--pine);
-      color: var(--ink);
+      border-radius: var(--radius-md);
+      background-color: var(--color-chalk);
+      color: var(--color-bark);
     }
 
-    .form-Response h3 {
-      font-family: "Literata", Georgia, serif;
-      font-size: 1.25rem;
-      margin-bottom: 0.4rem;
+    /* Dwell Sky-Blue Rounded Footer Panel (#foo-panel) */
+    .foo-panel {
+      background-color: var(--color-sky);
+      color: var(--color-bark);
+      border-radius: var(--radius-lg);
+      padding: clamp(2.25rem, 5vw, 4rem);
+      display: grid;
+      gap: clamp(2.5rem, 6vh, 4.5rem);
     }
 
-    /* Footer */
-    .site-footer {
-      border-top: 1.5px solid var(--ink);
-      padding: 2.25rem 0;
-      font-size: 0.88rem;
-      color: var(--graphite);
-      background-color: var(--sheet);
+    .foo-nav-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .footer-inner {
+    .foo-giant-brand {
+      font-family: var(--font-serif);
+      font-size: clamp(2.25rem, 4.5vw, 4rem);
+      font-weight: 340;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
+    }
+
+    .foo-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(1rem, 2.5vw, 2.25rem);
+    }
+
+    .foo-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
+      padding-block-start: 1.25rem;
+      color: var(--color-bark);
     }
 
-    @media (max-width: 62rem) {
-      .hero-grid,
-      .section-header,
-      .plate,
-      .calendar,
-      .correspondence-grid,
-      .questions-grid,
-      .commission-grid {
+    /* Progressive Scroll-Driven Reveal */
+    @media (prefers-reduced-motion: no-preference) {
+      @supports ((animation-timeline: view()) and (animation-range: entry)) {
+        @keyframes card-rise {
+          from {
+            opacity: 0.25;
+            transform: translate3d(0, 28px, 0) scale(0.97);
+          }
+          to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+        }
+
+        .about-card,
+        .commission-card {
+          animation: card-rise auto linear backwards;
+          animation-timeline: view();
+          animation-range: entry 5% cover 28%;
+        }
+      }
+    }
+
+    @media (max-width: 60rem) {
+      .about-cards-layout,
+      .commission-showcase-grid,
+      .faq-strip,
+      .foo-feature {
         grid-template-columns: 1fr;
       }
 
-      .calendar-stage + .calendar-stage {
-        border-left: 0;
-        border-top: 1px solid var(--rule-strong);
-      }
-
-      .letter-paper,
-      .form-sheet {
-        padding: 1.75rem;
-      }
-    }
-
-    @media (max-width: 42rem) {
-      .masthead-inner {
+      .foo-nav-grid {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0.85rem 0;
-        gap: 0.75rem;
       }
 
-      .site-nav {
-        flex-wrap: wrap;
-        gap: 0.75rem 1.25rem;
+      .about-cards-header {
+        position: static;
       }
 
-      .hero-facts,
-      .field-pair,
-      .radio-row,
-      .spec-nordic-grid,
-      .spec-aura-deals {
+      .header-nav {
+        display: none;
+      }
+
+      .about-gallery {
+        --tile-size: min(26vw, 11rem);
+      }
+    }
+
+    @media (max-width: 40rem) {
+      .about-cards-track,
+      .input-row {
         grid-template-columns: 1fr;
+      }
+
+      .about-gallery {
+        flex-wrap: wrap;
+        --tile-size: 42vw;
       }
     }
   </style>
 </head>
 <body>
-  <header class="masthead">
-    <div class="container masthead-inner">
-      <a class="brand" href="#">
-        <span class="brand-name">CogniSphere</span>
-        <span class="brand-sub">Digital Monograph &amp; Web Practice</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#work">Selected Work</a>
-        <a href="#comparison">Standards</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#questions">FAQ</a>
-        <a class="nav-inquire" href="#inquire">Commission a Site</a>
+  <a href="#page-heading" class="skip-link visually-hidden" data-i18n="skip_link">Skip to content</a>
+
+  <!-- Floating Glass Header -->
+  <header class="site-header">
+    <a href="#" class="brand-pill">
+      <svg class="brand-mark" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C9.5 2 7.5 4 7.5 6.5C5 6.5 3 8.5 3 11C3 13.5 5 15.5 7.5 15.5C7.5 18 9.5 20 12 20C14.5 20 16.5 18 16.5 15.5C19 15.5 21 13.5 21 11C21 8.5 19 6.5 16.5 6.5C16.5 4 14.5 2 12 2ZM12 8.5C13.38 8.5 14.5 9.62 14.5 11C14.5 12.38 13.38 13.5 12 13.5C10.62 13.5 9.5 12.38 9.5 11C9.5 9.62 10.62 8.5 12 8.5Z"/>
+      </svg>
+      <span class="brand-wordmark">CogniSphere</span>
+    </a>
+
+    <div class="header-actions">
+      <nav class="header-nav txt-lm" aria-label="Primary">
+        <a href="#belief" class="nav-link" data-i18n="nav_belief">Why Us</a>
+        <a href="#benefits" class="nav-link" data-i18n="nav_benefits">Services</a>
+        <a href="#work" class="nav-link" data-i18n="nav_work">Projects</a>
+        <a href="#faqs" class="nav-link" data-i18n="nav_faq">FAQs</a>
       </nav>
+
+      <div>
+        <label for="lang-select" class="visually-hidden" data-i18n="lang_label">Language</label>
+        <select id="lang-select" class="lang-select" name="language">
+          <button type="button">
+            <svg class="lang-globe" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3">
+              <circle cx="8" cy="8" r="6.2"/>
+              <ellipse cx="8" cy="8" rx="2.8" ry="6.2"/>
+              <line x1="2" y1="6" x2="14" y2="6"/>
+              <line x1="2" y1="10" x2="14" y2="10"/>
+            </svg>
+            <selectedcontent></selectedcontent>
+          </button>
+          <option value="en" lang="en" selected>EN — English</option>
+          <option value="de" lang="de">DE — Deutsch</option>
+          <option value="fr" lang="fr">FR — Français</option>
+          <option value="es" lang="es">ES — Español</option>
+          <option value="ru" lang="ru">RU — Русский</option>
+        </select>
+      </div>
+
+      <a href="#inquire" class="button button-sky txt-lm">
+        <span class="button-text">
+          <span data-i18n="nav_cta">Contact</span>
+          <span aria-hidden="true" data-i18n="nav_cta">Contact</span>
+        </span>
+      </a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1 class="hero-headline">Official websites for private firms that value clear language and lasting form.</h1>
-          <p class="hero-lede">We write, design, and build company websites from the ground up. You work directly with the principal designer and engineer to establish your firm's voice, set the typography in Figma, and launch a fast, independent site in two weeks.</p>
-          <div class="hero-actions">
-            <a class="btn-primary" href="#inquire">Send a project brief</a>
-            <a class="link-secondary" href="#work">Inspect three recent commissions</a>
+    <!-- 1. Dwell-Style Rounded Viewport Hero -->
+    <section class="banner-hero" aria-labelledby="page-heading">
+      <div class="banner-background" aria-hidden="true">
+        <svg class="banner-arch-art" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice">
+          <circle cx="1060" cy="340" r="280" stroke="#aad1ee" stroke-opacity="0.16" stroke-width="1.5"/>
+          <circle cx="1060" cy="340" r="190" stroke="#badcf7" stroke-opacity="0.12" stroke-width="1"/>
+          <path d="M180 760 C 420 520, 780 540, 1290 220" stroke="#aad1ee" stroke-opacity="0.18" stroke-width="1.5"/>
+          <rect x="140" y="160" width="1160" height="580" rx="24" stroke="#dad9d2" stroke-opacity="0.08"/>
+        </svg>
+      </div>
+
+      <div class="banner-stage">
+        <h1 id="page-heading" class="banner-heading txt-h1" tabindex="-1">
+          <span class="banner-word-1" data-i18n="hero_w1">custom</span>
+          <span class="banner-word-2" data-i18n="hero_w2">company</span>
+          <span class="banner-word-3" data-i18n="hero_w3">websites</span>
+        </h1>
+      </div>
+
+      <div class="banner-bottom">
+        <div class="banner-meta-group">
+          <a href="#belief" class="button button-glass txt-lm">
+            <span class="button-text">
+              <span data-i18n="hero_pill">Why CogniSphere</span>
+              <span aria-hidden="true" data-i18n="hero_pill">Why CogniSphere</span>
+            </span>
+          </a>
+          <p class="scroll-cue txt-lm">
+            <span class="scroll-dot" aria-hidden="true"></span>
+            <span data-i18n="hero_scroll">Scroll</span>
+          </p>
+        </div>
+
+        <p class="banner-supporting txt-h3" data-i18n="hero_sub">
+          We write, design, build, and maintain official websites for companies—ready in two weeks.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Dwell 5-Tile Visual Gallery Strip -->
+    <div class="about-gallery" aria-label="Studio highlights">
+      <div class="gallery-tile is-circle">
+        <div class="gallery-stat-num">14</div>
+        <div class="gallery-stat-label txt-lm" data-i18n="gal_1">Days to launch</div>
+      </div>
+
+      <div class="gallery-tile is-cutout" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="currentColor">
+          <path d="M100 12C122 12 140 30 140 52C162 52 180 70 180 92C180 114 162 132 140 132C140 154 122 172 100 172C78 172 60 154 60 132C38 132 20 114 20 92C20 70 38 52 60 52C60 30 78 12 100 12Z" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <div class="gallery-tile is-rounded">
+        <span class="txt-ls" style="color: var(--color-moss);" data-i18n="gal_2_top">DESIGN + COPY</span>
+        <svg aria-hidden="true" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="6" y="10" width="46" height="40" rx="4"/>
+          <rect x="60" y="10" width="54" height="18" rx="4"/>
+          <rect x="60" y="34" width="54" height="16" rx="4"/>
+        </svg>
+        <span class="txt-lm" style="color: var(--color-chalk);" data-i18n="gal_2">100% Custom</span>
+      </div>
+
+      <div class="gallery-tile is-circle">
+        <div class="gallery-stat-num">0</div>
+        <div class="gallery-stat-label txt-lm" data-i18n="gal_3">Templates</div>
+      </div>
+
+      <div class="gallery-tile is-rounded">
+        <span class="txt-ls" style="color: var(--color-moss);" data-i18n="gal_4_top">CARE &amp; HOSTING</span>
+        <div class="gallery-stat-num" style="font-size: 2rem;">24/7</div>
+        <span class="txt-lm" style="color: var(--color-chalk);" data-i18n="gal_4">Managed support</span>
+      </div>
+    </div>
+
+    <!-- 3. Centered Manifesto (#about-belief) -->
+    <section id="belief" class="about-belief" aria-labelledby="belief-heading">
+      <svg class="belief-cutout-bg" viewBox="0 0 360 360" fill="currentColor" aria-hidden="true">
+        <path d="M180 20C220 20 252 52 252 92C292 92 324 124 324 164C324 204 292 236 252 236C252 276 220 308 180 308C140 308 108 276 108 236C68 236 36 204 36 164C36 124 68 92 108 92C108 52 140 20 180 20Z"/>
+      </svg>
+
+      <div class="about-belief-content">
+        <h2 id="belief-heading" class="txt-ll" data-i18n="belief_eyebrow">Why CogniSphere</h2>
+        <p class="txt-h2" data-i18n="belief_body">
+          Building a company website usually means choosing between cheap templates and slow, expensive agencies. We offer a better way.
+        </p>
+        <div class="belief-choices txt-h2l">
+          <span data-i18n="belief_c1">templates</span>
+          <span class="txt-h2" data-i18n="belief_or">or</span>
+          <span data-i18n="belief_c2">slow agencies</span>
+          <span class="txt-h2">→</span>
+          <em data-i18n="belief_c3">meet CogniSphere</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Sticky Split-Screen Cards: Dark Section (#benefits) -->
+    <section id="benefits" class="about-cards" aria-labelledby="benefits-heading">
+      <div class="about-cards-layout">
+        <header class="about-cards-header">
+          <p class="txt-ll" style="color: var(--color-stone);" data-i18n="ben_eyebrow">What you get</p>
+          <h2 id="benefits-heading" class="txt-h2" data-i18n="ben_heading">
+            Everything your company needs for a professional online presence
+          </h2>
+          <div>
+            <a href="#inquire" class="button button-sky txt-lm">
+              <span class="button-text">
+                <span data-i18n="ben_cta">Start a project</span>
+                <span aria-hidden="true" data-i18n="ben_cta">Start a project</span>
+              </span>
+            </a>
           </div>
-          <dl class="hero-facts">
-            <div>
-              <dt>Turnaround</dt>
-              <dd>10 to 14 business days</dd>
-            </div>
-            <div>
-              <dt>Authorship</dt>
-              <dd>Custom Figma &amp; Next.js</dd>
-            </div>
-            <div>
-              <dt>Ownership</dt>
-              <dd>Full source &amp; visual CMS</dd>
-            </div>
-          </dl>
-        </div>
+        </header>
 
-        <aside class="dossier" aria-label="Studio specification sheet">
-          <div class="dossier-header">
-            <span class="dossier-title">Standard Commission Specification</span>
-            <span class="dossier-stamp">Edition 2026</span>
-          </div>
-          <table class="dossier-table">
-            <tbody>
-              <tr>
-                <th scope="row">Editorial scope</th>
-                <td>Positioning interview, page architecture, and original copywriting</td>
-              </tr>
-              <tr>
-                <th scope="row">Design deliverables</th>
-                <td>Bespoke type system, colour palette, and desktop/mobile Figma proofs</td>
-              </tr>
-              <tr>
-                <th scope="row">Production stack</th>
-                <td>Pre-rendered Next.js, semantic HTML, zero third-party plugin bloat</td>
-              </tr>
-              <tr>
-                <th scope="row">Client autonomy</th>
-                <td>Visual content studio for internal teams to update text, news, and plates</td>
-              </tr>
-              <tr>
-                <th scope="row">Principal sign-off</th>
-                <td>Manual inspection across physical iOS, Android, macOS, and Windows screens</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="dossier-note">Every commission is drafted from a blank sheet for that client alone. We never reuse layouts across firms.</p>
-        </aside>
+        <ol class="about-cards-track">
+          <li class="about-card">
+            <div class="about-card-top">
+              <div class="about-card-illustration" aria-hidden="true">
+                <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#aad1ee" stroke-width="1.6">
+                  <path d="M12 48L52 48M18 36L46 36M18 24L36 24M18 14L28 14"/>
+                </svg>
+              </div>
+              <span class="about-card-number txt-lm" aria-hidden="true">01</span>
+            </div>
+            <div class="about-card-copy">
+              <h3 class="txt-h3" data-i18n="c1_title">We write the text</h3>
+              <p class="about-card-description txt-pl" data-i18n="c1_desc">
+                We interview your team and write clear, persuasive text for every page.
+              </p>
+            </div>
+          </li>
+
+          <li class="about-card">
+            <div class="about-card-top">
+              <div class="about-card-illustration" aria-hidden="true">
+                <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#aad1ee" stroke-width="1.6">
+                  <circle cx="32" cy="32" r="18"/>
+                  <path d="M32 14V50M14 32H50"/>
+                </svg>
+              </div>
+              <span class="about-card-number txt-lm" aria-hidden="true">02</span>
+            </div>
+            <div class="about-card-copy">
+              <h3 class="txt-h3" data-i18n="c2_title">Custom design</h3>
+              <p class="about-card-description txt-pl" data-i18n="c2_desc">
+                Unique layouts designed from scratch in Figma to match your brand.
+              </p>
+            </div>
+          </li>
+
+          <li class="about-card">
+            <div class="about-card-top">
+              <div class="about-card-illustration" aria-hidden="true">
+                <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#aad1ee" stroke-width="1.6">
+                  <rect x="14" y="14" width="36" height="36" rx="6"/>
+                  <path d="M24 32L30 38L42 26"/>
+                </svg>
+              </div>
+              <span class="about-card-number txt-lm" aria-hidden="true">03</span>
+            </div>
+            <div class="about-card-copy">
+              <h3 class="txt-h3" data-i18n="c3_title">Ready in 2 weeks</h3>
+              <p class="about-card-description txt-pl" data-i18n="c3_desc">
+                Fast, predictable delivery from our first call to your live website.
+              </p>
+            </div>
+          </li>
+
+          <li class="about-card">
+            <div class="about-card-top">
+              <div class="about-card-illustration" aria-hidden="true">
+                <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="#aad1ee" stroke-width="1.6">
+                  <polygon points="32,12 52,24 52,44 32,54 12,44 12,24"/>
+                </svg>
+              </div>
+              <span class="about-card-number txt-lm" aria-hidden="true">04</span>
+            </div>
+            <div class="about-card-copy">
+              <h3 class="txt-h3" data-i18n="c4_title">Managed care &amp; hosting</h3>
+              <p class="about-card-description txt-pl" data-i18n="c4_desc">
+                Our care plan covers hosting, security updates, backups, and technical support.
+              </p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <section class="folio" id="work">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-heading">Three recent commissions</h2>
-          <p class="section-lead">Each firm required a distinct editorial posture: an architectural monograph, a clinical publication index, and a discreet advisory record.</p>
-        </div>
+    <!-- 5. Warm Chalk Section: Process, Selected Projects & FAQs -->
+    <div class="theme-chalk">
+      <section id="work" class="about-cards" aria-labelledby="work-heading">
+        <div class="about-cards-layout">
+          <header class="about-cards-header">
+            <p class="txt-ll" style="color: var(--color-moss);" data-i18n="work_eyebrow">How it works</p>
+            <h2 id="work-heading" class="txt-h2" data-i18n="work_heading">
+              Four simple steps from first call to live website
+            </h2>
+          </header>
 
-        <div class="plates">
-          <!-- Commission 1 -->
-          <article class="plate">
-            <div class="plate-meta">
-              <div>
-                <div class="plate-index">
-                  <span>Commission I</span>
-                  <span>Oslo &amp; Copenhagen</span>
+          <ol class="about-cards-track">
+            <li class="about-card">
+              <div class="about-card-top">
+                <div class="about-card-illustration" aria-hidden="true">
+                  <span class="txt-ll" data-i18n="s1_days">D 1–3</span>
                 </div>
-                <h3 class="plate-client">Nordic Form Studio</h3>
-                <p class="plate-summary">An architectural practice of twenty-four architects needed a site that read like a printed monograph rather than a real-estate brochure. We paired daylight photography with measured elevation drawings and a searchable chronological building index.</p>
+                <span class="about-card-number txt-lm" aria-hidden="true">01</span>
               </div>
-              <dl class="plate-specs">
-                <div>
-                  <dt>Discipline</dt>
-                  <dd>Architecture &amp; Timber Engineering</dd>
-                </div>
-                <div>
-                  <dt>Build duration</dt>
-                  <dd>9 business days</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="mini-browser" role="img" aria-label="Excerpt from the Nordic Form Studio website layout">
-              <div class="mini-bar">
-                <span class="mini-url">nordicform.no</span>
-                <span>Works Index / 1998–2026</span>
+              <div class="about-card-copy">
+                <h3 class="txt-h3" data-i18n="s1_title">Strategy &amp; copywriting</h3>
+                <p class="about-card-description txt-pl" data-i18n="s1_desc">
+                  We talk with your team and write clear text for every page.
+                </p>
               </div>
-              <div class="spec-nordic">
-                <div class="spec-nordic-top">
-                  <strong>NORDIC FORM</strong>
-                  <span>Buildings (42) / Essays / Practice</span>
-                </div>
-                <div class="spec-nordic-grid">
-                  <div>
-                    <h4>Lillehammer Timber Archive &amp; Reading Room</h4>
-                    <p>Load-bearing heartwood pine, lime plaster, and north-facing clerestory glazing. Completed autumn 2025 for the municipal collection.</p>
-                  </div>
-                  <div class="spec-nordic-plan">
-                    <strong>Project Record 38</strong>
-                    <div>Gross area: 2,400 m²</div>
-                    <div>Primary material: Østerdalen pine</div>
-                    <div>Status: Occupied, open to public</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Commission 2 -->
-          <article class="plate">
-            <div class="plate-meta">
-              <div>
-                <div class="plate-index">
-                  <span>Commission II</span>
-                  <span>Boston &amp; Basel</span>
-                </div>
-                <h3 class="plate-client">Verve Bioscience</h3>
-                <p class="plate-summary">A preventive cardiology group preparing for Series B diligence needed clinicians, prospective trial participants, and institutional partners to find peer-reviewed data within two clicks, without stock laboratory imagery.</p>
-              </div>
-              <dl class="plate-specs">
-                <div>
-                  <dt>Discipline</dt>
-                  <dd>Cardiovascular Therapeutics</dd>
-                </div>
-                <div>
-                  <dt>Build duration</dt>
-                  <dd>12 business days</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="mini-browser" role="img" aria-label="Excerpt from the Verve Bioscience website layout">
-              <div class="mini-bar">
-                <span class="mini-url">vervebioscience.com</span>
-                <span>Clinical Pipeline &amp; Publications</span>
-              </div>
-              <div class="spec-verve">
-                <div class="spec-verve-top">
-                  <span>Verve Bioscience Inc.</span>
-                  <span>Pipeline / Publications / Governance</span>
-                </div>
-                <h4>Lipid-Lowering Investigative Programs</h4>
-                <table class="spec-verve-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Compound</th>
-                      <th scope="col">Target</th>
-                      <th scope="col">Stage</th>
-                      <th scope="col">Lead Paper</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>VRV-104</strong></td>
-                      <td>PCSK9 hepatic pathway</td>
-                      <td>Phase IIb</td>
-                      <td>NEJM, Vol. 392</td>
-                    </tr>
-                    <tr>
-                      <td><strong>VRV-218</strong></td>
-                      <td>ANGPTL3 regulación</td>
-                      <td>Phase I</td>
-                      <td>Lancet Cardiol.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </article>
-
-          <!-- Commission 3 -->
-          <article class="plate">
-            <div class="plate-meta">
-              <div>
-                <div class="plate-index">
-                  <span>Commission III</span>
-                  <span>Zurich &amp; London</span>
-                </div>
-                <h3 class="plate-client">Aura Capital Partners</h3>
-                <p class="plate-summary">An independent M&amp;A partnership advising family-owned industrial companies wanted a restrained digital presence: partner biographies, a factual ledger of completed cross-border transactions, and gated investor correspondence.</p>
-              </div>
-              <dl class="plate-specs">
-                <div>
-                  <dt>Discipline</dt>
-                  <dd>Cross-Border M&amp;A Advisory</dd>
-                </div>
-                <div>
-                  <dt>Build duration</dt>
-                  <dd>11 business days</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="mini-browser" role="img" aria-label="Excerpt from the Aura Capital Partners website layout">
-              <div class="mini-bar">
-                <span class="mini-url">auracapital.ch</span>
-                <span>Zurich / London</span>
-              </div>
-              <div class="spec-aura">
-                <div class="spec-aura-top">
-                  <span>AURA CAPITAL PARTNERS AG</span>
-                  <span>Mandates / Partners / Letters</span>
-                </div>
-                <h4>Selected European Industrial Mandates</h4>
-                <div class="spec-aura-deals">
-                  <div>
-                    <strong>CHF 420M</strong>
-                    <span>Precision Hydraulics divestiture to DACH industrial group</span>
-                  </div>
-                  <div>
-                    <strong>EUR 285M</strong>
-                    <span>Majority succession buyout, specialty optical glass</span>
-                  </div>
-                  <div>
-                    <strong>CHF 610M</strong>
-                    <span>Cross-border merger, railway signalling systems</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="ledger" id="comparison">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-heading">Why private firms hire a dedicated practice instead of a large agency</h2>
-          <p class="section-lead">Most companies face an unsatisfactory choice between self-serve theme builders that flatten their reputation and traditional retainers that drag on for half a year.</p>
-        </div>
-
-        <div class="compare-wrap">
-          <table class="compare">
-            <caption>Comparison of website commissioning routes</caption>
-            <thead>
-              <tr>
-                <th scope="col">Criterion</th>
-                <th scope="col">Site-Builder Themes</th>
-                <th scope="col">Traditional Retainer Agencies</th>
-                <th scope="col" class="col-studio">CogniSphere LLC</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Editorial &amp; visual identity</th>
-                <td>Borrowed layouts shared by thousands of unrelated businesses; generic filler phrasing.</td>
-                <td>High craft, but diluted through layers of junior account managers and committee decks.</td>
-                <td class="col-studio">Written and art-directed by a senior principal specifically for your firm's subject matter.</td>
-              </tr>
-              <tr>
-                <th scope="row">Calendar to launch</th>
-                <td>Days, provided someone inside your firm writes and lays out every page alone.</td>
-                <td>Fourteen to twenty-four weeks of discovery workshops, slide decks, and billing cycles.</td>
-                <td class="col-studio">Ten to fourteen business days from initial interview to live production launch.</td>
-              </tr>
-              <tr>
-                <th scope="row">Codebase &amp; longevity</th>
-                <td>Locked into proprietary platform markup and recurring per-seat subscription tiers.</td>
-                <td>Often handed over as a fragile WordPress installation dependent on twenty third-party plugins.</td>
-                <td class="col-studio">Clean, self-contained Next.js code with a visual editor and zero plugin maintenance.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="schedule" id="schedule">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-heading">A two-week production calendar</h2>
-          <p class="section-lead">You review and sign off on the complete written copy and Figma page designs before production engineering begins.</p>
-        </div>
-
-        <div class="calendar">
-          <article class="calendar-stage">
-            <div>
-              <span class="stage-days">Days 1–3</span>
-              <h3>Editorial Interview &amp; Architecture</h3>
-              <p>We speak directly with the founders or managing partners about how clients evaluate the firm, what the existing site obscures, and which proof points matter. We draft the site map and page copy.</p>
-            </div>
-            <div class="stage-deliverable">
-              <strong>Milestone deliverable</strong>
-              Written manuscript &amp; structural wireframe
-            </div>
-          </article>
-
-          <article class="calendar-stage">
-            <div>
-              <span class="stage-days">Days 4–7</span>
-              <h3>Typography, Grid &amp; Figma Proofs</h3>
-              <p>We select typefaces, establish the colour system, and typeset every screen in Figma. You comment directly on the canvas until the layout, rhythm, and details are signed off.</p>
-            </div>
-            <div class="stage-deliverable">
-              <strong>Milestone deliverable</strong>
-              Signed desktop &amp; mobile Figma sheets
-            </div>
-          </article>
-
-          <article class="calendar-stage">
-            <div>
-              <span class="stage-days">Days 8–12</span>
-              <h3>Front-End Construction &amp; CMS</h3>
-              <p>Approved designs are built into a clean, responsive Next.js application with semantic markup, structured metadata, and a visual content studio so your team can edit text and images effortlessly.</p>
-            </div>
-            <div class="stage-deliverable">
-              <strong>Milestone deliverable</strong>
-              Private staging URL &amp; CMS credentials
-            </div>
-          </article>
-
-          <article class="calendar-stage">
-            <div>
-              <span class="stage-days">Days 13–14</span>
-              <h3>Press-Check &amp; Handover</h3>
-              <p>We test typography, contrast, forms, and page speed on physical phones and monitors, configure DNS and SSL certificates, and transfer complete repository ownership to your firm.</p>
-            </div>
-            <div class="stage-deliverable">
-              <strong>Milestone deliverable</strong>
-              Live production launch &amp; source handover
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="correspondence">
-      <div class="container correspondence-grid">
-        <aside class="studio-aside" aria-label="Studio principles">
-          <h3>What we refuse to put on a client's website</h3>
-          <ul class="studio-standards">
-            <li>
-              <strong>No stock photography of handshakes or glass towers</strong>
-              If a firm lacks photography, we build the page around architectural diagrams, primary documents, and strong typography.
             </li>
-            <li>
-              <strong>No decorative motion that slows reading</strong>
-              Pages open immediately. Nothing hijacks the scroll wheel or forces a visitor to wait for paragraphs to fade in.
-            </li>
-            <li>
-              <strong>No fragile plugin stacks</strong>
-              Your team should never have to worry that a routine plugin update will break the layout before an important meeting.
-            </li>
-          </ul>
-        </aside>
 
-        <article class="letter-paper">
-          <div class="letter-Headline-wrap">
-            <div class="letter-date">A note from the founder</div>
-            <h2 class="letter-headline">A serious company deserves a website with its own point of view.</h2>
-          </div>
-          <div class="letter-body">
-            <p>When a prospective client, clinical partner, or institutional investor looks up your firm, your website is often the first piece of writing and design they judge you by. Yet many accomplished private companies still present themselves through a generic template that looks indistinguishable from their competitors.</p>
-            <p>Good web design is fundamentally an editorial discipline. It requires sitting with a founder, understanding the exact vocabulary of their field, deciding whether the site should read like a monograph, a technical ledger, or a personal letter, and removing every section that does not belong.</p>
-            <p>At CogniSphere, we keep our practice small so that senior judgment stays on the work from the first conversation to the final press-check. You get a website with unmistakable character, built cleanly and delivered on a brisk, predictable schedule.</p>
-          </div>
-          <div class="letter-signoff">
+            <li class="about-card">
+              <div class="about-card-top">
+                <div class="about-card-illustration" aria-hidden="true">
+                  <span class="txt-ll" data-i18n="s2_days">D 4–7</span>
+                </div>
+                <span class="about-card-number txt-lm" aria-hidden="true">02</span>
+              </div>
+              <div class="about-card-copy">
+                <h3 class="txt-h3" data-i18n="s2_title">Visual design</h3>
+                <p class="about-card-description txt-pl" data-i18n="s2_desc">
+                  We design desktop and mobile layouts in Figma for your approval.
+                </p>
+              </div>
+            </li>
+
+            <li class="about-card">
+              <div class="about-card-top">
+                <div class="about-card-illustration" aria-hidden="true">
+                  <span class="txt-ll" data-i18n="s3_days">D 8–12</span>
+                </div>
+                <span class="about-card-number txt-lm" aria-hidden="true">03</span>
+              </div>
+              <div class="about-card-copy">
+                <h3 class="txt-h3" data-i18n="s3_title">Build &amp; content editor</h3>
+                <p class="about-card-description txt-pl" data-i18n="s3_desc">
+                  We build a fast website with an easy visual editor for your team.
+                </p>
+              </div>
+            </li>
+
+            <li class="about-card">
+              <div class="about-card-top">
+                <div class="about-card-illustration" aria-hidden="true">
+                  <span class="txt-ll" data-i18n="s4_days">D 13–14</span>
+                </div>
+                <span class="about-card-number txt-lm" aria-hidden="true">04</span>
+              </div>
+              <div class="about-card-copy">
+                <h3 class="txt-h3" data-i18n="s4_title">Launch &amp; ongoing care</h3>
+                <p class="about-card-description txt-pl" data-i18n="s4_desc">
+                  We launch on your domain and manage hosting, updates, and support.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 3 Compact Visual Project Cards -->
+        <div class="commission-showcase-grid" aria-label="Recent projects">
+          <article class="commission-card">
+            <div class="commission-preview preview-nordic">
+              <div class="txt-ls">nordicform.no</div>
+              <div class="txt-h3" data-i18n="p1_preview">42 Architecture Projects</div>
+            </div>
             <div>
-              <strong>Wei Xiong</strong>
-              <span>Founder &amp; Principal, CogniSphere LLC</span>
+              <div class="commission-meta txt-lm">
+                <span>Nordic Form Studio</span>
+                <span data-i18n="p1_days">9 days</span>
+              </div>
+              <p class="txt-pl" style="color: var(--color-moss); margin-top: 0.4rem;" data-i18n="p1_desc">
+                Architecture studio website in Oslo &amp; Copenhagen.
+              </p>
             </div>
-            <span>two commissions accepted per month</span>
+          </article>
+
+          <article class="commission-card">
+            <div class="commission-preview preview-verve">
+              <div class="txt-ls">vervebioscience.com</div>
+              <div class="txt-h3" data-i18n="p2_preview">Clinical Research Portal</div>
+            </div>
+            <div>
+              <div class="commission-meta txt-lm">
+                <span>Verve Bioscience</span>
+                <span data-i18n="p2_days">12 days</span>
+              </div>
+              <p class="txt-pl" style="color: var(--color-moss); margin-top: 0.4rem;" data-i18n="p2_desc">
+                Biotech company website in Boston &amp; Basel.
+              </p>
+            </div>
+          </article>
+
+          <article class="commission-card">
+            <div class="commission-preview preview-aura">
+              <div class="txt-ls">auracapital.ch</div>
+              <div class="txt-h3" data-i18n="p3_preview">European Deal Portfolio</div>
+            </div>
+            <div>
+              <div class="commission-meta txt-lm">
+                <span>Aura Capital Partners</span>
+                <span data-i18n="p3_days">11 days</span>
+              </div>
+              <p class="txt-pl" style="color: var(--color-moss); margin-top: 0.4rem;" data-i18n="p3_desc">
+                M&amp;A advisory website in Zurich &amp; London.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Compact FAQ Accordion -->
+        <div id="faqs" class="faq-strip">
+          <div>
+            <p class="txt-ll" style="color: var(--color-moss);" data-i18n="faq_eyebrow">FAQs</p>
+            <h2 class="txt-h2" style="margin-top: 0.75rem;" data-i18n="faq_heading">Common questions</h2>
           </div>
-        </article>
-      </div>
-    </section>
 
-    <section class="questions" id="questions">
-      <div class="container questions-grid">
-        <div>
-          <h2 class="section-heading">Practical questions</h2>
-          <p class="section-lead" style="margin-top: 1rem;">Straight answers on authorship, timelines, content editing, and post-launch ownership.</p>
-        </div>
+          <div class="faq-accordion">
+            <details class="faq-item" name="faq" open>
+              <summary>
+                <span class="txt-h3" data-i18n="faq_q1">How long does a website take, and what do we need to provide?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <p class="txt-pl" data-i18n="faq_a1">
+                Standard projects take exactly two weeks. You only need a 45-minute kickoff call and your brand assets (logo and existing materials); our team handles all copywriting, Figma design, development, and launch.
+              </p>
+            </details>
 
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>
-              <span>How do you make sure our website does not look like a template?</span>
-              <span class="faq-marker" aria-hidden="true"></span>
-            </summary>
-            <p>We begin every commission with your firm's actual subject matter—your buildings, clinical publications, transaction record, or industrial capabilities—and draw the layout from scratch in Figma before writing a single line of code. We do not use pre-made themes or component kits.</p>
-          </details>
+            <details class="faq-item" name="faq">
+              <summary>
+                <span class="txt-h3" data-i18n="faq_q2">Do we need to write our own website copy?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <p class="txt-pl" data-i18n="faq_a2">
+                No. We interview your team to understand your products and target clients, then write clear, persuasive copy for every page. You review and approve the text before visual design begins.
+              </p>
+            </details>
 
-          <details class="faq-item">
-            <summary>
-              <span>Who writes the text on the site?</span>
-              <span class="faq-marker" aria-hidden="true"></span>
-            </summary>
-            <p>We do, in close collaboration with you. Most projects stall at traditional agencies because the client is asked to supply all the copy in a shared folder. Instead, we interview your partners and draft clear, factual copy as part of the first milestone.</p>
-          </details>
+            <details class="faq-item" name="faq">
+              <summary>
+                <span class="txt-h3" data-i18n="faq_q3">Can our team easily edit text, news, and photos ourselves?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <p class="txt-pl" data-i18n="faq_a3">
+                Yes. We configure an easy visual content editor. Anyone on your team can edit headlines, publish company news, update team bios, or swap images in minutes without touching any code.
+              </p>
+            </details>
 
-          <details class="faq-item">
-            <summary>
-              <span>How is a two-week build possible without cutting corners?</span>
-              <span class="faq-marker" aria-hidden="true"></span>
-            </summary>
-            <p>We take on only two commissions a month and eliminate the bureaucratic overhead of large agencies. You work directly with the principal designer and engineer, decisions happen in real time on the Figma canvas, and our Next.js production architecture is streamlined for corporate sites.</p>
-          </details>
+            <details class="faq-item" name="faq">
+              <summary>
+                <span class="txt-h3" data-i18n="faq_q4">How do hosting, security, and technical maintenance work?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <p class="txt-pl" data-i18n="faq_a4">
+                We manage the codebase, high-speed cloud hosting, SSL certificates, daily backups, and security patches under a paid monthly or annual care plan, ensuring your website stays fast and trouble-free.
+              </p>
+            </details>
 
-          <details class="faq-item">
-            <summary>
-              <span>Can our internal team update text and photographs after launch?</span>
-              <span class="faq-marker" aria-hidden="true"></span>
-            </summary>
-            <p>Yes. Every site includes a clean visual content management studio. Your team can edit headlines, body copy, case studies, team biographies, and images without touching code or risking layout shifts.</p>
-          </details>
+            <details class="faq-item" name="faq">
+              <summary>
+                <span class="txt-h3" data-i18n="faq_q5">Will the website be mobile-optimized and ready for Google (SEO)?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <p class="txt-pl" data-i18n="faq_a5">
+                Yes. Every website is built mobile-first and fully responsive across phones, tablets, and desktops. We include fast loading speeds, clean semantic markup, and standard on-page SEO meta tags so search engines index your business properly.
+              </p>
+            </details>
 
-          <details class="faq-item">
-            <summary>
-              <span>What happens after the site goes live?</span>
-              <span class="faq-marker" aria-hidden="true"></span>
-            </summary>
-            <p>Your firm owns the repository, domain configuration, and design files outright. There is no mandatory monthly retainer, and because the site is pre-rendered without a database of third-party plugins, ongoing hosting and maintenance remain minimal.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="commission" id="inquire">
-      <div class="container commission-grid">
-        <div class="commission-notes">
-          <h2 class="section-heading">Tell us about your firm</h2>
-          <p class="section-lead">Send a short note about your company and what you need the website to accomplish. Wei Xiong reads every inquiry personally and replies within one business day with initial observations, schedule availability, and a fixed fee quote.</p>
-
-          <div class="direct-box">
-            <h3>What to expect in our first reply</h3>
-            <p>We do not have a sales team and will not put you into an automated follow-up sequence. You will receive a direct written response addressing your current site, recommended scope, and exact dates for a two-week build.</p>
-          </div>
-        </div>
-
-        <div class="form-sheet">
-          <form id="contact-form" action="#inquire" method="POST" onsubmit="handleContact(event)">
-            <fieldset>
-              <legend>Scope of commission</legend>
-              <div class="radio-row">
-                <label class="radio-option">
-                  <input type="radio" name="projectType" value="new" checked>
-                  <span>New official site</span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="projectType" value="redesign">
-                  <span>Full redesign</span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="projectType" value="editorial">
-                  <span>Identity &amp; copy</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <div class="field-pair">
-              <div class="field">
-                <label for="client-name">Your name (required)</label>
-                <input type="text" id="client-name" name="clientName" required autocomplete="name">
-              </div>
-              <div class="field">
-                <label for="client-email">Work email (required)</label>
-                <input type="email" id="client-email" name="clientEmail" required autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false">
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="company-name">Company or partnership name</label>
-              <input type="text" id="company-name" name="companyName" autocomplete="organization">
-            </div>
-
-            <fieldset>
-              <legend>Preferred launch window</legend>
-              <div class="radio-row">
-                <label class="radio-option">
-                  <input type="radio" name="timeline" value="2weeks" checked>
-                  <span>Within 2 weeks</span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="timeline" value="month">
-                  <span>Within 30 days</span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="timeline" value="quarter">
-                  <span>Next quarter</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <div class="field">
-              <label for="project-brief">Brief notes on the firm and current website</label>
-              <span class="field-hint" id="brief-help">Share your current URL if applicable, who visits the site, and what feels out of step today.</span>
-              <textarea id="project-brief" name="projectBrief" rows="4" aria-describedby="brief-help"></textarea>
-            </div>
-
-            <div class="form-footer">
-              <button class="btn-primary" type="submit">Send inquiry to the studio</button>
-              <span class="field-hint">Direct reply within 1 business day</span>
-            </div>
-          </form>
-
-          <div class="form-Response" id="contact-success" role="status" aria-live="polite">
-            <h3>Inquiry received by the studio.</h3>
-            <p>Thank you for writing. Wei Xiong will review your notes and reply personally within one business day.</p>
+            <details class="faq-item" name="faq">
+              <summary>
+                <span class="txt-h3" data-i18n="faq_q6">Can we add more pages or additional languages later?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <p class="txt-pl" data-i18n="faq_a6">
+                Yes. The architecture is modular and built to scale. As your business grows, adding new service pages, case studies, or extra languages (like German, French, or Spanish) can be done seamlessly anytime through our care plan.
+              </p>
+            </details>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© 2026 CogniSphere LLC. All rights reserved.</div>
-      <div>Independent Digital Design &amp; Engineering Practice</div>
+  <!-- 6. Dwell-Style Footer & Inquiry Form (#foo) -->
+  <footer class="dwell-footer" id="inquire">
+    <section class="foo-feature" aria-labelledby="foo-heading">
+      <div>
+        <h2 id="foo-heading" class="foo-heading">
+          <span class="foo-line-1" data-i18n="foo_w1">start</span>
+          <span class="foo-line-2" data-i18n="foo_w2">your</span>
+          <span class="foo-line-3" data-i18n="foo_w3">project</span>
+        </h2>
+        <p class="txt-pl" style="color: var(--color-moss); max-inline-size: 36ch;" data-i18n="inq_lead">
+          Tell us briefly about your company. We reply within one business day with a clear quote.
+        </p>
+      </div>
+
+      <div class="inquiry-card">
+        <form id="contact-form" class="inquiry-form" action="#inquire" method="POST">
+          <fieldset class="pill-radios">
+            <legend class="txt-lm" style="margin-bottom: 0.6rem; color: var(--color-moss);" data-i18n="form_scope">Project type</legend>
+            <label class="pill-radio txt-lm">
+              <input type="radio" name="scope" value="new" checked>
+              <span data-i18n="scope_1">New website</span>
+            </label>
+            <label class="pill-radio txt-lm">
+              <input type="radio" name="scope" value="redesign">
+              <span data-i18n="scope_2">Website redesign</span>
+            </label>
+            <label class="pill-radio txt-lm">
+              <input type="radio" name="scope" value="care">
+              <span data-i18n="scope_3">Design &amp; care plan</span>
+            </label>
+          </fieldset>
+
+          <div class="input-row">
+            <div class="field-group">
+              <label for="client-name" class="txt-lm" data-i18n="label_name">Name</label>
+              <input type="text" id="client-name" class="dwell-input" required autocomplete="name">
+            </div>
+            <div class="field-group">
+              <label for="client-email" class="txt-lm" data-i18n="label_email">Work email</label>
+              <input type="email" id="client-email" class="dwell-input" required autocomplete="email" inputmode="email">
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="project-brief" class="txt-lm" data-i18n="label_brief">Company &amp; website</label>
+            <textarea id="project-brief" class="dwell-input" rows="2"></textarea>
+          </div>
+
+          <div class="form-bar">
+            <button type="submit" class="button txt-lm">
+              <span class="button-text">
+                <span data-i18n="btn_send">Send message</span>
+                <span aria-hidden="true" data-i18n="btn_send">Send message</span>
+              </span>
+            </button>
+            <span class="txt-ls" style="color: var(--color-moss);" data-i18n="reply_time">Reply within 1 business day</span>
+          </div>
+        </form>
+
+        <div id="contact-success" class="inquiry-success" role="status" aria-live="polite">
+          <h3 class="txt-h3" data-i18n="success_title">Message received.</h3>
+          <p class="txt-pl" style="margin-top: 0.35rem;" data-i18n="success_body">
+            Thank you. We will review your details and reply within one business day.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="foo-panel">
+      <div class="foo-nav-grid">
+        <div class="foo-giant-brand">CogniSphere</div>
+
+        <nav class="foo-nav txt-lm" aria-label="Footer">
+          <a href="#belief" class="nav-link" data-i18n="nav_belief">Why Us</a>
+          <a href="#benefits" class="nav-link" data-i18n="nav_benefits">Services</a>
+          <a href="#work" class="nav-link" data-i18n="nav_work">Projects</a>
+          <a href="#faqs" class="nav-link" data-i18n="nav_faq">FAQs</a>
+          <a href="#inquire" class="nav-link" data-i18n="nav_cta">Contact</a>
+        </nav>
+      </div>
+
+      <div class="foo-bottom txt-lm">
+        <span data-i18n="footer_copy">© 2026 CogniSphere LLC. All rights reserved.</span>
+        <span data-i18n="footer_sub">Custom Company Websites &amp; Ongoing Maintenance</span>
+      </div>
     </div>
   </footer>
 
   <script>
-    function handleContact(event) {
-      event.preventDefault();
-      const form = document.getElementById('contact-form');
-      const success = document.getElementById('contact-success');
-      form.style.display = 'none';
-      success.style.display = 'block';
+    const I18N = {
+      en: {
+        _title: "CogniSphere — Custom Company Websites in Two Weeks",
+        _desc: "We write, design, build, and maintain custom websites for companies. Launched in two weeks with full ongoing technical care.",
+        skip_link: "Skip to content",
+        nav_belief: "Why Us",
+        nav_benefits: "Services",
+        nav_work: "Projects",
+        nav_faq: "FAQs",
+        lang_label: "Select language",
+        nav_cta: "Contact",
+        hero_w1: "custom",
+        hero_w2: "company",
+        hero_w3: "websites",
+        hero_pill: "Why CogniSphere",
+        hero_scroll: "Scroll",
+        hero_sub: "We write, design, build, and maintain official websites for companies—ready in two weeks.",
+        gal_1: "Days to launch",
+        gal_2_top: "DESIGN + COPY",
+        gal_2: "100% Custom",
+        gal_3: "Templates",
+        gal_4_top: "CARE & HOSTING",
+        gal_4: "Managed support",
+        belief_eyebrow: "Why CogniSphere",
+        belief_body: "Building a company website usually means choosing between cheap templates and slow, expensive agencies. We offer a better way.",
+        belief_c1: "templates",
+        belief_or: "or",
+        belief_c2: "slow agencies",
+        belief_c3: "meet CogniSphere",
+        ben_eyebrow: "What you get",
+        ben_heading: "Everything your company needs for a professional online presence",
+        ben_cta: "Start a project",
+        c1_title: "We write the text",
+        c1_desc: "We interview your team and write clear, persuasive text for every page.",
+        c2_title: "Custom design",
+        c2_desc: "Unique layouts designed from scratch in Figma to match your brand.",
+        c3_title: "Ready in 2 weeks",
+        c3_desc: "Fast, predictable delivery from our first call to your live website.",
+        c4_title: "Managed care & hosting",
+        c4_desc: "Our care plan covers hosting, security updates, backups, and technical support.",
+        work_eyebrow: "How it works",
+        work_heading: "Four simple steps from first call to live website",
+        s1_days: "D 1–3",
+        s1_title: "Strategy & copywriting",
+        s1_desc: "We talk with your team and write clear text for every page.",
+        s2_days: "D 4–7",
+        s2_title: "Visual design",
+        s2_desc: "We design desktop and mobile layouts in Figma for your approval.",
+        s3_days: "D 8–12",
+        s3_title: "Build & content editor",
+        s3_desc: "We build a fast website with an easy visual editor for your team.",
+        s4_days: "D 13–14",
+        s4_title: "Launch & ongoing care",
+        s4_desc: "We launch on your domain and manage hosting, updates, and support.",
+        p1_preview: "42 Architecture Projects",
+        p1_days: "9 days",
+        p1_desc: "Architecture studio website in Oslo & Copenhagen.",
+        p2_preview: "Clinical Research Portal",
+        p2_days: "12 days",
+        p2_desc: "Biotech company website in Boston & Basel.",
+        p3_preview: "European Deal Portfolio",
+        p3_days: "11 days",
+        p3_desc: "M&A advisory website in Zurich & London.",
+        faq_eyebrow: "FAQs",
+        faq_heading: "Common questions",
+        faq_q1: "How long does a website take, and what do we need to provide?",
+        faq_a1: "Standard projects take exactly two weeks. You only need a 45-minute kickoff call and your brand assets (logo and existing materials); our team handles all copywriting, Figma design, development, and launch.",
+        faq_q2: "Do we need to write our own website copy?",
+        faq_a2: "No. We interview your team to understand your products and target clients, then write clear, persuasive copy for every page. You review and approve the text before visual design begins.",
+        faq_q3: "Can our team easily edit text, news, and photos ourselves?",
+        faq_a3: "Yes. We configure an easy visual content editor. Anyone on your team can edit headlines, publish company news, update team bios, or swap images in minutes without touching any code.",
+        faq_q4: "How do hosting, security, and technical maintenance work?",
+        faq_a4: "We manage the codebase, high-speed cloud hosting, SSL certificates, daily backups, and security patches under a paid monthly or annual care plan, ensuring your website stays fast and trouble-free.",
+        faq_q5: "Will the website be mobile-optimized and ready for Google (SEO)?",
+        faq_a5: "Yes. Every website is built mobile-first and fully responsive across phones, tablets, and desktops. We include fast loading speeds, clean semantic markup, and standard on-page SEO meta tags so search engines index your business properly.",
+        faq_q6: "Can we add more pages or additional languages later?",
+        faq_a6: "Yes. The architecture is modular and built to scale. As your business grows, adding new service pages, case studies, or extra languages (like German, French, or Spanish) can be done seamlessly anytime through our care plan.",
+        foo_w1: "start",
+        foo_w2: "your",
+        foo_w3: "project",
+        inq_lead: "Tell us briefly about your company. We reply within one business day with a clear quote.",
+        form_scope: "Project type",
+        scope_1: "New website",
+        scope_2: "Website redesign",
+        scope_3: "Design & care plan",
+        label_name: "Name",
+        label_email: "Work email",
+        label_brief: "Company & website",
+        btn_send: "Send message",
+        reply_time: "Reply within 1 business day",
+        success_title: "Message received.",
+        success_body: "Thank you. We will review your details and reply within one business day.",
+        footer_copy: "© 2026 CogniSphere LLC. All rights reserved.",
+        footer_sub: "Custom Company Websites & Ongoing Maintenance"
+      },
+      de: {
+        _title: "CogniSphere — Individuelle Unternehmenswebsites in zwei Wochen",
+        _desc: "Wir schreiben, gestalten, entwickeln und betreuen maßgeschneiderte Websites für Unternehmen. Startbereit in zwei Wochen.",
+        skip_link: "Zum Inhalt springen",
+        nav_belief: "Vorteile",
+        nav_benefits: "Leistungen",
+        nav_work: "Projekte",
+        nav_faq: "Fragen",
+        lang_label: "Sprache wählen",
+        nav_cta: "Kontakt",
+        hero_w1: "moderne",
+        hero_w2: "firmen",
+        hero_w3: "websites",
+        hero_pill: "Warum CogniSphere",
+        hero_scroll: "Scrollen",
+        hero_sub: "Wir schreiben, gestalten, bauen und betreuen offizielle Unternehmenswebsites — fertig in zwei Wochen.",
+        gal_1: "Tage bis zum Start",
+        gal_2_top: "DESIGN + TEXT",
+        gal_2: "100 % Maßarbeit",
+        gal_3: "Vorlagen",
+        gal_4_top: "HOSTING & PFLEGE",
+        gal_4: "Laufende Betreuung",
+        belief_eyebrow: "Warum CogniSphere",
+        belief_body: "Wer eine Unternehmenswebsite braucht, musste bisher zwischen billigen Baukästen und langsamen, teuren Agenturen wählen. Wir bieten einen besseren Weg.",
+        belief_c1: "Baukästen",
+        belief_or: "oder",
+        belief_c2: "langsame Agenturen",
+        belief_c3: "entdecken Sie CogniSphere",
+        ben_eyebrow: "Was Sie erhalten",
+        ben_heading: "Alles für einen überzeugenden Online-Auftritt Ihres Unternehmens",
+        ben_cta: "Projekt starten",
+        c1_title: "Wir schreiben die Texte",
+        c1_desc: "Nach einem kurzen Gespräch verfassen wir klare, überzeugende Texte für jede Seite.",
+        c2_title: "Individuelles Design",
+        c2_desc: "Maßgeschneiderte Layouts in Figma, passend zu Ihrer Marke.",
+        c3_title: "Fertig in 2 Wochen",
+        c3_desc: "Schnelle, verlässliche Umsetzung vom ersten Gespräch bis zum Livegang.",
+        c4_title: "Hosting & Wartung",
+        c4_desc: "Unser Servicepaket umfasst schnelles Hosting, Sicherheitsupdates, Backups und technischen Support.",
+        work_eyebrow: "Ablauf",
+        work_heading: "In vier einfachen Schritten zur fertigen Website",
+        s1_days: "T 1–3",
+        s1_title: "Strategie & Texte",
+        s1_desc: "Wir sprechen mit Ihrem Team und schreiben klare Texte für alle Seiten.",
+        s2_days: "T 4–7",
+        s2_title: "Visuelles Design",
+        s2_desc: "Wir gestalten die Desktop- und Mobilansichten in Figma zur Freigabe.",
+        s3_days: "T 8–12",
+        s3_title: "Umsetzung & Editor",
+        s3_desc: "Wir entwickeln die Website inklusive einfachem Editor für Ihre Inhalte.",
+        s4_days: "T 13–14",
+        s4_title: "Livegang & Betreuung",
+        s4_desc: "Wir schalten die Seite auf Ihrer Domain live und übernehmen Hosting und Wartung.",
+        p1_preview: "42 Architektur-Projekte",
+        p1_days: "9 Tage",
+        p1_desc: "Website für ein Architekturbüro in Oslo & Kopenhagen.",
+        p2_preview: "Portal für klinische Forschung",
+        p2_days: "12 Tage",
+        p2_desc: "Website für ein Biotech-Unternehmen in Boston & Basel.",
+        p3_preview: "Europäisches Deal-Portfolio",
+        p3_days: "11 Tage",
+        p3_desc: "Website für eine M&A-Beratung in Zürich & London.",
+        faq_eyebrow: "Fragen",
+        faq_heading: "Häufige Fragen",
+        faq_q1: "Wie lange dauert das Projekt und was müssen wir bereitstellen?",
+        faq_a1: "Standardprojekte dauern genau zwei Wochen. Sie benötigen lediglich ein 45-minütiges Auftaktgespräch und Ihre Markenmaterialien (Logo, Fotos). Den Rest – Texte, Figma-Design, Entwicklung und Livegang – übernehmen wir.",
+        faq_q2: "Müssen wir die Texte für die Website selbst verfassen?",
+        faq_a2: "Nein. Wir führen ein kurzes Gespräch mit Ihnen und schreiben klare, überzeugende Texte für alle Seiten. Sie prüfen und geben die Texte frei, bevor das visuelle Design beginnt.",
+        faq_q3: "Kann unser Team Texte, Neuigkeiten und Fotos selbst bearbeiten?",
+        faq_a3: "Ja. Wir richten einen einfachen visuellen Editor ein. Jeder in Ihrem Team kann Texte anpassen, Meldungen veröffentlichen oder Bilder austauschen – ganz ohne Programmierkenntnisse.",
+        faq_q4: "Wie funktionieren Hosting, Sicherheit und technische Wartung?",
+        faq_a4: "Wir verwalten den Code, das schnelle Cloud-Hosting, SSL-Zertifikate, tägliche Backups und Sicherheitsupdates im Rahmen eines monatlichen oder jährlichen Betreuungspakets, damit Ihre Website stets stabil und sicher läuft.",
+        faq_q5: "Ist die Website für Mobilgeräte und Google (SEO) optimiert?",
+        faq_a5: "Ja. Jedes Layout ist vollständig responsiv für Smartphones, Tablets und Monitore. Schnelle Ladezeiten, sauberer HTML-Code und grundlegende SEO-Metadaten sorgen dafür, dass Google Ihr Unternehmen optimal erfasst.",
+        faq_q6: "Können wir später weitere Seiten oder zusätzliche Sprachen ergänzen?",
+        faq_a6: "Ja. Der Aufbau ist modular und wächst mit Ihrem Unternehmen. Neue Leistungsseiten, Fallstudien oder zusätzliche Sprachversionen lassen sich jederzeit flexibel über unseren Betreuungsservice ergänzen.",
+        foo_w1: "starten",
+        foo_w2: "sie ihr",
+        foo_w3: "projekt",
+        inq_lead: "Beschreiben Sie kurz Ihr Vorhaben. Wir antworten innerhalb eines Werktags mit einem klaren Angebot.",
+        form_scope: "Projektart",
+        scope_1: "Neue Website",
+        scope_2: "Website-Relaunch",
+        scope_3: "Design & Wartung",
+        label_name: "Name",
+        label_email: "Geschäftliche E-Mail",
+        label_brief: "Unternehmen & Website",
+        btn_send: "Nachricht senden",
+        reply_time: "Antwort innerhalb von 1 Werktag",
+        success_title: "Nachricht erhalten.",
+        success_body: "Vielen Dank. Wir prüfen Ihre Angaben und melden uns innerhalb eines Werktags.",
+        footer_copy: "© 2026 CogniSphere LLC. Alle Rechte vorbehalten.",
+        footer_sub: "Individuelle Unternehmenswebsites & Technische Wartung"
+      },
+      fr: {
+        _title: "CogniSphere — Sites web d'entreprise sur mesure en deux semaines",
+        _desc: "Nous rédigeons, concevons, développons et maintenons des sites web sur mesure pour les entreprises en deux semaines.",
+        skip_link: "Aller au contenu",
+        nav_belief: "Pourquoi nous",
+        nav_benefits: "Services",
+        nav_work: "Projets",
+        nav_faq: "FAQ",
+        lang_label: "Choisir la langue",
+        nav_cta: "Contact",
+        hero_w1: "sites web",
+        hero_w2: "d'entreprise",
+        hero_w3: "sur mesure",
+        hero_pill: "Pourquoi CogniSphere",
+        hero_scroll: "Défiler",
+        hero_sub: "Nous rédigeons, concevons, développons et assurons la maintenance de votre site officiel — prêt en deux semaines.",
+        gal_1: "Jours avant lancement",
+        gal_2_top: "DESIGN + TEXTES",
+        gal_2: "100 % Sur mesure",
+        gal_3: "Modèles",
+        gal_4_top: "HÉBERGEMENT & SUIVI",
+        gal_4: "Maintenance incluse",
+        belief_eyebrow: "Pourquoi CogniSphere",
+        belief_body: "Créer un site d'entreprise oblige souvent à choisir entre des modèles basiques et des agences lentes et coûteuses. Nous proposons une meilleure solution.",
+        belief_c1: "modèles",
+        belief_or: "ou",
+        belief_c2: "agences lentes",
+        belief_c3: "découvrez CogniSphere",
+        ben_eyebrow: "Ce qui est inclus",
+        ben_heading: "Tout ce dont votre entreprise a besoin pour un site professionnel",
+        ben_cta: "Démarrer un projet",
+        c1_title: "Nous rédigeons les textes",
+        c1_desc: "Après un court échange avec votre équipe, nous rédigeons des textes clairs pour chaque page.",
+        c2_title: "Design sur mesure",
+        c2_desc: "Des maquettes uniques créées sur Figma à l'image de votre société.",
+        c3_title: "Prêt en 2 semaines",
+        c3_desc: "Une livraison rapide et ponctuelle, du premier appel à la mise en ligne.",
+        c4_title: "Hébergement & maintenance",
+        c4_desc: "Notre forfait de suivi couvre l'hébergement rapide, la sécurité, les sauvegardes et le support technique.",
+        work_eyebrow: "Fonctionnement",
+        work_heading: "Quatre étapes simples du premier appel à la mise en ligne",
+        s1_days: "J 1–3",
+        s1_title: "Stratégie & rédaction",
+        s1_desc: "Nous échangeons avec vous et rédigeons des textes clairs pour tout le site.",
+        s2_days: "J 4–7",
+        s2_title: "Design visuel",
+        s2_desc: "Nous concevons les versions ordinateur et mobile sur Figma pour validation.",
+        s3_days: "J 8–12",
+        s3_title: "Développement & éditeur",
+        s3_desc: "Nous développons un site rapide avec un éditeur simple pour vos mises à jour.",
+        s4_days: "J 13–14",
+        s4_title: "Mise en ligne & suivi",
+        s4_desc: "Nous publions sur votre domaine et gérons l'hébergement et la maintenance.",
+        p1_preview: "42 Projets d'Architecture",
+        p1_days: "9 jours",
+        p1_desc: "Site d'un cabinet d'architecture à Oslo & Copenhague.",
+        p2_preview: "Portail de Recherche Clinique",
+        p2_days: "12 jours",
+        p2_desc: "Site d'une société de biotechnologie à Boston & Bâle.",
+        p3_preview: "Portefeuille de Transactions",
+        p3_days: "11 jours",
+        p3_desc: "Site d'un cabinet de conseil M&A à Zurich & Londres.",
+        faq_eyebrow: "FAQ",
+        faq_heading: "Questions fréquentes",
+        faq_q1: "Combien de temps prend le projet et que devons-nous fournir ?",
+        faq_a1: "Les projets standards sont livrés en deux semaines. Il vous suffit d'un appel de cadrage de 45 minutes et de vos éléments de marque (logo, photos). Nous gérons la rédaction, le design Figma, le développement et la mise en ligne.",
+        faq_q2: "Devons-nous rédiger nous-mêmes les textes du site ?",
+        faq_a2: "Non. Nous échangeons avec votre équipe pour comprendre vos offres et rédigeons des textes clairs et percutants pour chaque page. Vous validez le contenu avant la phase de design.",
+        faq_q3: "Notre équipe peut-elle modifier facilement les textes et actualités ?",
+        faq_a3: "Oui. Nous configurons un éditeur visuel très intuitif. Vos collaborateurs peuvent mettre à jour les textes, publier des actualités ou changer les photos en quelques minutes, sans toucher au code.",
+        faq_q4: "Comment fonctionnent l'hébergement, la sécurité et la maintenance technique ?",
+        faq_a4: "Nous gérons le code, l'hébergement cloud haute performance, les certificats SSL, les sauvegardes et les mises à jour de sécurité dans le cadre d'un forfait mensuel ou annuel pour garantir la fiabilité de votre site.",
+        faq_q5: "Le site est-il adapté aux mobiles et optimisé pour Google (SEO) ?",
+        faq_a5: "Oui. Toutes les pages sont conçues pour s'adapter parfaitement aux mobiles, tablettes et ordinateurs. Nous intégrons un temps de chargement ultra-rapide, un code propre et les balises SEO indispensables au bon référencement.",
+        faq_q6: "Pourrons-nous ajouter d'autres pages ou de nouvelles langues plus tard ?",
+        faq_a6: "Oui. L'architecture est modulaire et évolutive. Au fil de votre développement, ajouter de nouvelles pages d'offres ou de nouvelles langues s'effectue simplement dans le cadre de notre service de maintenance.",
+        foo_w1: "lancez",
+        foo_w2: "votre",
+        foo_w3: "projet",
+        inq_lead: "Parlez-nous brièvement de votre entreprise. Réponse sous un jour ouvré avec un devis clair.",
+        form_scope: "Type de projet",
+        scope_1: "Nouveau site",
+        scope_2: "Refonte de site",
+        scope_3: "Design & maintenance",
+        label_name: "Nom",
+        label_email: "E-mail professionnel",
+        label_brief: "Entreprise & site actuel",
+        btn_send: "Envoyer le message",
+        reply_time: "Réponse sous 1 jour ouvré",
+        success_title: "Message reçu.",
+        success_body: "Merci. Nous étudierons votre demande et vous répondrons sous un jour ouvré.",
+        footer_copy: "© 2026 CogniSphere LLC. Tous droits réservés.",
+        footer_sub: "Sites d'Entreprise sur Mesure & Maintenance Technique"
+      },
+      es: {
+        _title: "CogniSphere — Sitios web corporativos a medida en dos semanas",
+        _desc: "Redactamos, diseñamos, desarrollamos y mantenemos sitios web a medida para empresas. Listos en dos semanas.",
+        skip_link: "Saltar al contenido",
+        nav_belief: "Ventajas",
+        nav_benefits: "Servicios",
+        nav_work: "Proyectos",
+        nav_faq: "Preguntas",
+        lang_label: "Seleccionar idioma",
+        nav_cta: "Contacto",
+        hero_w1: "sitios web",
+        hero_w2: "de empresa",
+        hero_w3: "a medida",
+        hero_pill: "Por qué CogniSphere",
+        hero_scroll: "Desplazar",
+        hero_sub: "Redactamos, diseñamos, creamos y mantenemos sitios web oficiales para empresas, listos en dos semanas.",
+        gal_1: "Días hasta el lanzamiento",
+        gal_2_top: "DISEÑO + TEXTOS",
+        gal_2: "100 % A medida",
+        gal_3: "Plantillas",
+        gal_4_top: "SOPORTE Y HOSTING",
+        gal_4: "Mantenimiento activo",
+        belief_eyebrow: "Por qué CogniSphere",
+        belief_body: "Crear el sitio web de una empresa suele obligar a elegir entre plantillas básicas y agencias lentas y costosas. Ofrecemos una alternativa mejor.",
+        belief_c1: "plantillas",
+        belief_or: "o",
+        belief_c2: "agencias lentas",
+        belief_c3: "conozca CogniSphere",
+        ben_eyebrow: "Qué incluye",
+        ben_heading: "Todo lo que su empresa necesita para una presencia web profesional",
+        ben_cta: "Iniciar proyecto",
+        c1_title: "Redactamos los textos",
+        c1_desc: "Hablamos con su equipo y escribimos textos claros y eficaces para cada página.",
+        c2_title: "Diseño a medida",
+        c2_desc: "Diseños únicos creados desde cero en Figma según la identidad de su empresa.",
+        c3_title: "Listo en 2 semanas",
+        c3_desc: "Entrega rápida y puntual desde la primera llamada hasta la publicación.",
+        c4_title: "Alojamiento y mantenimiento",
+        c4_desc: "Nuestro plan de soporte cubre alojamiento rápido, actualizaciones de seguridad, copias de respaldo y asistencia técnica.",
+        work_eyebrow: "Cómo funciona",
+        work_heading: "Cuatro pasos sencillos desde la primera llamada hasta el lanzamiento",
+        s1_days: "D 1–3",
+        s1_title: "Estrategia y textos",
+        s1_desc: "Hablamos con su equipo y redactamos el contenido completo del sitio.",
+        s2_days: "D 4–7",
+        s2_title: "Diseño visual",
+        s2_desc: "Diseñamos las vistas para ordenador y móvil en Figma para su aprobación.",
+        s3_days: "D 8–12",
+        s3_title: "Desarrollo y editor",
+        s3_desc: "Construimos un sitio rápido con un editor sencillo para su equipo.",
+        s4_days: "D 13–14",
+        s4_title: "Lanzamiento y soporte",
+        s4_desc: "Publicamos en su dominio y nos encargamos del alojamiento y mantenimiento continuo.",
+        p1_preview: "42 Proyectos de Arquitectura",
+        p1_days: "9 días",
+        p1_desc: "Sitio web para estudio de arquitectura en Oslo y Copenhague.",
+        p2_preview: "Portal de Investigación Clínica",
+        p2_days: "12 días",
+        p2_desc: "Sitio web para empresa de biotecnología en Boston y Basilea.",
+        p3_preview: "Cartera de Operaciones en Europa",
+        p3_days: "11 días",
+        p3_desc: "Sitio web para firma de asesoría M&A en Zúrich y Londres.",
+        faq_eyebrow: "Preguntas",
+        faq_heading: "Preguntas frecuentes",
+        faq_q1: "¿Cuánto tiempo dura el proyecto y qué debemos aportar?",
+        faq_a1: "Los proyectos estándar duran exactamente dos semanas. Solo necesita una llamada inicial de 45 minutos y sus elementos de marca (logotipo y fotos); nosotros redactamos los textos, diseñamos en Figma, desarrollamos y publicamos el sitio.",
+        faq_q2: "¿Tenemos que redactar nosotros los textos del sitio web?",
+        faq_a2: "No. Hablamos con su equipo para conocer su negocio y redactamos textos claros y eficaces para todas las páginas. Usted revisa y aprueba el contenido antes de empezar el diseño.",
+        faq_q3: "¿Puede nuestro equipo actualizar textos, noticias y fotos fácilmente?",
+        faq_a3: "Sí. Configuramos un editor visual muy intuitivo para que su equipo pueda modificar textos, publicar noticias o cambiar imágenes en minutos, sin necesidad de tocar código.",
+        faq_q4: "¿Cómo funcionan el alojamiento, la seguridad y el mantenimiento técnico?",
+        faq_a4: "Gestionamos el código, el alojamiento en la nube de alta velocidad, certificados SSL, copias de seguridad y parches de seguridad mediante un plan de mantenimiento mensual o anual para que su web funcione siempre a la perfección.",
+        faq_q5: "¿El sitio web estará optimizado para móviles y Google (SEO)?",
+        faq_a5: "Sí. Diseñamos de forma 100% adaptable para móviles, tabletas y ordenadores. Optimizamos la velocidad de carga, la estructura semántica y las etiquetas meta de SEO para que Google indexe su empresa correctamente.",
+        faq_q6: "¿Podemos añadir más páginas o nuevos idiomas en el futuro?",
+        faq_a6: "Sí. La arquitectura es modular y escalable. A medida que su empresa crezca, podemos incorporar nuevas páginas de servicios, casos de éxito o idiomas adicionales fácilmente a través de nuestro soporte.",
+        foo_w1: "inicie",
+        foo_w2: "su",
+        foo_w3: "proyecto",
+        inq_lead: "Cuéntenos brevemente sobre su empresa. Respondemos en un día hábil con un presupuesto claro.",
+        form_scope: "Tipo de proyecto",
+        scope_1: "Nuevo sitio web",
+        scope_2: "Rediseño web",
+        scope_3: "Diseño y mantenimiento",
+        label_name: "Nombre",
+        label_email: "Correo corporativo",
+        label_brief: "Empresa y sitio web",
+        btn_send: "Enviar mensaje",
+        reply_time: "Respuesta en 1 día hábil",
+        success_title: "Mensaje recibido.",
+        success_body: "Gracias. Revisaremos sus datos y le responderemos en el plazo de un día hábil.",
+        footer_copy: "© 2026 CogniSphere LLC. Todos los derechos reservados.",
+        footer_sub: "Sitios Web Corporativos a Medida y Soporte Técnico"
+      },
+      ru: {
+        _title: "CogniSphere — Корпоративные сайты на заказ за две недели",
+        _desc: "Пишем тексты, создаем дизайн, разрабатываем и обслуживаем сайты для компаний. Запуск за две недели с полной техподдержкой.",
+        skip_link: "К содержанию",
+        nav_belief: "О нас",
+        nav_benefits: "Услуги",
+        nav_work: "Проекты",
+        nav_faq: "Вопросы",
+        lang_label: "Выберите язык",
+        nav_cta: "Связаться",
+        hero_w1: "сайты",
+        hero_w2: "для бизнеса",
+        hero_w3: "под ключ",
+        hero_pill: "Почему CogniSphere",
+        hero_scroll: "Вниз",
+        hero_sub: "Пишем тексты, рисуем дизайн, создаем и обслуживаем официальные сайты компаний — запуск за две недели.",
+        gal_1: "Дней до запуска",
+        gal_2_top: "ДИЗАЙН + ТЕКСТ",
+        gal_2: "100% Индивидуально",
+        gal_3: "Шаблонов",
+        gal_4_top: "ХОСТИНГ И ЗАБОТА",
+        gal_4: "Полная техподдержка",
+        belief_eyebrow: "Почему CogniSphere",
+        belief_body: "Обычно при заказе сайта компании приходится выбирать между дешевыми шаблонами и медленными дорогими агентствами. Мы предлагаем решение лучше.",
+        belief_c1: "шаблоны",
+        belief_or: "или",
+        belief_c2: "долгие агентства",
+        belief_c3: "выбирайте CogniSphere",
+        ben_eyebrow: "Что вы получаете",
+        ben_heading: "Все необходимое для достойного представительства компании в сети",
+        ben_cta: "Начать проект",
+        c1_title: "Пишем все тексты",
+        c1_desc: "Общаемся с вашей командой и пишем понятные, убедительные тексты для каждой страницы.",
+        c2_title: "Индивидуальный дизайн",
+        c2_desc: "Уникальный дизайн в Figma с нуля под фирменный стиль вашей компании.",
+        c3_title: "Готово за 2 недели",
+        c3_desc: "Быстрая и точная работа от первого звонка до работающего сайта.",
+        c4_title: "Хостинг и обслуживание",
+        c4_desc: "Наш тариф поддержки включает быстрый хостинг, защиту, резервные копии и техническое сопровождение.",
+        work_eyebrow: "Как мы работаем",
+        work_heading: "Четыре простых шага от первого звонка до запуска сайта",
+        s1_days: "Д 1–3",
+        s1_title: "Стратегия и тексты",
+        s1_desc: "Обсуждаем задачи с вашей командой и пишем тексты для всех страниц.",
+        s2_days: "Д 4–7",
+        s2_title: "Дизайн макетов",
+        s2_desc: "Создаем версии для компьютеров и смартфонов в Figma на ваше утверждение.",
+        s3_days: "Д 8–12",
+        s3_title: "Разработка и редактор",
+        s3_desc: "Собираем быстрый сайт с удобным визуальным редактором контента.",
+        s4_days: "Д 13–14",
+        s4_title: "Запуск и поддержка",
+        s4_desc: "Подключаем ваш домен и берем на себя хостинг, обновления и техподдержку.",
+        p1_preview: "42 архитектурных проекта",
+        p1_days: "9 дней",
+        p1_desc: "Сайт архитектурного бюро в Осло и Копенгагене.",
+        p2_preview: "Портал клинических исследований",
+        p2_days: "12 дней",
+        p2_desc: "Сайт биотехнологической компании в Бостоне и Базеле.",
+        p3_preview: "Портфель европейских сделок",
+        p3_days: "11 дней",
+        p3_desc: "Сайт консалтинговой компании M&A в Цюрихе и Лондоне.",
+        faq_eyebrow: "Вопросы",
+        faq_heading: "Частые вопросы",
+        faq_q1: "Сколько времени занимает проект и что требуется от нас?",
+        faq_a1: "Стандартный проект запускается ровно за две недели. От вас потребуется только 45-минутный стартовый звонок и материалы бренда (логотип, фото). Тексты, дизайн в Figma, разработку и запуск мы берем на себя.",
+        faq_q2: "Нужно ли нам самим писать тексты для сайта?",
+        faq_a2: "Нет. Мы проводим короткое интервью с вашей командой и пишем понятные, убедительные тексты для каждой страницы. Вы утверждаете готовый текст до начала дизайна.",
+        faq_q3: "Сможет ли наша команда сама обновлять тексты, новости и фото?",
+        faq_a3: "Да. Мы настраиваем понятный визуальный редактор. Ваши сотрудники смогут менять тексты, публиковать новости и загружать фото за пару минут без навыков программирования.",
+        faq_q4: "Как устроены хостинг, защита и техническое обслуживание?",
+        faq_a4: "Мы берем на себя управление кодом, скоростной облачный хостинг, SSL-сертификаты, ежедневные бэкапы и обновления безопасности по ежемесячному или годовому тарифу поддержки, обеспечивая бесперебойную работу сайта.",
+        faq_q5: "Будет ли сайт адаптирован под смартфоны и оптимизирован для Google (SEO)?",
+        faq_a5: "Да. Все страницы безупречно открываются на телефонах, планшетах и компьютерах. Мы обеспечиваем высокую скорость загрузки, чистый код и базовую SEO-разметку для корректной индексации поисковыми системами.",
+        faq_q6: "Сможем ли мы позже добавить новые страницы или другие языки?",
+        faq_a6: "Да. Архитектура сайта модульная. По мере роста компании вы сможете в любой момент легко добавить новые разделы услуг, кейсы или дополнительные языки в рамках нашего тарифа поддержки.",
+        foo_w1: "начните",
+        foo_w2: "ваш",
+        foo_w3: "проект",
+        inq_lead: "Кратко расскажите о вашей компании. Мы ответим в течение одного рабочего дня с точным расчетом.",
+        form_scope: "Тип проекта",
+        scope_1: "Новый сайт",
+        scope_2: "Редизайн сайта",
+        scope_3: "Дизайн и поддержка",
+        label_name: "Имя",
+        label_email: "Рабочий email",
+        label_brief: "Компания и текущий сайт",
+        btn_send: "Отправить",
+        reply_time: "Ответ в течение 1 рабочего дня",
+        success_title: "Сообщение получено.",
+        success_body: "Спасибо. Мы изучим вашу заявку и ответим в течение одного рабочего дня.",
+        footer_copy: "© 2026 CogniSphere LLC. Все права защищены.",
+        footer_sub: "Корпоративные сайты на заказ и техническое сопровождение"
+      }
+    };
+
+    const langSelect = document.getElementById('lang-select');
+    const metaDesc = document.getElementById('meta-description');
+    const contactForm = document.getElementById('contact-form');
+    const contactSuccess = document.getElementById('contact-success');
+
+    function setLanguage(lang) {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.title = dict._title;
+      if (metaDesc) {
+        metaDesc.setAttribute('content', dict._desc);
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      if (langSelect && langSelect.value !== lang) {
+        langSelect.value = lang;
+      }
+    }
+
+    if (langSelect) {
+      langSelect.addEventListener('change', (e) => {
+        setLanguage(e.target.value);
+      });
+    }
+
+    if (contactForm && contactSuccess) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        contactForm.style.display = 'none';
+        contactSuccess.style.display = 'block';
+      });
     }
   </script>
 </body>
